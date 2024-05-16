@@ -1,0 +1,71 @@
+{
+    "name": "joaopaulolndev/filament-edit-profile",
+    "description": "Filament package to edit profile",
+    "keywords": [
+        "joaopaulolndev",
+        "laravel",
+        "filament-edit-profile"
+    ],
+    "homepage": "https://github.com/joaopaulolndev/filament-edit-profile",
+    "support": {
+        "issues": "https://github.com/joaopaulolndev/filament-edit-profile/issues",
+        "source": "https://github.com/joaopaulolndev/filament-edit-profile"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Paulo Leite Nascimento",
+            "email": "joaopauloln7@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.9",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.1",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Joaopaulolndev\\FilamentEditProfile\\": "src/",
+            "Joaopaulolndev\\FilamentEditProfile\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Joaopaulolndev\\FilamentEditProfile\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfileServiceProvider"
+            ],
+            "aliases": {
+                "FilamentEditProfile": "Joaopaulolndev\\FilamentEditProfile\\Facades\\FilamentEditProfile"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
