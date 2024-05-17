@@ -70,7 +70,12 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
     'profile' => MenuItem::make()
                     ->label(fn() => auth()->user()->name)
                     ->url(fn (): string => EditProfilePage::getUrl())
-                    ->icon('heroicon-m-user-circle'),
+                    ->icon('heroicon-m-user-circle')
+                    //If you are using tenancy need to check with the visible method where ->company() is the relation between the user and tenancy model as you called
+                    ->visible(function (): bool {
+                        return auth()->user()->company()->exists();
+                    })
+    ,
 ])
 ```
 
