@@ -282,8 +282,10 @@ class EditProfilePage extends Page implements HasForms
     {
         Notification::make()
             ->success()
-            ->title(__('filament-panels::pages/auth/edit-profile.notifications.saved.title'))
+            ->title(__('filament-edit-profile::default.saved_successfully'))
             ->send();
+
+        redirect(request()?->header('Referer'));
     }
 
     private function sendErrorDeleteAccount(string $message): void
