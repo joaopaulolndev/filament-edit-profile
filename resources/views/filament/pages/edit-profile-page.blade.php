@@ -17,7 +17,9 @@
         />
     </x-filament-panels::form>
 
-    <x-filament-panels::form>
-        {{ $this->deleteAccountForm }}
-    </x-filament-panels::form>
+    @if($this->shouldShowDeleteAccountForm())
+        <x-filament-panels::form>
+            {{ $this->deleteAccountForm }}
+        </x-filament-panels::form>
+    @endif
 </x-filament-panels::page>

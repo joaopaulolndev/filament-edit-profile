@@ -26,6 +26,8 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | string $navigationLabel = '';
 
+    public Closure | bool $shouldShowDeleteAccountForm = true;
+
     public function getId(): string
     {
         return 'filament-edit-profile';
@@ -145,5 +147,17 @@ class FilamentEditProfilePlugin implements Plugin
     public function getShouldRegisterNavigation(): bool
     {
         return $this->evaluate($this->shouldRegisterNavigation);
+    }
+
+    public function shouldShowDeleteAccountForm(Closure | bool $value = true): static
+    {
+        $this->shouldShowDeleteAccountForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowDeleteAccountForm(): bool
+    {
+        return $this->evaluate($this->shouldShowDeleteAccountForm);
     }
 }

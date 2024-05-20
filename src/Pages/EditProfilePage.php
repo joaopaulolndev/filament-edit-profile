@@ -75,6 +75,13 @@ class EditProfilePage extends Page implements HasForms
         return $plugin->getCanAccess();
     }
 
+    public static function shouldShowDeleteAccountForm()
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
+
+        return $plugin->getShouldShowDeleteAccountForm();
+    }
+
     public ?array $profileData = [];
 
     public ?array $passwordData = [];
