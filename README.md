@@ -58,6 +58,7 @@ if you want to show for specific parameters to sort, icon, title, navigation gro
         ->setSort(10)
         ->canAccess(fn () => auth()->user()->id === 1)
         ->shouldRegisterNavigation(false)
+        ->shouldShowDeleteAccountForm(false)
  ])
 ```
 
