@@ -14,7 +14,8 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 
 - **Edit Information:** Manage your information such as email, and password.
 - **Change Password:** Change your password.
-- **Delete Account:** Manage your account, such as delete account.
+- **Delete Account:** Manage your account, such as delete account. 
+- **Custom Fields:** Add custom fields to the form.
 - **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
 ## Installation
