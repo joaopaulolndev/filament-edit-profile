@@ -37,7 +37,7 @@ php artisan vendor:publish --tag="filament-edit-profile-views"
 Optionally, you can publish the translations using
 
 ```bash
-php artisan vendor:publish --tag="filament-general-settings-translations"
+php artisan vendor:publish --tag="filament-edit-profile-translations"
 ```
 
 You can publish and run the migrations with:
