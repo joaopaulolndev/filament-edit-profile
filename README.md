@@ -93,7 +93,7 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 ```
 
 ## Custom Fields
-![Screenshot of Application Feature](./art/custom_fields.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/custom_fields.png)
 Optionally, you can add custom fields to the form.
 To create custom fields you need to follow the steps below:
 
