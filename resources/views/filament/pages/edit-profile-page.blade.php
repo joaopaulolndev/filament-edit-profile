@@ -17,6 +17,18 @@
         />
     </x-filament-panels::form>
 
+    @if(config('filament-edit-profile.show_custom_fields'))
+        <x-filament-panels::form wire:submit="updateCustomFields">
+            {{ $this->customFieldsForm }}
+
+            <x-filament-panels::form.actions
+                alignment="right"
+                :actions="$this->getUpdateCustomFieldsFormActions()"
+            />
+        </x-filament-panels::form>
+    @endif
+
+
     @if($this->shouldShowDeleteAccountForm())
         <x-filament-panels::form>
             {{ $this->deleteAccountForm }}

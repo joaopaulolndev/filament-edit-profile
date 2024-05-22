@@ -5,9 +5,6 @@ namespace Joaopaulolndev\FilamentEditProfile\Pages;
 use App\Filament\App\Pages\Exception;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
-use Filament\Forms;
-use Filament\Forms\Components\Actions;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
@@ -16,9 +13,10 @@ use Filament\Pages\Page;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
+use Joaopaulolndev\FilamentEditProfile\Forms\CustomFieldsForm;
+use Joaopaulolndev\FilamentEditProfile\Forms\DeleteAccountForm;
+use Joaopaulolndev\FilamentEditProfile\Forms\EditPasswordForm;
+use Joaopaulolndev\FilamentEditProfile\Forms\EditProfileForm;
 
 class EditProfilePage extends Page implements HasForms
 {
@@ -86,6 +84,8 @@ class EditProfilePage extends Page implements HasForms
 
     public ?array $passwordData = [];
 
+    public ?array $customFieldsData = [];
+
     public function mount(): void
     {
         $this->fillForms();
@@ -97,27 +97,14 @@ class EditProfilePage extends Page implements HasForms
             'editProfileForm',
             'editPasswordForm',
             'deleteAccountForm',
+            'customFieldsForm',
         ];
     }
 
     public function editProfileForm(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\Section::make(__('filament-edit-profile::default.profile_information'))
-                    ->aside()
-                    ->description(__('filament-edit-profile::default.profile_information_description'))
-                    ->schema([
-                        Forms\Components\TextInput::make('name')
-                            ->label(__('filament-edit-profile::default.name'))
-                            ->required(),
-                        Forms\Components\TextInput::make('email')
-                            ->label(__('filament-edit-profile::default.email'))
-                            ->email()
-                            ->required()
-                            ->unique(ignoreRecord: true),
-                    ]),
-            ])
+            ->schema(EditProfileForm::get())
             ->model($this->getUser())
             ->statePath('profileData');
     }
@@ -125,35 +112,7 @@ class EditProfilePage extends Page implements HasForms
     public function editPasswordForm(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\Section::make(__('filament-edit-profile::default.update_password'))
-                    ->aside()
-                    ->description(__('filament-edit-profile::default.ensure_your_password'))
-                    ->schema([
-                        Forms\Components\TextInput::make('Current password')
-                            ->label(__('filament-edit-profile::default.current_password'))
-                            ->password()
-                            ->required()
-                            ->currentPassword()
-                            ->revealable(),
-                        Forms\Components\TextInput::make('password')
-                            ->label(__('filament-edit-profile::default.new_password'))
-                            ->password()
-                            ->required()
-                            ->rule(Password::default())
-                            ->autocomplete('new-password')
-                            ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
-                            ->live(debounce: 500)
-                            ->same('passwordConfirmation')
-                            ->revealable(),
-                        Forms\Components\TextInput::make('passwordConfirmation')
-                            ->label(__('filament-edit-profile::default.confirm_password'))
-                            ->password()
-                            ->required()
-                            ->dehydrated(false)
-                            ->revealable(),
-                    ]),
-            ])
+            ->schema(EditPasswordForm::get())
             ->model($this->getUser())
             ->statePath('passwordData');
     }
@@ -161,50 +120,24 @@ class EditProfilePage extends Page implements HasForms
     public function deleteAccountForm(Form $form): Form
     {
         return $form
-            ->schema([
-                Section::make(__('filament-edit-profile::default.delete_account'))
-                    ->description(__('filament-edit-profile::default.delete_account_description'))
-                    ->aside()
-                    ->schema([
-                        Forms\Components\ViewField::make('deleteAccount')
-                            ->label(__('Delete Account'))
-                            ->hiddenLabel()
-                            ->view('filament-edit-profile::forms.components.delete-account-description'),
-                        Actions::make([
-                            Actions\Action::make('deleteAccount')
-                                ->label(__('filament-edit-profile::default.delete_account'))
-                                ->icon('heroicon-m-trash')
-                                ->color('danger')
-                                ->requiresConfirmation()
-                                ->modalHeading(__('filament-edit-profile::default.delete_account'))
-                                ->modalDescription(__('filament-edit-profile::default.are_you_sure'))
-                                ->modalSubmitActionLabel(__('filament-edit-profile::default.yes_delete_it'))
-                                ->form([
-                                    Forms\Components\TextInput::make('password')
-                                        ->password()
-                                        ->revealable()
-                                        ->label(__('filament-edit-profile::default.password'))
-                                        ->required(),
-                                ])
-                                ->action(function (array $data) {
-
-                                    if (! Hash::check($data['password'], Auth::user()->password)) {
-                                        $this->sendErrorDeleteAccount(__('filament-edit-profile::default.incorrect_password'));
-
-                                        return;
-                                    }
-
-                                    auth()->user()?->update([
-                                        'active' => false,
-                                    ]);
-
-                                    auth()->user()?->delete();
-                                }),
-                        ]),
-                    ]),
-            ])
+            ->schema(DeleteAccountForm::get())
             ->model($this->getUser())
             ->statePath('deleteAccountData');
+    }
+
+    public function customFieldsForm(Form $form): Form
+    {
+        if (config('filament-edit-profile.show_custom_fields') && !empty(config('filament-edit-profile.custom_fields'))) {
+            return $form
+                ->schema(CustomFieldsForm::get(config('filament-edit-profile.custom_fields')))
+                ->model($this->getUser())
+                ->statePath('customFieldsData');
+        }
+
+        return $form
+            ->schema([])
+            ->model($this->getUser())
+            ->statePath('customFieldsData');
     }
 
     protected function getUser(): Authenticatable & Model
@@ -224,13 +157,17 @@ class EditProfilePage extends Page implements HasForms
 
         $this->editProfileForm->fill($data);
         $this->editPasswordForm->fill();
+
+        if (config('filament-edit-profile.show_custom_fields') && !empty(config('filament-edit-profile.custom_fields'))) {
+            $this->customFieldsForm->fill($data['custom_fields'] ?? []);
+        }
     }
 
     protected function getUpdateProfileFormActions(): array
     {
         return [
             Action::make('updateProfileAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+                ->label(__('filament-edit-profile::default.save'))
                 ->submit('editProfileForm'),
         ];
     }
@@ -239,8 +176,17 @@ class EditProfilePage extends Page implements HasForms
     {
         return [
             Action::make('updatePasswordAction')
-                ->label(__('filament-panels::pages/auth/edit-profile.form.actions.save.label'))
+                ->label(__('filament-edit-profile::default.save'))
                 ->submit('editPasswordForm'),
+        ];
+    }
+
+    protected function getUpdateCustomFieldsFormActions(): array
+    {
+        return [
+            Action::make('updateCustomFieldsAction')
+                ->label(__('filament-edit-profile::default.save'))
+                ->submit('editCustomFieldsForm'),
         ];
     }
 
@@ -278,6 +224,19 @@ class EditProfilePage extends Page implements HasForms
         $this->sendSuccessNotification();
     }
 
+    public function updateCustomFields(): void
+    {
+        try {
+            $data = $this->customFieldsForm->getState();
+            $data['custom_fields'] = $data ?? [];
+            $this->handleRecordUpdate($this->getUser(), $data);
+        } catch (Halt $exception) {
+            return;
+        }
+
+        $this->sendSuccessNotification();
+    }
+
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
         $record->update($data);
@@ -293,13 +252,5 @@ class EditProfilePage extends Page implements HasForms
             ->send();
 
         redirect(request()?->header('Referer'));
-    }
-
-    private function sendErrorDeleteAccount(string $message): void
-    {
-        Notification::make()
-            ->danger()
-            ->title($message)
-            ->send();
     }
 }

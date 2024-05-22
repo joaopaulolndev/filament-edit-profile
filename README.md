@@ -39,6 +39,19 @@ Optionally, you can publish the translations using
 php artisan vendor:publish --tag="filament-general-settings-translations"
 ```
 
+You can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-migrations"
+php artisan migrate
+```
+
+You can publish the config file with:
+
+```bash
+php artisan vendor:publish --tag="filament-general-settings-config"
+```
+
 ## Usage
 Add in AdminPanelProvider.php
 ```php
@@ -77,6 +90,93 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
                     })
     ,
 ])
+```
+
+## Custom Fields
+![Screenshot of Application Feature](./art/custom_fields.png)
+Optionally, you can add custom fields to the form.
+To create custom fields you need to follow the steps below:
+
+1. Publish the migration file to add the custom fields to the users table:
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-migrations"
+php artisan migrate
+```
+2. Add in your User model the custom field in the fillable array:
+```php
+protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'custom_fields',
+];
+```
+3. Add in your User model the custom field in the casts array:
+```php
+protected function casts(): array
+{
+    return [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'custom_fields' => 'array'
+    ];
+}
+```
+
+5. Publish the config file using this command:
+
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-config"
+```
+
+6. Edit the config file `config/filament-edit-profile.php` to add the custom fields to the form as example below:
+
+```php
+<?php
+
+use Joaopaulolndev\FilamentEditProfile\Enums\TypeFieldEnum;
+
+return [
+    'show_custom_fields' => true,
+    'custom_fields' => [
+        'custom_field_1' => [
+            'type' => TypeFieldEnum::Text->value,
+            'label' => 'Custom Textfield 1',
+            'placeholder' => 'Custom Field 1',
+            'required' => true,
+            'rules' => 'required|string|max:255',
+        ],
+        'custom_field_2' => [
+            'type' => TypeFieldEnum::Select->value,
+            'label' => 'Custom Select 2',
+            'placeholder' => 'Select',
+            'required' => true,
+            'options' => [
+                'option_1' => 'Option 1',
+                'option_2' => 'Option 2',
+                'option_3' => 'Option 3',
+            ],
+        ],
+        'custom_field_3' => [
+            'type' => TypeFieldEnum::Textarea->value,
+            'label' => 'Custom Textarea 3',
+            'placeholder' => 'Textarea',
+            'rows' => '3',
+            'required' => true,
+        ],
+        'custom_field_4' => [
+            'type' => TypeFieldEnum::Datetime->value,
+            'label' => 'Custom Datetime 4',
+            'placeholder' => 'Datetime',
+            'seconds' => false,
+        ],
+        'custom_field_5' => [
+            'type' => TypeFieldEnum::Boolean->value,
+            'label' => 'Custom Boolean 5',
+            'placeholder' => 'Boolean'
+        ],
+    ]
+];
 ```
 
 ## Testing

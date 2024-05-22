@@ -20,4 +20,7 @@ return [
     'user_load_error' => 'O objeto de usuário autenticado deve ser um modelo Eloquent para permitir que a página de perfil o atualize.',
     'delete_account_card_description' => 'Depois que sua conta for excluída, todos os seus recursos e dados serão apagados permanentemente. Antes de excluir sua conta, faça o download de quaisquer dados ou informações que deseja manter.',
     'saved_successfully' => 'Suas informações de perfil foram salvas com sucesso.',
+    'custom_fields' => 'Campos Personalizados',
+    'custom_fields_description' => 'Atualize seus campos personalizados.',
+    'save' => 'Salvar'
 ];

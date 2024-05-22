@@ -148,7 +148,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_filament-edit-profile_table',
+            'add_custom_fields_to_users_table',
         ];
     }
 }

@@ -20,4 +20,7 @@ return [
     'user_load_error' => 'The authenticated user object must be an Eloquent model to allow the profile page to update it.',
     'delete_account_card_description' => 'Once your account is deleted, all of your resources and data will be permanently erased. Before deleting your account, please download any data or information you wish to keep.',
     'saved_successfully' => 'Your profile information has been saved successfully.',
+    'custom_fields' => 'Custom Fields',
+    'custom_fields_description' => 'Update your custom fields.',
+    'save' => 'Save'
 ];
