@@ -22,5 +22,5 @@ return [
     'saved_successfully' => 'Your profile information has been saved successfully.',
     'custom_fields' => 'Custom Fields',
     'custom_fields_description' => 'Update your custom fields.',
-    'save' => 'Save'
+    'save' => 'Save',
 ];

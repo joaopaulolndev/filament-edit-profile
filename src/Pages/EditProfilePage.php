@@ -127,7 +127,7 @@ class EditProfilePage extends Page implements HasForms
 
     public function customFieldsForm(Form $form): Form
     {
-        if (config('filament-edit-profile.show_custom_fields') && !empty(config('filament-edit-profile.custom_fields'))) {
+        if (config('filament-edit-profile.show_custom_fields') && ! empty(config('filament-edit-profile.custom_fields'))) {
             return $form
                 ->schema(CustomFieldsForm::get(config('filament-edit-profile.custom_fields')))
                 ->model($this->getUser())
@@ -158,7 +158,7 @@ class EditProfilePage extends Page implements HasForms
         $this->editProfileForm->fill($data);
         $this->editPasswordForm->fill();
 
-        if (config('filament-edit-profile.show_custom_fields') && !empty(config('filament-edit-profile.custom_fields'))) {
+        if (config('filament-edit-profile.show_custom_fields') && ! empty(config('filament-edit-profile.custom_fields'))) {
             $this->customFieldsForm->fill($data['custom_fields'] ?? []);
         }
     }

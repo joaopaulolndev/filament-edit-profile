@@ -22,5 +22,5 @@ return [
     'saved_successfully' => 'Suas informações de perfil foram salvas com sucesso.',
     'custom_fields' => 'Campos Personalizados',
     'custom_fields_description' => 'Atualize seus campos personalizados.',
-    'save' => 'Salvar'
+    'save' => 'Salvar',
 ];

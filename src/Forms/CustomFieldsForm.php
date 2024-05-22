@@ -2,13 +2,13 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Forms;
 
+use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Joaopaulolndev\FilamentGeneralSettings\Enums\TypeFieldEnum;
-use Filament\Forms;
 
 class CustomFieldsForm
 {
@@ -54,11 +54,11 @@ class CustomFieldsForm
             }
         }
 
-        return  [
+        return [
             Forms\Components\Section::make(__('filament-edit-profile::default.custom_fields'))
                 ->aside()
                 ->description(__('filament-edit-profile::default.custom_fields_description'))
-                ->schema($fields)
+                ->schema($fields),
         ];
     }
 }

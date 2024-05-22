@@ -2,13 +2,12 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Forms;
 
-use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\Actions;
 use Filament\Forms\Components\Section;
+use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Filament\Notifications\Notification;
 
 class DeleteAccountForm
 {
@@ -43,6 +42,7 @@ class DeleteAccountForm
 
                                 if (! Hash::check($data['password'], Auth::user()->password)) {
                                     self::sendErrorDeleteAccount(__('filament-edit-profile::default.incorrect_password'));
+
                                     return;
                                 }
 
