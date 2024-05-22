@@ -2,6 +2,12 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.2 - 2024-05-22
+
+- Add Custom Fields Feature
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.1...v1.0.2
+
 ## v1.0.1 - 2024-05-20
 
 - Add shouldShowDeleteAccountForm feature
