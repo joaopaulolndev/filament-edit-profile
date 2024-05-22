@@ -2,7 +2,6 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Enums;
 
-
 use Joaopaulolndev\FilamentEditProfile\Traits\WithOptions;
 
 enum TypeFieldEnum: string
