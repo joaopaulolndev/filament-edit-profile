@@ -80,6 +80,13 @@ class EditProfilePage extends Page implements HasForms
         return $plugin->getShouldShowDeleteAccountForm();
     }
 
+    public static function shouldShowSanctumTokens()
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
+
+        return $plugin->getshouldShowSanctumTokens();
+    }
+
     public ?array $profileData = [];
 
     public ?array $passwordData = [];
@@ -140,7 +147,7 @@ class EditProfilePage extends Page implements HasForms
             ->statePath('customFieldsData');
     }
 
-    protected function getUser(): Authenticatable & Model
+    protected function getUser(): Authenticatable&Model
     {
         $user = Filament::auth()->user();
 
@@ -215,7 +222,7 @@ class EditProfilePage extends Page implements HasForms
 
         if (request()->hasSession() && array_key_exists('password', $data)) {
             request()->session()->put([
-                'password_hash_' . Filament::getAuthGuard() => $data['password'],
+                'password_hash_'.Filament::getAuthGuard() => $data['password'],
             ]);
         }
 

@@ -72,6 +72,7 @@ if you want to show for specific parameters to sort, icon, title, navigation gro
         ->canAccess(fn () => auth()->user()->id === 1)
         ->shouldRegisterNavigation(false)
         ->shouldShowDeleteAccountForm(false)
+        ->shouldShowSanctumTokens()
  ])
 ```
 
@@ -176,6 +177,26 @@ return [
         ],
     ]
 ];
+```
+
+### Sanctum Personal Access tokens
+Show the Sanctum token management component:
+
+Please review [Laravel Sanctum Docs](https://laravel.com/docs/11.x/sanctum)
+
+![Screenshot of Application Feature](./art/sanctum_tokens.png)
+
+If you want to control access, you can use `condition`, passing true or false
+
+Sanctum allows you to assign "abilities" to tokens. by default we have  ['create', 'view', 'update', 'delete'] use `permissions` to customize
+```php
+ ->plugins([
+    FilamentEditProfilePlugin::make()
+        ->shouldShowSanctumTokens(
+            condition: auth()->user()->hasRole('admin'), //optional
+            permissions: ['custom', 'abilities', 'permissions'] //optional
+        )
+ ])
 ```
 
 ## Testing
