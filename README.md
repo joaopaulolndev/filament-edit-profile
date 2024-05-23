@@ -15,6 +15,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 - **Edit Information:** Manage your information such as email, and password.
 - **Change Password:** Change your password.
 - **Delete Account:** Manage your account, such as delete account. 
+- **Sanctum Personal Access tokens:** Manage your personal access tokens. 
 - **Custom Fields:** Add custom fields to the form.
 - **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
@@ -92,6 +93,42 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
                     })
     ,
 ])
+```
+
+### Sanctum Personal Access tokens
+Show the Sanctum token management component:
+
+Please review [Laravel Sanctum Docs](https://laravel.com/docs/11.x/sanctum)
+
+You may install Laravel Sanctum via the `install:api` Artisan command:
+```bash
+php artisan install:api
+```
+
+Sanctum allows you to issue API tokens / personal access tokens that may be used to authenticate API requests to your application. When making requests using API tokens, the token should be included in the Authorization header as a Bearer token.
+
+```php
+use Laravel\Sanctum\HasApiTokens;
+ 
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+}
+```
+
+![Screenshot of Application Feature](./art/sanctum_tokens.png)
+
+If you want to control access, you can use `condition`, passing Closure or Boolean
+
+Sanctum allows you to assign "abilities" to tokens. by default we have  ['create', 'view', 'update', 'delete'] use `permissions` to customize
+```php
+ ->plugins([
+    FilamentEditProfilePlugin::make()
+        ->shouldShowSanctumTokens(
+            condition: fn() => auth()->user()->id === 1, //optional
+            permissions: ['custom', 'abilities', 'permissions'] //optional
+        )
+ ])
 ```
 
 ## Custom Fields
@@ -177,26 +214,6 @@ return [
         ],
     ]
 ];
-```
-
-### Sanctum Personal Access tokens
-Show the Sanctum token management component:
-
-Please review [Laravel Sanctum Docs](https://laravel.com/docs/11.x/sanctum)
-
-![Screenshot of Application Feature](./art/sanctum_tokens.png)
-
-If you want to control access, you can use `condition`, passing true or false
-
-Sanctum allows you to assign "abilities" to tokens. by default we have  ['create', 'view', 'update', 'delete'] use `permissions` to customize
-```php
- ->plugins([
-    FilamentEditProfilePlugin::make()
-        ->shouldShowSanctumTokens(
-            condition: auth()->user()->hasRole('admin'), //optional
-            permissions: ['custom', 'abilities', 'permissions'] //optional
-        )
- ])
 ```
 
 ## Testing
