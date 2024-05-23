@@ -15,7 +15,6 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\Alignment;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
@@ -48,7 +47,8 @@ class SanctumTokens extends Component implements HasActions, HasForms, HasTable
                 ['tokenable_type', '=', get_class($auth->user())],
             ]))
             ->columns([
-                TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->label(__('filament-edit-profile::default.token_name')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date()
                     ->label(__('filament-edit-profile::default.token_created_at'))
