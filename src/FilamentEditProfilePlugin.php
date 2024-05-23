@@ -30,7 +30,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure|bool $shouldShowDeleteAccountForm = true;
 
-    protected $sanctumTokens = false;
+    protected Closure|bool $sanctumTokens = false;
 
     protected $sanctumPermissions = ['create', 'view', 'update', 'delete'];
 
@@ -174,7 +174,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->sanctumTokens);
     }
 
-    public function shouldShowSanctumTokens(bool $condition = true, ?array $permissions = null)
+    public function shouldShowSanctumTokens(Closure|bool $condition = true, ?array $permissions = null)
     {
         $this->sanctumTokens = $condition;
 
