@@ -2,6 +2,20 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.3 - 2024-05-23
+
+- Add Sanctum Personal Access Token - Developed by @rmsramos
+
+### What's Changed
+
+* Develop by @rmsramos in https://github.com/joaopaulolndev/filament-edit-profile/pull/3
+
+### New Contributors
+
+* @rmsramos made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/3
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.2...v1.0.3
+
 ## v1.0.2 - 2024-05-22
 
 - Add Custom Fields Feature
