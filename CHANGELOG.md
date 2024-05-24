@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.4 - 2024-05-24
+
+### What's Changed
+
+* Add italian translation by @0chak in https://github.com/joaopaulolndev/filament-edit-profile/pull/4
+
+### New Contributors
+
+* @0chak made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/4
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.3...v1.0.4
+
 ## v1.0.3 - 2024-05-23
 
 - Add Sanctum Personal Access Token - Developed by @rmsramos
