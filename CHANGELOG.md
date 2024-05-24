@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.5 - 2024-05-24
+
+### What's Changed
+
+* Add Spanish translation by @edeoliv in https://github.com/joaopaulolndev/filament-edit-profile/pull/5
+
+### New Contributors
+
+* @edeoliv made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/5
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.4...v1.0.5
+
 ## v1.0.4 - 2024-05-24
 
 ### What's Changed
