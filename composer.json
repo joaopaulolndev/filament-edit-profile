@@ -22,9 +22,11 @@
     "require": {
         "php": "^8.1",
         "filament/filament": "^3.0",
+        "jenssegers/agent": "^2.6",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
+        "laradumps/laradumps": "^3.1",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.9",
         "orchestra/testbench": "^8.0",
