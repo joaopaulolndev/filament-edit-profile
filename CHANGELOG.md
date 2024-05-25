@@ -2,6 +2,12 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.7 - 2024-05-25
+
+- Fixed bug when saving custom fields reported by @billmn
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.6...v1.0.7
+
 ## v1.0.6 - 2024-05-25
 
 - Fixed issue https://github.com/joaopaulolndev/filament-edit-profile/issues/6 reported by @billmn
