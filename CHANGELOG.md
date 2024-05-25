@@ -2,6 +2,56 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.7 - 2024-05-25
+
+- Fixed bug when saving custom fields reported by @billmn
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.6...v1.0.7
+
+## v1.0.6 - 2024-05-25
+
+- Fixed issue https://github.com/joaopaulolndev/filament-edit-profile/issues/6 reported by @billmn
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.5...v1.0.6
+
+## v1.0.5 - 2024-05-24
+
+### What's Changed
+
+* Add Spanish translation by @edeoliv in https://github.com/joaopaulolndev/filament-edit-profile/pull/5
+
+### New Contributors
+
+* @edeoliv made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/5
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.4...v1.0.5
+
+## v1.0.4 - 2024-05-24
+
+### What's Changed
+
+* Add italian translation by @0chak in https://github.com/joaopaulolndev/filament-edit-profile/pull/4
+
+### New Contributors
+
+* @0chak made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/4
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.3...v1.0.4
+
+## v1.0.3 - 2024-05-23
+
+- Add Sanctum Personal Access Token - Developed by @rmsramos
+
+### What's Changed
+
+* Develop by @rmsramos in https://github.com/joaopaulolndev/filament-edit-profile/pull/3
+
+### New Contributors
+
+* @rmsramos made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/3
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.2...v1.0.3
+
 ## v1.0.2 - 2024-05-22
 
 - Add Custom Fields Feature

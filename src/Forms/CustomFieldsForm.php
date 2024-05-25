@@ -8,7 +8,6 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Joaopaulolndev\FilamentGeneralSettings\Enums\TypeFieldEnum;
 
 class CustomFieldsForm
 {
@@ -17,7 +16,7 @@ class CustomFieldsForm
         $fields = [];
         foreach ($customFields as $fieldKey => $field) {
 
-            if ($field['type'] === TypeFieldEnum::Text->value) {
+            if ($field['type'] === 'text') {
 
                 $fields[] = TextInput::make($fieldKey)
                     ->label(__($field['label']))
@@ -25,12 +24,12 @@ class CustomFieldsForm
                     ->required($field['required'])
                     ->rules($field['rules']);
 
-            } elseif ($field['type'] === TypeFieldEnum::Boolean->value) {
+            } elseif ($field['type'] === 'boolean') {
 
                 $fields[] = Checkbox::make($fieldKey)
                     ->label(__($field['label']));
 
-            } elseif ($field['type'] === TypeFieldEnum::Select->value) {
+            } elseif ($field['type'] === 'select') {
 
                 $fields[] = Select::make($fieldKey)
                     ->label(__($field['label']))
@@ -38,14 +37,14 @@ class CustomFieldsForm
                     ->options($field['options'])
                     ->required($field['required']);
 
-            } elseif ($field['type'] === TypeFieldEnum::Textarea->value) {
+            } elseif ($field['type'] === 'textarea') {
 
                 $fields[] = Textarea::make($fieldKey)
                     ->label(__($field['label']))
                     ->placeholder(__($field['placeholder']))
                     ->rows($field['rows'])
                     ->required($field['required']);
-            } elseif ($field['type'] === TypeFieldEnum::Datetime->value) {
+            } elseif ($field['type'] === 'datetime') {
 
                 $fields[] = DateTimePicker::make($fieldKey)
                     ->label(__($field['label']))

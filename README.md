@@ -123,7 +123,7 @@ class User extends Authenticatable
 }
 ```
 
-![Screenshot of Application Feature](./art/sanctum_tokens.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/sanctum_tokens.png)
 
 If you want to control access, you can use `condition`, passing Closure or Boolean
 
