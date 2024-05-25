@@ -184,6 +184,9 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function getShouldShowBrowserSessionsForm(): bool
     {
+        if (config('session.driver') !== 'database') {
+            $this->shouldShowBrowserSessionsForm = false;
+        }
         return $this->evaluate($this->shouldShowBrowserSessionsForm);
     }
 
