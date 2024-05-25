@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.8 - 2024-05-25
+
+### What's Changed
+
+* Add feature browser sessions by @rmsramos in https://github.com/joaopaulolndev/filament-edit-profile/pull/7
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.7...v1.0.8
+
 ## v1.0.7 - 2024-05-25
 
 - Fixed bug when saving custom fields reported by @billmn
