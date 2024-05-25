@@ -41,6 +41,12 @@
         </x-filament::section>
     @endif
 
+    @if($this->shouldShowBrowserSessionsForm())
+        <x-filament-panels::form>
+            {{ $this->browserSessionsForm }}
+        </x-filament-panels::form>
+    @endif
+
     @if($this->shouldShowDeleteAccountForm())
         <x-filament-panels::form>
             {{ $this->deleteAccountForm }}

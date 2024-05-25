@@ -13,6 +13,7 @@ use Filament\Pages\Page;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Joaopaulolndev\FilamentEditProfile\Forms\BrowserSessionsForm;
 use Joaopaulolndev\FilamentEditProfile\Forms\CustomFieldsForm;
 use Joaopaulolndev\FilamentEditProfile\Forms\DeleteAccountForm;
 use Joaopaulolndev\FilamentEditProfile\Forms\EditPasswordForm;
@@ -80,6 +81,13 @@ class EditProfilePage extends Page implements HasForms
         return $plugin->getShouldShowDeleteAccountForm();
     }
 
+    public static function shouldShowBrowserSessionsForm()
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
+
+        return $plugin->getShouldShowBrowserSessionsForm();
+    }
+
     public static function shouldShowSanctumTokens()
     {
         $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
@@ -105,6 +113,7 @@ class EditProfilePage extends Page implements HasForms
             'editPasswordForm',
             'deleteAccountForm',
             'customFieldsForm',
+            'browserSessionsForm',
         ];
     }
 
@@ -132,6 +141,12 @@ class EditProfilePage extends Page implements HasForms
             ->statePath('deleteAccountData');
     }
 
+    public function browserSessionsForm(Form $form): Form
+    {
+        return $form
+            ->schema(BrowserSessionsForm::get());
+    }
+
     public function customFieldsForm(Form $form): Form
     {
         if (config('filament-edit-profile.show_custom_fields') && ! empty(config('filament-edit-profile.custom_fields'))) {
@@ -147,7 +162,7 @@ class EditProfilePage extends Page implements HasForms
             ->statePath('customFieldsData');
     }
 
-    protected function getUser(): Authenticatable&Model
+    protected function getUser(): Authenticatable & Model
     {
         $user = Filament::auth()->user();
 
@@ -222,7 +237,7 @@ class EditProfilePage extends Page implements HasForms
 
         if (request()->hasSession() && array_key_exists('password', $data)) {
             request()->session()->put([
-                'password_hash_'.Filament::getAuthGuard() => $data['password'],
+                'password_hash_' . Filament::getAuthGuard() => $data['password'],
             ]);
         }
 
