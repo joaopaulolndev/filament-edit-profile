@@ -14,23 +14,25 @@ class FilamentEditProfilePlugin implements Plugin
 {
     use EvaluatesClosures;
 
-    public Closure|bool $access = true;
+    public Closure | bool $access = true;
 
-    public Closure|bool $shouldRegisterNavigation = true;
+    public Closure | bool $shouldRegisterNavigation = true;
 
-    public Closure|int $sort = 90;
+    public Closure | int $sort = 90;
 
-    public Closure|string $icon = '';
+    public Closure | string $icon = '';
 
-    public Closure|string $navigationGroup = '';
+    public Closure | string $navigationGroup = '';
 
-    public Closure|string $title = '';
+    public Closure | string $title = '';
 
-    public Closure|string $navigationLabel = '';
+    public Closure | string $navigationLabel = '';
 
-    public Closure|bool $shouldShowDeleteAccountForm = true;
+    public Closure | bool $shouldShowDeleteAccountForm = true;
 
-    protected Closure|bool $sanctumTokens = false;
+    public Closure | bool $shouldShowBrowserSessionsForm = true;
+
+    protected Closure | bool $sanctumTokens = false;
 
     protected $sanctumPermissions = ['create', 'view', 'update', 'delete'];
 
@@ -73,7 +75,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $plugin;
     }
 
-    public function setTitle(Closure|string $value = ''): static
+    public function setTitle(Closure | string $value = ''): static
     {
         $this->title = $value;
 
@@ -85,7 +87,7 @@ class FilamentEditProfilePlugin implements Plugin
         return ! empty($this->title) ? $this->evaluate($this->title) : null;
     }
 
-    public function setNavigationLabel(Closure|string $value = ''): static
+    public function setNavigationLabel(Closure | string $value = ''): static
     {
         $this->navigationLabel = $value;
 
@@ -97,7 +99,7 @@ class FilamentEditProfilePlugin implements Plugin
         return ! empty($this->navigationLabel) ? $this->evaluate($this->navigationLabel) : null;
     }
 
-    public function setNavigationGroup(Closure|string $value = ''): static
+    public function setNavigationGroup(Closure | string $value = ''): static
     {
         $this->navigationGroup = $value;
 
@@ -109,7 +111,7 @@ class FilamentEditProfilePlugin implements Plugin
         return ! empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
     }
 
-    public function setIcon(Closure|string $value = ''): static
+    public function setIcon(Closure | string $value = ''): static
     {
         $this->icon = $value;
 
@@ -121,7 +123,7 @@ class FilamentEditProfilePlugin implements Plugin
         return ! empty($this->icon) ? $this->evaluate($this->icon) : null;
     }
 
-    public function setSort(Closure|int $value = 100): static
+    public function setSort(Closure | int $value = 100): static
     {
         $this->sort = $value;
 
@@ -133,7 +135,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->sort);
     }
 
-    public function canAccess(Closure|bool $value = true): static
+    public function canAccess(Closure | bool $value = true): static
     {
         $this->access = $value;
 
@@ -145,7 +147,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->access);
     }
 
-    public function shouldRegisterNavigation(Closure|bool $value = true): static
+    public function shouldRegisterNavigation(Closure | bool $value = true): static
     {
         $this->shouldRegisterNavigation = $value;
 
@@ -157,7 +159,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldRegisterNavigation);
     }
 
-    public function shouldShowDeleteAccountForm(Closure|bool $value = true): static
+    public function shouldShowDeleteAccountForm(Closure | bool $value = true): static
     {
         $this->shouldShowDeleteAccountForm = $value;
 
@@ -169,12 +171,28 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldShowDeleteAccountForm);
     }
 
+    public function shouldShowBrowserSessionsForm(Closure | bool $value = true): static
+    {
+        $this->shouldShowBrowserSessionsForm = $value;
+
+        if (config('session.driver') !== 'database') {
+            $this->shouldShowBrowserSessionsForm = false;
+        }
+
+        return $this;
+    }
+
+    public function getShouldShowBrowserSessionsForm(): bool
+    {
+        return $this->evaluate($this->shouldShowBrowserSessionsForm);
+    }
+
     public function getshouldShowSanctumTokens(): bool
     {
         return $this->evaluate($this->sanctumTokens);
     }
 
-    public function shouldShowSanctumTokens(Closure|bool $condition = true, ?array $permissions = null)
+    public function shouldShowSanctumTokens(Closure | bool $condition = true, ?array $permissions = null)
     {
         $this->sanctumTokens = $condition;
 
