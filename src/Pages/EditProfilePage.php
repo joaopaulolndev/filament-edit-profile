@@ -236,7 +236,9 @@ class EditProfilePage extends Page implements HasForms
         try {
             $data = $this->customFieldsForm->getState();
             $data['custom_fields'] = $data ?? [];
-            $this->handleRecordUpdate($this->getUser(), $data);
+
+            $customFields['custom_fields'] = $data['custom_fields'];
+            $this->handleRecordUpdate($this->getUser(), $customFields);
         } catch (Halt $exception) {
             return;
         }
