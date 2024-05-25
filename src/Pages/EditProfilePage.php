@@ -13,6 +13,7 @@ use Filament\Pages\Page;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Joaopaulolndev\FilamentEditProfile\Forms\BrowserSessionsForm;
 use Joaopaulolndev\FilamentEditProfile\Forms\CustomFieldsForm;
 use Joaopaulolndev\FilamentEditProfile\Forms\DeleteAccountForm;
 use Joaopaulolndev\FilamentEditProfile\Forms\EditPasswordForm;
@@ -80,6 +81,13 @@ class EditProfilePage extends Page implements HasForms
         return $plugin->getShouldShowDeleteAccountForm();
     }
 
+    public static function shouldShowBrowserSessionsForm()
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
+
+        return $plugin->getShouldShowBrowserSessionsForm();
+    }
+
     public static function shouldShowSanctumTokens()
     {
         $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
@@ -105,6 +113,7 @@ class EditProfilePage extends Page implements HasForms
             'editPasswordForm',
             'deleteAccountForm',
             'customFieldsForm',
+            'browserSessionsForm',
         ];
     }
 
@@ -130,6 +139,12 @@ class EditProfilePage extends Page implements HasForms
             ->schema(DeleteAccountForm::get())
             ->model($this->getUser())
             ->statePath('deleteAccountData');
+    }
+
+    public function browserSessionsForm(Form $form): Form
+    {
+        return $form
+            ->schema(BrowserSessionsForm::get());
     }
 
     public function customFieldsForm(Form $form): Form

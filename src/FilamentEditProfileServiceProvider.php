@@ -65,15 +65,15 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         // Asset Registration
-        //        FilamentAsset::register(
-        //            $this->getAssets(),
-        //            $this->getAssetPackageName()
-        //        );
-
-        FilamentAsset::registerScriptData(
-            $this->getScriptData(),
+        FilamentAsset::register(
+            $this->getAssets(),
             $this->getAssetPackageName()
         );
+
+        // FilamentAsset::registerScriptData(
+        //     $this->getScriptData(),
+        //     $this->getAssetPackageName()
+        // );
 
         // Icon Registration
         FilamentIcon::register($this->getIcons());
@@ -93,7 +93,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'joaopaulolndev/filament-edit-profile';
+        return 'Joaopaulolndev/filament-edit-profile';
     }
 
     /**
@@ -104,7 +104,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
         return [
             // AlpineComponent::make('filament-edit-profile', __DIR__ . '/../resources/dist/components/filament-edit-profile.js'),
             Css::make('filament-edit-profile-styles', __DIR__ . '/../resources/dist/filament-edit-profile.css'),
-            Js::make('filament-edit-profile-scripts', __DIR__ . '/../resources/dist/filament-edit-profile.js'),
+            // Js::make('filament-edit-profile-scripts', __DIR__ . '/../resources/dist/filament-edit-profile.js'),
         ];
     }
 

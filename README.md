@@ -4,20 +4,19 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-edit-profile)
 
-
-
 The Filament library is a user-friendly tool that simplifies profile editing, offering an intuitive interface and robust features to easily customize and manage user information.
 
 ![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/joaopaulolndev-filament-edit-profile.jpg)
 
 ## Features & Screenshots
 
-- **Edit Information:** Manage your information such as email, and password.
-- **Change Password:** Change your password.
-- **Delete Account:** Manage your account, such as delete account. 
-- **Sanctum Personal Access tokens:** Manage your personal access tokens. 
-- **Custom Fields:** Add custom fields to the form.
-- **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
+-   **Edit Information:** Manage your information such as email, and password.
+-   **Change Password:** Change your password.
+-   **Delete Account:** Manage your account, such as delete account.
+-   **Sanctum Personal Access tokens:** Manage your personal access tokens.
+-   **Browser Sessions** Manage and log out your active sessions on other browsers and devices.
+-   **Custom Fields:** Add custom fields to the form.
+-   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
 ## Installation
 
@@ -55,13 +54,17 @@ php artisan vendor:publish --tag="filament-edit-profile-config"
 ```
 
 ## Usage
+
 Add in AdminPanelProvider.php
+
 ```php
 ->plugins([
     FilamentEditProfilePlugin::make()
 ])
 ```
+
 if you want to show for specific parameters to sort, icon, title, navigation group, navigation label and can access, you can use the following example:
+
 ```php
  ->plugins([
      FilamentEditProfilePlugin::make()
@@ -74,10 +77,12 @@ if you want to show for specific parameters to sort, icon, title, navigation gro
         ->shouldRegisterNavigation(false)
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
+        ->shouldShowBrowserSessionsForm()
  ])
 ```
 
 Optionally, you can add a user menu item to the user menu in the navigation bar:
+
 ```php
 use Filament\Navigation\MenuItem;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
@@ -95,12 +100,14 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 ])
 ```
 
-### Sanctum Personal Access tokens
+## Sanctum Personal Access tokens
+
 Show the Sanctum token management component:
 
 Please review [Laravel Sanctum Docs](https://laravel.com/docs/11.x/sanctum)
 
 You may install Laravel Sanctum via the `install:api` Artisan command:
+
 ```bash
 php artisan install:api
 ```
@@ -109,7 +116,7 @@ Sanctum allows you to issue API tokens / personal access tokens that may be used
 
 ```php
 use Laravel\Sanctum\HasApiTokens;
- 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -120,7 +127,8 @@ class User extends Authenticatable
 
 If you want to control access, you can use `condition`, passing Closure or Boolean
 
-Sanctum allows you to assign "abilities" to tokens. by default we have  ['create', 'view', 'update', 'delete'] use `permissions` to customize
+Sanctum allows you to assign "abilities" to tokens. by default we have ['create', 'view', 'update', 'delete'] use `permissions` to customize
+
 ```php
  ->plugins([
     FilamentEditProfilePlugin::make()
@@ -131,17 +139,44 @@ Sanctum allows you to assign "abilities" to tokens. by default we have  ['create
  ])
 ```
 
+## Browser Sessions
+
+![Screenshot of Application Feature](./art/browser-sessions.png)
+
+To utilize browser session, ensure that your session configuration's driver (or SESSION_DRIVER environment variable) is set to `database`.
+
+```env
+SESSION_DRIVER=database
+```
+
+If you want to control access or disable browser sessions, you can pass a Closure or Boolean
+
+```php
+ ->plugins([
+    FilamentEditProfilePlugin::make()
+        ->shouldShowBrowserSessionsForm(
+            fn() => auth()->user()->id === 1, //optional
+                //OR
+            false //optional
+        )
+ ])
+```
+
 ## Custom Fields
+
 ![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/custom_fields.png)
 Optionally, you can add custom fields to the form.
 To create custom fields you need to follow the steps below:
 
 1. Publish the migration file to add the custom fields to the users table:
+
 ```bash
 php artisan vendor:publish --tag="filament-edit-profile-migrations"
 php artisan migrate
 ```
+
 2. Add in your User model the custom field in the fillable array:
+
 ```php
 protected $fillable = [
     'name',
@@ -150,7 +185,9 @@ protected $fillable = [
     'custom_fields',
 ];
 ```
+
 3. Add in your User model the custom field in the casts array:
+
 ```php
 protected function casts(): array
 {
@@ -236,8 +273,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [João Paulo Leite Nascimento](https://github.com/joaopaulolndev)
-- [All Contributors](../../contributors)
+-   [João Paulo Leite Nascimento](https://github.com/joaopaulolndev)
+-   [All Contributors](../../contributors)
 
 ## License
 

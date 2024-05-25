@@ -30,6 +30,8 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
+    public Closure | bool $shouldShowBrowserSessionsForm = true;
+
     protected Closure | bool $sanctumTokens = false;
 
     protected $sanctumPermissions = ['create', 'view', 'update', 'delete'];
@@ -167,6 +169,22 @@ class FilamentEditProfilePlugin implements Plugin
     public function getShouldShowDeleteAccountForm(): bool
     {
         return $this->evaluate($this->shouldShowDeleteAccountForm);
+    }
+
+    public function shouldShowBrowserSessionsForm(Closure | bool $value = true): static
+    {
+        $this->shouldShowBrowserSessionsForm = $value;
+
+        if (config('session.driver') !== 'database') {
+            $this->shouldShowBrowserSessionsForm = false;
+        }
+
+        return $this;
+    }
+
+    public function getShouldShowBrowserSessionsForm(): bool
+    {
+        return $this->evaluate($this->shouldShowBrowserSessionsForm);
     }
 
     public function getshouldShowSanctumTokens(): bool
