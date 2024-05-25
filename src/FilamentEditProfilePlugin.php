@@ -187,6 +187,7 @@ class FilamentEditProfilePlugin implements Plugin
         if (config('session.driver') !== 'database') {
             $this->shouldShowBrowserSessionsForm = false;
         }
+
         return $this->evaluate($this->shouldShowBrowserSessionsForm);
     }
 
