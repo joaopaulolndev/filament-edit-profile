@@ -141,7 +141,7 @@ Sanctum allows you to assign "abilities" to tokens. by default we have ['create'
 
 ## Browser Sessions
 
-![Screenshot of Application Feature](./art/browser-sessions.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/browser-sessions.png)
 
 To utilize browser session, ensure that your session configuration's driver (or SESSION_DRIVER environment variable) is set to `database`.
 
