@@ -230,7 +230,11 @@ class EditProfilePage extends Page implements HasForms
         try {
             $data = $this->editPasswordForm->getState();
 
-            $this->handleRecordUpdate($this->getUser(), $data);
+            $newData = [
+                'password' => $data['password'],
+            ];
+
+            $this->handleRecordUpdate($this->getUser(), $newData);
         } catch (Halt $exception) {
             return;
         }
