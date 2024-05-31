@@ -2,6 +2,12 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.10 - 2024-05-31
+
+- Fix issue reported by @guiireal
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.9...v1.0.10
+
 ## v1.0.9 - 2024-05-27
 
 ### What's Changed
