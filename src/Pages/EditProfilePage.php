@@ -101,11 +101,12 @@ class EditProfilePage extends Page implements HasForms
 
     public ?array $customFieldsData = [];
 
-    public ?array $deleteAccountData = ['deleteAccount' => []];
+    public ?array $deleteAccountData = [];
     public ?array $browserSessions = [];
 
     public function mount(): void
     {
+        $this->deleteAccountData['deleteAccount'] = [];
         $this->fillForms();
     }
 
