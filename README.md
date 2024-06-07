@@ -124,6 +124,7 @@ protected $fillable = [
 3. Set the getFilamentAvatarUrlAttribute method in your User model:
 ```php
 use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements HasAvatar
 {
@@ -142,6 +143,7 @@ class User extends Authenticatable implements HasAvatar
     rules: 'mimes:jpeg,png|max:1024' //only accept jpeg and png files with a maximum size of 1MB
 )
 ```
+5. Don't forget to run the command `php artisan storage:link`
 
 ## Sanctum Personal Access tokens
 
