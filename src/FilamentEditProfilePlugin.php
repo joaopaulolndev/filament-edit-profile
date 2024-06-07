@@ -225,8 +225,14 @@ class FilamentEditProfilePlugin implements Plugin
     public function shouldShowAvatarForm(Closure | bool $value = true, ?string $directory = null, string | array | null $rules = null): static
     {
         $this->shouldShowAvatarForm = $value;
-        $this->avatarDirectory = $directory;
-        $this->avatarRules = $rules;
+
+        if (! is_null($directory)) {
+            $this->avatarDirectory = $directory;
+        }
+
+        if (! is_null($rules)) {
+            $this->avatarRules = $rules;
+        }
 
         return $this;
     }
