@@ -36,6 +36,12 @@ class FilamentEditProfilePlugin implements Plugin
 
     protected $sanctumPermissions = ['create', 'view', 'update', 'delete'];
 
+    protected Closure | bool $shouldShowAvatarForm = false;
+
+    protected string $avatarDirectory = 'avatars';
+
+    protected array | string $avatarRules = ['max:1024'];
+
     public function getId(): string
     {
         return 'filament-edit-profile';
@@ -214,5 +220,29 @@ class FilamentEditProfilePlugin implements Plugin
 
             return [$key => $item];
         })->toArray();
+    }
+
+    public function shouldShowAvatarForm(Closure | bool $value = true, ?string $directory = null, string | array | null $rules = null): static
+    {
+        $this->shouldShowAvatarForm = $value;
+        $this->avatarDirectory = $directory;
+        $this->avatarRules = $rules;
+
+        return $this;
+    }
+
+    public function getShouldShowAvatarForm(): bool
+    {
+        return $this->evaluate($this->shouldShowAvatarForm);
+    }
+
+    public function getAvatarDirectory(): string
+    {
+        return $this->avatarDirectory;
+    }
+
+    public function getAvatarRules(): array | string
+    {
+        return $this->avatarRules;
     }
 }
