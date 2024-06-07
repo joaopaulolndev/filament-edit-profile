@@ -284,6 +284,6 @@ class EditProfilePage extends Page implements HasForms
             ->title(__('filament-edit-profile::default.saved_successfully'))
             ->send();
 
-        redirect(request()?->header('Referer'));
+        //redirect(request()?->header('Referer'));
     }
 }
