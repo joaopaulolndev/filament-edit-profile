@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.12 - 2024-06-07
+
+### What's Changed
+
+* Add profile avatar functionality by @alifdarsim in https://github.com/joaopaulolndev/filament-edit-profile/pull/12
+* Fix issue reported by @ronssij
+
+### New Contributors
+
+* @alifdarsim made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/12
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.11...v1.0.12
+
 ## v1.0.11 - 2024-06-06
 
 Fix the issue reported by @alifdarsim
