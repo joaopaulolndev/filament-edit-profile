@@ -13,6 +13,13 @@ class EditProfileForm
                 ->aside()
                 ->description(__('filament-edit-profile::default.profile_information_description'))
                 ->schema([
+                    Forms\Components\FileUpload::make('avatar_url')
+                        ->label(__('filament-edit-profile::default.avatar'))
+                        ->avatar()
+                        ->imageEditor()
+                        ->directory(filament('filament-edit-profile')->getAvatarDirectory())
+                        ->rules(filament('filament-edit-profile')->getAvatarRules())
+                        ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
                     Forms\Components\TextInput::make('name')
                         ->label(__('filament-edit-profile::default.name'))
                         ->required(),

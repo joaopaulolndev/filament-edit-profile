@@ -80,11 +80,15 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-                $this->publishes([
-                    $file->getRealPath() => base_path("stubs/filament-edit-profile/{$file->getFilename()}"),
-                ], 'filament-edit-profile-stubs');
-            }
+            $publishMigration = function ($migrationFileName, $publishTag) {
+                if (! $this->migrationFileExists($migrationFileName)) {
+                    $this->publishes([
+                        __DIR__ . "/../database/migrations/{$migrationFileName}.stub" => database_path('migrations/' . date('Y_m_d_His', time()) . '_' . $migrationFileName),
+                    ], $publishTag);
+                }
+            };
+            $publishMigration('add_avatar_url_to_users_table.php', 'filament-edit-profile-avatar-migration');
+            $publishMigration('add_custom_fields_to_users_table.php', 'filament-edit-profile-custom-field-migration');
         }
 
         // Testing
@@ -149,6 +153,19 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     {
         return [
             'add_custom_fields_to_users_table',
+            'add_avatar_url_to_users_table',
         ];
+    }
+
+    public static function migrationFileExists(string $migrationFileName): bool
+    {
+        $len = strlen($migrationFileName);
+        foreach (glob(database_path('migrations/*.php')) as $filename) {
+            if ((substr($filename, -$len) === $migrationFileName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

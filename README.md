@@ -12,6 +12,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 
 -   **Edit Information:** Manage your information such as email, and password.
 -   **Change Password:** Change your password.
+-   **Profile Photo:** Upload and manage your profile photo.
 -   **Delete Account:** Manage your account, such as delete account.
 -   **Sanctum Personal Access tokens:** Manage your personal access tokens.
 -   **Browser Sessions** Manage and log out your active sessions on other browsers and devices.
@@ -40,7 +41,7 @@ Optionally, you can publish the translations using
 php artisan vendor:publish --tag="filament-edit-profile-translations"
 ```
 
-You can publish and run the migrations with:
+You can publish and run all the migrations with:
 
 ```bash
 php artisan vendor:publish --tag="filament-edit-profile-migrations"
@@ -78,6 +79,7 @@ if you want to show for specific parameters to sort, icon, title, navigation gro
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
         ->shouldShowBrowserSessionsForm()
+        ->shouldShowAvatarForm()
  ])
 ```
 
@@ -98,6 +100,47 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
                     })
     ,
 ])
+```
+## Profile Avatar
+
+![Screenshot of avatar Feature](./art/profile-avatar.png)
+Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/3.x/panels/users#setting-up-user-avatars) to manage the avatar.
+
+To show the avatar form, you need the following steps:
+1. Publish the migration file to add the avatar_url field to the users table:
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-avatar-migration"
+php artisan migrate
+```
+2. Add in your User model the avatar_url field in the fillable array:
+```php
+protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'avatar_url',
+];
+```
+3. Set the getFilamentAvatarUrlAttribute method in your User model:
+```php
+use Filament\Models\Contracts\HasAvatar;
+
+class User extends Authenticatable implements HasAvatar
+{
+    // ...
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar_url ? Storage::url("$this->avatar_url") : null;
+    }
+}
+```
+4. Optionally, you can specify the image directory path and file upload rules. :
+```php
+->shouldShowAvatarForm(
+    value: true,
+    directory: 'avatars', // image will be stored in 'storage/app/public/avatars
+    rules: 'mimes:jpeg,png|max:1024' //only accept jpeg and png files with a maximum size of 1MB
+)
 ```
 
 ## Sanctum Personal Access tokens
@@ -171,7 +214,7 @@ To create custom fields you need to follow the steps below:
 1. Publish the migration file to add the custom fields to the users table:
 
 ```bash
-php artisan vendor:publish --tag="filament-edit-profile-migrations"
+php artisan vendor:publish --tag="filament-edit-profile-custom-field-migration" 
 php artisan migrate
 ```
 
