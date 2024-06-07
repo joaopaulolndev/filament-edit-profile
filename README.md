@@ -103,7 +103,7 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 ```
 ## Profile Avatar
 
-![Screenshot of avatar Feature](./art/profile-avatar.png)
+![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/profile-avatar.png)
 Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/3.x/panels/users#setting-up-user-avatars) to manage the avatar.
 
 To show the avatar form, you need the following steps:
