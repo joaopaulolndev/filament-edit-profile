@@ -17,6 +17,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 -   **Sanctum Personal Access tokens:** Manage your personal access tokens.
 -   **Browser Sessions** Manage and log out your active sessions on other browsers and devices.
 -   **Custom Fields:** Add custom fields to the form.
+-   **Custom Components:** Add custom component to the page.
 -   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
 ## Installation
@@ -80,6 +81,9 @@ if you want to show for specific parameters to sort, icon, title, navigation gro
         ->shouldShowSanctumTokens()
         ->shouldShowBrowserSessionsForm()
         ->shouldShowAvatarForm()
+        ->customProfileComponents([
+            \App\Livewire\CustomProfileComponent::class,
+        ])
  ])
 ```
 
@@ -91,28 +95,32 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
 ->userMenuItems([
     'profile' => MenuItem::make()
-                    ->label(fn() => auth()->user()->name)
-                    ->url(fn (): string => EditProfilePage::getUrl())
-                    ->icon('heroicon-m-user-circle')
-                    //If you are using tenancy need to check with the visible method where ->company() is the relation between the user and tenancy model as you called
-                    ->visible(function (): bool {
-                        return auth()->user()->company()->exists();
-                    })
-    ,
+        ->label(fn() => auth()->user()->name)
+        ->url(fn (): string => EditProfilePage::getUrl())
+        ->icon('heroicon-m-user-circle')
+        //If you are using tenancy need to check with the visible method where ->company() is the relation between the user and tenancy model as you called
+        ->visible(function (): bool {
+            return auth()->user()->company()->exists();
+        }),
 ])
 ```
+
 ## Profile Avatar
 
 ![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/profile-avatar.png)
 Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/3.x/panels/users#setting-up-user-avatars) to manage the avatar.
 
 To show the avatar form, you need the following steps:
+
 1. Publish the migration file to add the avatar_url field to the users table:
+
 ```bash
 php artisan vendor:publish --tag="filament-edit-profile-avatar-migration"
 php artisan migrate
 ```
+
 2. Add in your User model the avatar_url field in the fillable array:
+
 ```php
 protected $fillable = [
     'name',
@@ -121,7 +129,9 @@ protected $fillable = [
     'avatar_url',
 ];
 ```
+
 3. Set the getFilamentAvatarUrlAttribute method in your User model:
+
 ```php
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Support\Facades\Storage;
@@ -135,7 +145,9 @@ class User extends Authenticatable implements HasAvatar
     }
 }
 ```
+
 4. Optionally, you can specify the image directory path and file upload rules. :
+
 ```php
 ->shouldShowAvatarForm(
     value: true,
@@ -143,6 +155,7 @@ class User extends Authenticatable implements HasAvatar
     rules: 'mimes:jpeg,png|max:1024' //only accept jpeg and png files with a maximum size of 1MB
 )
 ```
+
 5. Don't forget to run the command `php artisan storage:link`
 
 ## Sanctum Personal Access tokens
@@ -216,7 +229,7 @@ To create custom fields you need to follow the steps below:
 1. Publish the migration file to add the custom fields to the users table:
 
 ```bash
-php artisan vendor:publish --tag="filament-edit-profile-custom-field-migration" 
+php artisan vendor:publish --tag="filament-edit-profile-custom-field-migration"
 php artisan migrate
 ```
 
@@ -296,6 +309,30 @@ return [
         ],
     ]
 ];
+```
+
+## Custom Components
+
+If you need more control over your profile edit fields, you can create a custom component. To make this process easier, just use the artisan command.
+
+> [!NOTE]
+> If you are not confident in using custom components, please review [Filament Docs](https://filamentphp.com/docs/3.x/forms/adding-a-form-to-a-livewire-component)
+
+```bash
+php artisan make:edit-profile-form CustomProfileComponent
+```
+
+This will generate a new `app/Livewire/CustomProfileComponent.php` component and a new `resources/views/livewire/custom-profile-component.blade.php` view which you can customize.
+
+Now in your `Panel Provider`, register the new component.
+
+```php
+->plugins([
+    FilamentEditProfilePlugin::make()
+        ->customProfileComponents([
+            \App\Livewire\CustomProfileComponent::class,
+        ]);
+])
 ```
 
 ## Testing
