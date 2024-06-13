@@ -4,37 +4,33 @@ namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
 use Carbon\Carbon;
 use Filament\Actions\Action;
-use Filament\Actions\Concerns\InteractsWithActions;
-use Filament\Actions\Contracts\HasActions;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\Alignment;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use Illuminate\Contracts\View\View;
+use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Laravel\Sanctum\Sanctum;
-use Livewire\Component;
 
-class SanctumTokens extends Component implements HasActions, HasForms, HasTable
+class SanctumTokens extends BaseProfileForm implements HasTable
 {
-    use InteractsWithActions;
-    use InteractsWithForms;
+    use HasUser;
     use InteractsWithTable;
 
-    public $user;
+    protected string $view = 'filament-edit-profile::livewire.sanctum-tokens';
 
     public ?string $plainTextToken;
 
+    protected static int $sort = 40;
+
     public function mount()
     {
-        $this->user = Filament::getCurrentPanel()->auth()->user();
+        $this->user = $this->getUser();
     }
 
     public function table(Table $table): Table
@@ -116,10 +112,5 @@ class SanctumTokens extends Component implements HasActions, HasForms, HasTable
             ->modalSubmitAction(false)
             ->modalCancelAction(false)
             ->closeModalByClickingAway(false);
-    }
-
-    public function render(): View
-    {
-        return view('filament-edit-profile::livewire.sanctum-tokens');
     }
 }
