@@ -6,6 +6,11 @@ use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
@@ -28,19 +33,25 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | string $navigationLabel = '';
 
+    public bool $shouldShowEditeProfileForm = true;
+
+    public bool $shouldShowEditePasswordForm = true;
+
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
     public Closure | bool $shouldShowBrowserSessionsForm = true;
 
     protected Closure | bool $sanctumTokens = false;
 
-    protected $sanctumPermissions = ['create', 'view', 'update', 'delete'];
+    protected array $sanctumPermissions = ['create', 'view', 'update', 'delete'];
 
     protected Closure | bool $shouldShowAvatarForm = false;
 
     protected string $avatarDirectory = 'avatars';
 
     protected array | string $avatarRules = ['max:1024'];
+
+    protected array $registeredCustomProfileComponents = [];
 
     public function getId(): string
     {
@@ -63,9 +74,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
-        if ($this->sanctumTokens) {
-            Livewire::component('sanctum-tokens', SanctumTokens::class);
-        }
+        $this->registerLivewireComponents();
     }
 
     public static function make(): static
@@ -165,6 +174,30 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldRegisterNavigation);
     }
 
+    public function shouldShowEditeProfileForm(bool $value = true): static
+    {
+        $this->shouldShowEditeProfileForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowEditeProfileForm(): bool
+    {
+        return $this->evaluate($this->shouldShowEditeProfileForm);
+    }
+
+    public function shouldShowEditePasswordForm(bool $value = true): static
+    {
+        $this->shouldShowEditePasswordForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowEditePasswordForm(): bool
+    {
+        return $this->evaluate($this->shouldShowEditePasswordForm);
+    }
+
     public function shouldShowDeleteAccountForm(Closure | bool $value = true): static
     {
         $this->shouldShowDeleteAccountForm = $value;
@@ -250,5 +283,57 @@ class FilamentEditProfilePlugin implements Plugin
     public function getAvatarRules(): array | string
     {
         return $this->avatarRules;
+    }
+
+    private function registerLivewireComponents(): void
+    {
+        $components = collect();
+
+        if ($this->shouldShowEditeProfileForm) {
+            $components->put('edit_profile_form', EditProfileForm::class);
+        }
+
+        if ($this->shouldShowEditePasswordForm) {
+            $components->put('edit_password_form', EditPasswordForm::class);
+        }
+
+        if ($this->shouldShowDeleteAccountForm) {
+            $components->put('delete_account_form', DeleteAccountForm::class);
+        }
+
+        if ($this->sanctumTokens) {
+            $components->put('sanctum_tokens', SanctumTokens::class);
+        }
+
+        if ($this->shouldShowBrowserSessionsForm) {
+            $components->put('browser_sessions_form', BrowserSessionsForm::class);
+        }
+
+        if (config('filament-edit-profile.show_custom_fields') && ! empty(config('filament-edit-profile.custom_fields'))) {
+            $components->put('custom_fields_form', CustomFieldsForm::class);
+        }
+
+        $components->each(function ($class, $name) {
+            Livewire::component($name, $class);
+        });
+
+        $this->customProfileComponents($components->toArray());
+    }
+
+    public function customProfileComponents(array $components): self
+    {
+        $this->registeredCustomProfileComponents = array_merge(
+            $this->registeredCustomProfileComponents,
+            $components
+        );
+
+        return $this;
+    }
+
+    public function getRegisteredCustomProfileComponents(): array
+    {
+        return collect($this->registeredCustomProfileComponents)
+            ->sortBy(fn (string $component) => $component::getSort())
+            ->all();
     }
 }
