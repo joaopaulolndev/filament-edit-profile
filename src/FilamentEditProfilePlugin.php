@@ -176,14 +176,14 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function shouldShowEditProfileForm(bool $value = true): static
     {
-        $this->shouldShowEditeProfileForm = $value;
+        $this->shouldShowEditProfileForm = $value;
 
         return $this;
     }
 
     public function getShouldShowEditProfileForm(): bool
     {
-        return $this->evaluate($this->shouldShowEditeProfileForm);
+        return $this->evaluate($this->shouldShowEditProfileForm);
     }
 
     public function shouldShowEditPasswordForm(bool $value = true): static
