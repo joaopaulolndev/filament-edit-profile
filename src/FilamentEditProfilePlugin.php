@@ -33,9 +33,9 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | string $navigationLabel = '';
 
-    public bool $shouldShowEditeProfileForm = true;
+    public bool $shouldShowEditProfileForm = true;
 
-    public bool $shouldShowEditePasswordForm = true;
+    public bool $shouldShowEditPasswordForm = true;
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
@@ -174,28 +174,28 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldRegisterNavigation);
     }
 
-    public function shouldShowEditeProfileForm(bool $value = true): static
+    public function shouldShowEditProfileForm(bool $value = true): static
     {
         $this->shouldShowEditeProfileForm = $value;
 
         return $this;
     }
 
-    public function getShouldShowEditeProfileForm(): bool
+    public function getShouldShowEditProfileForm(): bool
     {
         return $this->evaluate($this->shouldShowEditeProfileForm);
     }
 
-    public function shouldShowEditePasswordForm(bool $value = true): static
+    public function shouldShowEditPasswordForm(bool $value = true): static
     {
-        $this->shouldShowEditePasswordForm = $value;
+        $this->shouldShowEditPasswordForm = $value;
 
         return $this;
     }
 
     public function getShouldShowEditePasswordForm(): bool
     {
-        return $this->evaluate($this->shouldShowEditePasswordForm);
+        return $this->evaluate($this->shouldShowEditPasswordForm);
     }
 
     public function shouldShowDeleteAccountForm(Closure | bool $value = true): static
@@ -289,11 +289,11 @@ class FilamentEditProfilePlugin implements Plugin
     {
         $components = collect();
 
-        if ($this->shouldShowEditeProfileForm) {
+        if ($this->shouldShowEditProfileForm) {
             $components->put('edit_profile_form', EditProfileForm::class);
         }
 
-        if ($this->shouldShowEditePasswordForm) {
+        if ($this->shouldShowEditPasswordForm) {
             $components->put('edit_password_form', EditPasswordForm::class);
         }
 
