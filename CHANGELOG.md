@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.13 - 2024-06-14
+
+### What's Changed
+
+* fix lang es by @gpibarra in https://github.com/joaopaulolndev/filament-edit-profile/pull/13
+* Add feature custom components by @rmsramos in https://github.com/joaopaulolndev/filament-edit-profile/pull/14
+
+### New Contributors
+
+* @gpibarra made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/13
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.12...v1.0.13
+
 ## v1.0.12 - 2024-06-07
 
 ### What's Changed
