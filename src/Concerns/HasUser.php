@@ -2,6 +2,7 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Concerns;
 
+use Exception;
 use Filament\Facades\Filament;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
