@@ -230,7 +230,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldShowBrowserSessionsForm);
     }
 
-    public function getshouldShowSanctumTokens(): bool
+    public function getShouldShowSanctumTokens(): bool
     {
         return $this->evaluate($this->sanctumTokens);
     }
