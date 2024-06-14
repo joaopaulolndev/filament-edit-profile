@@ -2,7 +2,7 @@
     :component="$getFieldWrapperView()"
     :field="$field"
 >
-    <div x-data="{ state: $wire.$entangle('{{ $getStatePath() }}') }">
+    <div>
         <div class="">
             <div class="mt-4 text-sm text-gray-600">
                 <div class="text-sm text-gray-600 dark:text-gray-400">

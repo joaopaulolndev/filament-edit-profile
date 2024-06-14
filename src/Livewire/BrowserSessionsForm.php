@@ -1,53 +1,58 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Forms;
+namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Components\Actions;
-use Filament\Forms\Components\Section;
+use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Agent;
 
-class BrowserSessionsForm
+class BrowserSessionsForm extends BaseProfileForm
 {
-    public static function get(): array
-    {
-        return [
-            Section::make(__('filament-edit-profile::default.browser_section_title'))
-                ->description(__('filament-edit-profile::default.browser_section_description'))
-                ->aside()
-                ->schema([
-                    Forms\Components\ViewField::make('browserSessions')
-                        ->label(__(__('filament-edit-profile::default.browser_section_title')))
-                        ->hiddenLabel()
-                        ->view('filament-edit-profile::forms.components.browser-sessions')
-                        ->viewData(['data' => self::getSessions()]),
-                    Actions::make([
-                        Actions\Action::make('deleteBrowserSessions')
-                            ->label(__('filament-edit-profile::default.browser_sessions_log_out'))
-                            ->requiresConfirmation()
-                            ->modalHeading(__('filament-edit-profile::default.browser_sessions_log_out'))
-                            ->modalDescription(__('filament-edit-profile::default.browser_sessions_confirm_pass'))
-                            ->modalSubmitActionLabel(__('filament-edit-profile::default.browser_sessions_log_out'))
-                            ->form([
-                                Forms\Components\TextInput::make('password')
-                                    ->password()
-                                    ->revealable()
-                                    ->label(__('filament-edit-profile::default.password'))
-                                    ->required(),
-                            ])
-                            ->action(function (array $data) {
-                                self::logoutOtherBrowserSessions($data['password']);
-                            })
-                            ->modalWidth('2xl'),
-                    ]),
+    protected string $view = 'filament-edit-profile::livewire.browser-sessions-form';
 
-                ]),
-        ];
+    protected static int $sort = 50;
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
+                    ->description(__('filament-edit-profile::default.browser_section_description'))
+                    ->aside()
+                    ->schema([
+                        Forms\Components\ViewField::make('browserSessions')
+                            ->label(__(__('filament-edit-profile::default.browser_section_title')))
+                            ->hiddenLabel()
+                            ->view('filament-edit-profile::forms.components.browser-sessions')
+                            ->viewData(['data' => self::getSessions()]),
+                        Actions::make([
+                            Actions\Action::make('deleteBrowserSessions')
+                                ->label(__('filament-edit-profile::default.browser_sessions_log_out'))
+                                ->requiresConfirmation()
+                                ->modalHeading(__('filament-edit-profile::default.browser_sessions_log_out'))
+                                ->modalDescription(__('filament-edit-profile::default.browser_sessions_confirm_pass'))
+                                ->modalSubmitActionLabel(__('filament-edit-profile::default.browser_sessions_log_out'))
+                                ->form([
+                                    Forms\Components\TextInput::make('password')
+                                        ->password()
+                                        ->revealable()
+                                        ->label(__('filament-edit-profile::default.password'))
+                                        ->required(),
+                                ])
+                                ->action(function (array $data) {
+                                    self::logoutOtherBrowserSessions($data['password']);
+                                })
+                                ->modalWidth('2xl'),
+                        ]),
+
+                    ]),
+            ]);
     }
 
     public static function getSessions(): array
@@ -89,7 +94,6 @@ class BrowserSessionsForm
 
     public static function logoutOtherBrowserSessions($password): void
     {
-
         if (! Hash::check($password, Auth::user()->password)) {
             Notification::make()
                 ->danger()
