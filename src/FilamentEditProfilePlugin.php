@@ -31,6 +31,8 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | string $title = '';
 
+    public Closure | string $slug = '';
+
     public Closure | string $navigationLabel = '';
 
     public bool $shouldShowEditProfileForm = true;
@@ -100,6 +102,18 @@ class FilamentEditProfilePlugin implements Plugin
     public function getTitle(): ?string
     {
         return ! empty($this->title) ? $this->evaluate($this->title) : null;
+    }
+
+    public function slug(Closure | string $value = 'edit-profile'): static
+    {
+        $this->slug = $value;
+
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->evaluate($this->slug);
     }
 
     public function setNavigationLabel(Closure | string $value = ''): static
