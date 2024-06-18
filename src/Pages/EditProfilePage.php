@@ -9,6 +9,19 @@ class EditProfilePage extends Page
 {
     protected static string $view = 'filament-edit-profile::filament.pages.edit-profile-page';
 
+    protected static ?string $slug = 'edit-profile';
+
+    public static function getSlug(): string
+    {
+        $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
+
+        $slug = $plugin->getSlug();
+
+        $slug = $slug ? $slug : self::$slug;
+
+        return $slug;
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
         $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');

@@ -74,6 +74,7 @@ if you want to show for specific parameters to sort, icon, title, navigation gro
 ```php
  ->plugins([
      FilamentEditProfilePlugin::make()
+        ->slug('my-profile')
         ->setTitle('My Profile')
         ->setNavigationLabel('My Profile')
         ->setNavigationGroup('Group Profile')
