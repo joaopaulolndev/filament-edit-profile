@@ -2,6 +2,15 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.14 - 2024-06-18
+
+### What's Changed
+
+* github actions l11 and php8.3 by @gpibarra in https://github.com/joaopaulolndev/filament-edit-profile/pull/15
+* add method slug profile by @gpibarra in https://github.com/joaopaulolndev/filament-edit-profile/pull/18
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.13...v1.0.14
+
 ## v1.0.13 - 2024-06-14
 
 ### What's Changed
