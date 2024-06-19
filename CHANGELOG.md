@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.15 - 2024-06-19
+
+### What's Changed
+
+* Dutch and German translations by @timwassenburg in https://github.com/joaopaulolndev/filament-edit-profile/pull/19
+
+### New Contributors
+
+* @timwassenburg made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/19
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.14...v1.0.15
+
 ## v1.0.14 - 2024-06-18
 
 ### What's Changed
