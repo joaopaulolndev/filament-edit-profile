@@ -2,6 +2,4 @@
 
 namespace Joaopaulolndev\FilamentEditProfile;
 
-class FilamentEditProfile
-{
-}
+class FilamentEditProfile {}
