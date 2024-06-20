@@ -64,6 +64,8 @@ php artisan vendor:publish --tag="filament-edit-profile-config"
 Add in AdminPanelProvider.php
 
 ```php
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
+
 ->plugins([
     FilamentEditProfilePlugin::make()
 ])
@@ -72,6 +74,8 @@ Add in AdminPanelProvider.php
 if you want to show for specific parameters to sort, icon, title, navigation group, navigation label and can access, you can use the following example:
 
 ```php
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
+
  ->plugins([
      FilamentEditProfilePlugin::make()
         ->slug('my-profile')
