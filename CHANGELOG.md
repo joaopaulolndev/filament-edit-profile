@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.16 - 2024-06-23
+
+### What's Changed
+
+* Add france and arabic languages by @ibrahimBougaoua in https://github.com/joaopaulolndev/filament-edit-profile/pull/21
+
+### New Contributors
+
+* @ibrahimBougaoua made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/21
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.15...v1.0.16
+
 ## v1.0.15 - 2024-06-19
 
 ### What's Changed
