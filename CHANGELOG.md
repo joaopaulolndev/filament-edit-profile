@@ -2,6 +2,12 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.17 - 2024-06-25
+
+- Add pt language
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.16...v1.0.17
+
 ## v1.0.16 - 2024-06-23
 
 ### What's Changed
