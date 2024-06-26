@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.19 - 2024-06-26
+
+### What's Changed
+
+* Add Hungarian translation by @kovkor in https://github.com/joaopaulolndev/filament-edit-profile/pull/22
+
+### New Contributors
+
+* @kovkor made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/22
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.18...v1.0.19
+
 ## v1.0.18 - 2024-06-26
 
 - Fixed issue when deleting account found by @PovilasKorop
