@@ -51,9 +51,9 @@ class DeleteAccountForm extends BaseProfileForm
                                         return;
                                     }
 
-                                    auth()->user()?->update([
-                                        'active' => false,
-                                    ]);
+                                    // auth()->user()?->update([
+                                    //     'active' => false,
+                                    // ]);
 
                                     auth()->user()?->delete();
                                 }),
