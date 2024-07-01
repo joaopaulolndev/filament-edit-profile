@@ -4,7 +4,7 @@
 >
     <div>
         <div class="">
-            <div class="mt-4 text-sm text-gray-600">
+            <div class="text-sm text-gray-600">
                 <div class="text-sm text-gray-600 dark:text-gray-400">
                     {{ __('filament-edit-profile::default.browser_sessions_content') }}
                 </div>
