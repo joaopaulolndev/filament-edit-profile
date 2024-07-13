@@ -6,6 +6,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Actions;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -46,7 +47,7 @@ class DeleteAccountForm extends BaseProfileForm
                                 ->action(function (array $data) {
 
                                     if (! Hash::check($data['password'], Auth::user()->password)) {
-                                        self::sendErrorDeleteAccount(__('filament-edit-profile::default.incorrect_password'));
+                                        $this->sendErrorDeleteAccount(__('filament-edit-profile::default.incorrect_password'));
 
                                         return;
                                     }
@@ -56,5 +57,13 @@ class DeleteAccountForm extends BaseProfileForm
                         ]),
                     ]),
             ]);
+    }
+
+    public function sendErrorDeleteAccount(string $message): void
+    {
+        Notification::make()
+            ->danger()
+            ->title($message)
+            ->send();
     }
 }
