@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.23 - 2024-08-01
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/joaopaulolndev/filament-edit-profile/pull/31
+* fix some caps typos in German translation by @buddhaCode in https://github.com/joaopaulolndev/filament-edit-profile/pull/34
+
+### New Contributors
+
+* @buddhaCode made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/34
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.22...v1.0.23
+
 ## v1.0.22 - 2024-07-13
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.21...v1.0.22
