@@ -89,7 +89,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsFilamentEditProfile());
+        Testable::mixin(new TestsFilamentEditProfile);
     }
 
     protected function getAssetPackageName(): ?string

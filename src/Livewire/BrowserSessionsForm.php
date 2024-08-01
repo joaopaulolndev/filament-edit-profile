@@ -87,7 +87,7 @@ class BrowserSessionsForm extends BaseProfileForm
     protected static function createAgent(mixed $session)
     {
         return tap(
-            value: new Agent(),
+            value: new Agent,
             callback: fn ($agent) => $agent->setUserAgent(userAgent: $session->user_agent)
         );
     }
