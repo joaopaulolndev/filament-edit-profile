@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.24 - 2024-08-09
+
+### What's Changed
+
+* Add Polish language / translation by @Konradx3 in https://github.com/joaopaulolndev/filament-edit-profile/pull/35
+
+### New Contributors
+
+* @Konradx3 made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/35
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.23...v1.0.24
+
 ## v1.0.23 - 2024-08-01
 
 ### What's Changed
