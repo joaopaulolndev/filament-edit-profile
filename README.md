@@ -288,8 +288,15 @@ return [
             'rules' => 'required|string|max:255',
         ],
         'custom_field_2' => [
+            'type' => 'password',
+            'label' => 'Custom Password field 2',
+            'placeholder' => 'Custom Password Field 2',
+            'required' => true,
+            'rules' => 'required|string|max:255',
+        ],
+        'custom_field_3' => [
             'type' => 'select',
-            'label' => 'Custom Select 2',
+            'label' => 'Custom Select 3',
             'placeholder' => 'Select',
             'required' => true,
             'options' => [
@@ -298,22 +305,22 @@ return [
                 'option_3' => 'Option 3',
             ],
         ],
-        'custom_field_3' => [
+        'custom_field_4' => [
             'type' =>'textarea',
-            'label' => 'Custom Textarea 3',
+            'label' => 'Custom Textarea 4',
             'placeholder' => 'Textarea',
             'rows' => '3',
             'required' => true,
         ],
-        'custom_field_4' => [
+        'custom_field_5' => [
             'type' => 'datetime',
-            'label' => 'Custom Datetime 4',
+            'label' => 'Custom Datetime 5',
             'placeholder' => 'Datetime',
             'seconds' => false,
         ],
-        'custom_field_5' => [
+        'custom_field_6' => [
             'type' => 'boolean',
-            'label' => 'Custom Boolean 5',
+            'label' => 'Custom Boolean 6',
             'placeholder' => 'Boolean'
         ],
     ]
