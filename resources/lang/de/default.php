@@ -44,4 +44,5 @@ return [
     'browser_sessions_last_active' => 'Zuletzt aktiv',
     'browser_sessions_log_out' => 'Von anderen Browsersitzungen abmelden',
     'browser_sessions_confirm_pass' => 'Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie sich von Ihren anderen Browsersitzungen auf all Ihren Geräten abmelden möchten.',
+    'browser_sessions_logout_success_notification' => 'Alle anderen Browsersitzungen wurden erfolgreich abgemeldet.',
 ];

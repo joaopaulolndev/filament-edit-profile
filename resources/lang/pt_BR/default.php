@@ -43,4 +43,5 @@ return [
     'browser_sessions_last_active' => 'Ultima Atividade',
     'browser_sessions_log_out' => 'Sair de outras sessões do navegador',
     'browser_sessions_confirm_pass' => 'Digite sua senha para confirmar que deseja sair das outras sessões do navegador em todos os seus dispositivos.',
+    'browser_sessions_logout_success_notification' => 'Todas as outras sessões do navegador foram desconectadas com sucesso.',
 ];

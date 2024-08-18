@@ -44,4 +44,5 @@ return [
     'browser_sessions_last_active' => 'آخرین فعالیت',
     'browser_sessions_log_out' => 'از سایر سشن های مرورگر خارج شوید',
     'browser_sessions_confirm_pass' => 'لطفاً رمز عبور خود را وارد کنید تا تأیید کنید که می خواهید از سایر سشن های مرورگر خود در همه دستگاه های خود خارج شوید.',
+    'browser_sessions_logout_success_notification' => 'تمامی جلسات دیگر مرورگر با موفقیت خارج شدند.',
 ];

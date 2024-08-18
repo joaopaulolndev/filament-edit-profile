@@ -36,4 +36,5 @@ return [
     'token_modal_heading_2' => 'Copia il Token di Accesso Personale',
     'token_empty_state_heading' => 'Crea il tuo primo token',
     'token_empty_state_description' => 'Crea un token di accesso personale per iniziare.',
+    'browser_sessions_logout_success_notification' => 'Tutte le altre sessioni del browser sono state disconnesse con successo.'
 ];
