@@ -44,4 +44,5 @@ return [
     'browser_sessions_last_active' => 'Laatst actief',
     'browser_sessions_log_out' => 'Log Uit bij Andere Browsersessies',
     'browser_sessions_confirm_pass' => 'Voer uw wachtwoord in om te bevestigen dat u wilt uitloggen bij uw andere browsersessies op al uw apparaten.',
+    'browser_sessions_logout_success_notification' => 'Alle andere browsersessies zijn succesvol uitgelogd.',
 ];

@@ -44,4 +44,5 @@ return [
     'browser_sessions_last_active' => 'آخر نشاط',
     'browser_sessions_log_out' => 'تسجيل الخروج من جلسات المتصفح الأخرى',
     'browser_sessions_confirm_pass' => 'يُرجى إدخال كلمة المرور الخاصة بك لتأكيد رغبتك في تسجيل الخروج من جلسات المتصفح الأخرى عبر جميع أجهزتك.',
+    'browser_sessions_logout_success_notification' => 'تم تسجيل الخروج من جميع جلسات المتصفح الأخرى بنجاح.',
 ];

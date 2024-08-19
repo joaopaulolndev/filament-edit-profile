@@ -110,6 +110,11 @@ class BrowserSessionsForm extends BaseProfileForm
         ]);
 
         self::deleteOtherSessionRecords();
+
+        Notification::make()
+            ->success()
+            ->title(__('filament-edit-profile::default.browser_sessions_logout_success_notification'))
+            ->send();
     }
 
     protected static function deleteOtherSessionRecords()

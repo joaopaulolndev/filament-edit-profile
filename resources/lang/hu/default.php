@@ -44,4 +44,5 @@ return [
     'browser_sessions_last_active' => 'Legutóbbi aktivitás',
     'browser_sessions_log_out' => 'Kijelentkezés más böngésző munkamenetekből',
     'browser_sessions_confirm_pass' => 'Kérjük, add meg a jelszavad, hogy megerősítsd, ki szeretnél jelentkezni az összes többi böngésző munkamenetből az összes eszközödön.',
+    'browser_sessions_logout_success_notification' => 'Az összes többi böngésző munkamenet sikeresen kijelentkezett.',
 ];
