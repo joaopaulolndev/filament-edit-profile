@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.26 - 2024-08-19
+
+### What's Changed
+
+* Changed extension for migration files to test on to .php.stub by @ejjaquet in https://github.com/joaopaulolndev/filament-edit-profile/pull/40
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.25...v1.0.26
+
 ## v1.0.25 - 2024-08-19
 
 ### What's Changed
