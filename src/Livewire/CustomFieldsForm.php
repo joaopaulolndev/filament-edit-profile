@@ -59,6 +59,8 @@ class CustomFieldsForm extends BaseProfileForm
         switch ($field['type']) {
             case 'text':
                 return self::createTextInput($fieldKey, $field);
+            case 'password':
+                return self::createPasswordInput($fieldKey, $field);
             case 'boolean':
                 return self::createCheckbox($fieldKey, $field);
             case 'select':
@@ -78,6 +80,16 @@ class CustomFieldsForm extends BaseProfileForm
             ->label(__($field['label']))
             ->placeholder(__($field['placeholder']))
             ->required($field['required'])
+            ->rules($field['rules']);
+    }
+
+    private static function createPasswordInput(string $fieldKey, array $field): TextInput
+    {
+        return TextInput::make($fieldKey)
+            ->label(__($field['label']))
+            ->placeholder(__($field['placeholder']))
+            ->required($field['required'])
+            ->password()
             ->rules($field['rules']);
     }
 
