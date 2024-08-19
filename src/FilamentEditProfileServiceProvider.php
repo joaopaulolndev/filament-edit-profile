@@ -157,7 +157,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     public static function migrationFileExists(string $migrationFileName): bool
     {
         $len = strlen($migrationFileName);
-        foreach (glob(database_path('migrations/*.php')) as $filename) {
+        foreach (glob(database_path('migrations/*.php.stub')) as $filename) {
             if ((substr($filename, -$len) === $migrationFileName)) {
                 return true;
             }
