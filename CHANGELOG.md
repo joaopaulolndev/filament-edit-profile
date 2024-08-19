@@ -2,6 +2,20 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.25 - 2024-08-19
+
+### What's Changed
+
+* Added a Input of type password to the CustomFormField possibilities by @ejjaquet in https://github.com/joaopaulolndev/filament-edit-profile/pull/37
+* Add success notification for browser sessions logout by @carlopaa in https://github.com/joaopaulolndev/filament-edit-profile/pull/39
+
+### New Contributors
+
+* @ejjaquet made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/37
+* @carlopaa made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/39
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.24...v1.0.25
+
 ## v1.0.24 - 2024-08-09
 
 ### What's Changed
