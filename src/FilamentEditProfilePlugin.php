@@ -311,15 +311,15 @@ class FilamentEditProfilePlugin implements Plugin
             $components->put('edit_password_form', EditPasswordForm::class);
         }
 
-        if ($this->shouldShowDeleteAccountForm) {
+        if ($this->getShouldShowDeleteAccountForm()) {
             $components->put('delete_account_form', DeleteAccountForm::class);
         }
 
-        if ($this->sanctumTokens) {
+        if ($this->getShouldShowSanctumTokens()) {
             $components->put('sanctum_tokens', SanctumTokens::class);
         }
 
-        if ($this->shouldShowBrowserSessionsForm) {
+        if ($this->getShouldShowBrowserSessionsForm()) {
             $components->put('browser_sessions_form', BrowserSessionsForm::class);
         }
 
