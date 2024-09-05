@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.27 - 2024-09-05
+
+### What's Changed
+
+* fix: rename Portuguese language folder to pt_PT by @kidiatoliny in https://github.com/joaopaulolndev/filament-edit-profile/pull/42
+* fix: correct method calls in conditional checks by @kidiatoliny in https://github.com/joaopaulolndev/filament-edit-profile/pull/43
+
+### New Contributors
+
+* @kidiatoliny made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/42
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.26...v1.0.27
+
 ## v1.0.26 - 2024-08-19
 
 ### What's Changed
