@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.28 - 2024-09-09
+
+### What's Changed
+
+* Add Indonesian translation by @yandearta in https://github.com/joaopaulolndev/filament-edit-profile/pull/44
+
+### New Contributors
+
+* @yandearta made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/44
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.27...v1.0.28
+
 ## v1.0.27 - 2024-09-05
 
 ### What's Changed
