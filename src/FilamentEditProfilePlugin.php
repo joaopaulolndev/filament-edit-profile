@@ -3,17 +3,18 @@
 namespace Joaopaulolndev\FilamentEditProfile;
 
 use Closure;
-use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Filament\Support\Concerns\EvaluatesClosures;
-use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
-use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
+use Filament\Contracts\Plugin;
+use Filament\Support\Concerns\EvaluatesClosures;
+use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
+use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
+use Joaopaulolndev\FilamentEditProfile\Livewire\TwoFactorForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
 
 class FilamentEditProfilePlugin implements Plugin
 {
@@ -42,6 +43,8 @@ class FilamentEditProfilePlugin implements Plugin
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
     public Closure | bool $shouldShowBrowserSessionsForm = true;
+
+    public bool $shouldShowTwoFactorForm = false;
 
     protected Closure | bool $sanctumTokens = false;
 
@@ -289,6 +292,18 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldShowAvatarForm);
     }
 
+    public function shouldShowTwoFactorForm(bool $value = false): static
+    {
+        $this->shouldShowTwoFactorForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowTwoFactorForm(): bool
+    {
+        return $this->evaluate($this->shouldShowTwoFactorForm);
+    }
+
     public function getAvatarDirectory(): string
     {
         return $this->avatarDirectory;
@@ -317,6 +332,10 @@ class FilamentEditProfilePlugin implements Plugin
 
         if ($this->getShouldShowSanctumTokens()) {
             $components->put('sanctum_tokens', SanctumTokens::class);
+        }
+
+        if ($this->getShouldShowTwoFactorForm()) {
+            $components->put('two_factor_form', TwoFactorForm::class);
         }
 
         if ($this->getShouldShowBrowserSessionsForm()) {
