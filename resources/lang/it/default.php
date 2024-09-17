@@ -43,6 +43,6 @@ return [
     'browser_sessions_device' => 'Questo dispositivo',
     'browser_sessions_last_active' => 'Ultima attività',
     'browser_sessions_log_out' => 'Disconnetti altre sessioni del browser',
-    'browser_sessions_confirm_pass' => 'Inserisci la tua password per confermare che desideri disconnettere le altre sessioni del browser su tutti i tuoi dispositivi.'
+    'browser_sessions_confirm_pass' => 'Inserisci la tua password per confermare che desideri disconnettere le altre sessioni del browser su tutti i tuoi dispositivi.',
     'browser_sessions_logout_success_notification' => 'Tutte le altre sessioni del browser sono state disconnesse con successo.',
 ];
