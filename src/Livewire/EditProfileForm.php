@@ -48,12 +48,14 @@ class EditProfileForm extends BaseProfileForm
                             ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
                         TextInput::make('name')
                             ->label(__('filament-edit-profile::default.name'))
-                            ->required(),
+                            ->required()
+                            ->disabled(in_array('name', filament('filament-edit-profile')->getDisabledFields())),
                         TextInput::make('email')
                             ->label(__('filament-edit-profile::default.email'))
                             ->email()
                             ->required()
-                            ->unique($this->userClass, ignorable: $this->user),
+                            ->unique($this->userClass, ignorable: $this->user)
+                            ->disabled(in_array('email', filament('filament-edit-profile')->getDisabledFields())),
                     ]),
             ])
             ->statePath('data');
