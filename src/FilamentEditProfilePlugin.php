@@ -55,6 +55,8 @@ class FilamentEditProfilePlugin implements Plugin
 
     protected array $registeredCustomProfileComponents = [];
 
+    protected array $disabledFields = [];
+
     public function getId(): string
     {
         return 'filament-edit-profile';
@@ -349,5 +351,17 @@ class FilamentEditProfilePlugin implements Plugin
         return collect($this->registeredCustomProfileComponents)
             ->sortBy(fn (string $component) => $component::getSort())
             ->all();
+    }
+
+    public function disableFields(array $fields): self
+    {
+        $this->disabledFields = array_merge($this->disabledFields, $fields);
+
+        return $this;
+    }
+
+    public function getDisabledFields(): array
+    {
+        return $this->disabledFields;
     }
 }
