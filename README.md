@@ -114,6 +114,18 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 ])
 ```
 
+If needed you can define the disk and visibility of the avatar image. In the config file add the following:
+
+[config/filament-edit-profile.php](config/filament-edit-profile.php)
+
+```php
+return [
+    'disk' => 's3',
+    'visibility' => 'public',
+];
+```
+
+
 ## Profile Avatar
 
 ![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/profile-avatar.png)
