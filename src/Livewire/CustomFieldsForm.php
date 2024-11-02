@@ -12,6 +12,7 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Throwable;
+
 class CustomFieldsForm extends BaseProfileForm
 {
     use HasUser;
@@ -76,7 +77,7 @@ class CustomFieldsForm extends BaseProfileForm
 
     private static function createFieldFromString(string $fieldKey, array $field): ?Forms\Components\Component
     {
-       try {
+        try {
 
             $class = \Illuminate\Support\Str::camel($field['type']);
             $class = "Filament\Forms\Components\\{$class}";
@@ -87,7 +88,8 @@ class CustomFieldsForm extends BaseProfileForm
                 ->required($field['required'])
                 ->rules($field['rules']);
 
-       } catch (Throwable $exception) {}        
+        } catch (Throwable $exception) {
+        }
     }
 
     private static function createTextInput(string $fieldKey, array $field): TextInput
