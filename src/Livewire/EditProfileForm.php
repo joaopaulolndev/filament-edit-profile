@@ -43,6 +43,8 @@ class EditProfileForm extends BaseProfileForm
                             ->label(__('filament-edit-profile::default.avatar'))
                             ->avatar()
                             ->imageEditor()
+                            ->disk(config('filament-edit-profile.disk', 'public'))
+                            ->visibility(config('filament-edit-profile.visibility', 'public'))
                             ->directory(filament('filament-edit-profile')->getAvatarDirectory())
                             ->rules(filament('filament-edit-profile')->getAvatarRules())
                             ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
