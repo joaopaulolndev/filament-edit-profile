@@ -2,6 +2,22 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.32 - 2024-11-02
+
+### What's Changed
+
+* Add disk and visibility configuration for avatars by @rpsimao in https://github.com/joaopaulolndev/filament-edit-profile/pull/51
+* Fix `json_decode` type error by @mkeremcansev in https://github.com/joaopaulolndev/filament-edit-profile/pull/55
+* Added a method to dynamicly resolve a field from the field type by @pvdptje in https://github.com/joaopaulolndev/filament-edit-profile/pull/53
+
+### New Contributors
+
+* @rpsimao made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/51
+* @mkeremcansev made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/55
+* @pvdptje made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/53
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.31...v1.0.32
+
 ## v1.0.31 - 2024-10-28
 
 ### What's Changed
