@@ -32,7 +32,7 @@ class CustomFieldsForm extends BaseProfileForm
 
         $this->customFields = config('filament-edit-profile.custom_fields');
 
-        $this->form->fill(json_decode($data['custom_fields'], true) ?? []);
+        $this->form->fill($data['custom_fields'] ?? []);
     }
 
     public function form(Form $form): Form
