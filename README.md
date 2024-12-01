@@ -120,8 +120,8 @@ If needed you can define the disk and visibility of the avatar image. In the con
 
 ```php
 return [
-    'disk' => 's3',
-    'visibility' => 'public',
+    'disk' => env('FILESYSTEM_DISK', 'public'),
+    'visibility' => 'public', // or replace by filesystem disk visibility with fallback value
 ];
 ```
 
