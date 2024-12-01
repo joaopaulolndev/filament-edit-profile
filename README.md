@@ -147,7 +147,7 @@ protected $fillable = [
     'name',
     'email',
     'password',
-    'avatar_url',
+    'avatar_url', // or column name according to config('filament-edit-profile.avatar_column', 'avatar_url')
 ];
 ```
 
@@ -162,7 +162,8 @@ class User extends Authenticatable implements HasAvatar
     // ...
     public function getFilamentAvatarUrl(): ?string
     {
-        return $this->avatar_url ? Storage::url("$this->avatar_url") : null;
+        $avatarColumn = config('filament-edit-profile.avatar_column', 'avatar_url');
+        return $this->$avatarColumn ? Storage::url("$this->$avatarColumn") : null;
     }
 }
 ```
