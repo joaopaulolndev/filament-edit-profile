@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.33 - 2024-12-05
+
+### What's Changed
+
+* Refactor Configuration for Filament Profile Editing and Avatar Handling by @ludndev in https://github.com/joaopaulolndev/filament-edit-profile/pull/59
+
+### New Contributors
+
+* @ludndev made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/59
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.32...v1.0.33
+
 ## v1.0.32 - 2024-11-02
 
 ### What's Changed
