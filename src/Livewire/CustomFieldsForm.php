@@ -106,6 +106,7 @@ class CustomFieldsForm extends BaseProfileForm
             ->prefixIcon($field['prefix_icon'] ?? null)
             ->default($field['default'] ?? null)
             ->rules($field['rules'] ?? [])
+            ->autocomplete($field['autocomplete'] ?? false)
             ->columnSpan($field['column_span'] ?? 'full');
     }
 
@@ -118,6 +119,7 @@ class CustomFieldsForm extends BaseProfileForm
             ->hint(__($field['hint'] ?? null))
             ->required($field['required'] ?? false)
             ->revealable($field['revealable'] ?? true)
+            ->autocomplete($field['autocomplete'] ?? true)
             ->password()
             ->default($field['default'] ?? null)
             ->rules($field['rules'] ?? [])
@@ -150,6 +152,8 @@ class CustomFieldsForm extends BaseProfileForm
             ->default($field['default'] ?? null)
             ->searchable($field['searchable'] ?? true)
             ->columnSpan($field['column_span'] ?? 'full')
+            ->hint($field['hint'] ?? null)
+            ->hintIcon($field['hint_icon'] ?? null)
             ->rules($field['rules'] ?? []);
     }
 

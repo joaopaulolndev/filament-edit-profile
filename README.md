@@ -305,6 +305,7 @@ return [
             'prefix_icon' => '', // optional
             'default' => '', // optional
             'column_span' => 'full', // optional
+            'autocomplete' => false, // optional
         ],
         'custom_field_2' => [
             'type' => 'password', // required
@@ -317,6 +318,7 @@ return [
             'default' => '', // optional
             'column_span' => 'full',
             'revealable' => true, // optional
+            'autocomplete' => true, // optional
         ],
         'custom_field_3' => [
             'type' => 'select', // required
@@ -336,6 +338,8 @@ return [
             'searchable' => true, // optional
             'column_span' => 'full', // optional
             'rules' => [], // optional
+            'hint_icon' => '', // optional
+            'hint' => '', // optional
         ],
         'custom_field_4' => [
             'type' =>'textarea', // required
