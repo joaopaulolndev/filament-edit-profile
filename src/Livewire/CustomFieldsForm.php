@@ -49,6 +49,7 @@ class CustomFieldsForm extends BaseProfileForm
                 Forms\Components\Section::make(__('filament-edit-profile::default.custom_fields'))
                     ->aside()
                     ->description(__('filament-edit-profile::default.custom_fields_description'))
+                    ->columns()
                     ->schema($fields),
             ])
             ->model($this->getUser())
@@ -84,9 +85,10 @@ class CustomFieldsForm extends BaseProfileForm
 
             return $class::make($fieldKey)
                 ->label(__($field['label']))
-                ->placeholder(__($field['placeholder']))
-                ->required($field['required'])
-                ->rules($field['rules']);
+                ->placeholder(__($field['placeholder'] ?? null))
+                ->required($field['required'] ?? false)
+                ->columnSpan($field['column_span'] ?? 'full')
+                ->rules($field['rules'] ?? []);
 
         } catch (Throwable $exception) {
         }
@@ -96,51 +98,92 @@ class CustomFieldsForm extends BaseProfileForm
     {
         return TextInput::make($fieldKey)
             ->label(__($field['label']))
-            ->placeholder(__($field['placeholder']))
-            ->required($field['required'])
-            ->rules($field['rules']);
+            ->placeholder(__($field['placeholder'] ?? null))
+            ->required($field['required'] ?? false)
+            ->hintIcon($field['hint_icon'] ?? null)
+            ->hint(__($field['hint'] ?? null))
+            ->suffixIcon($field['suffix_icon'] ?? null)
+            ->prefixIcon($field['prefix_icon'] ?? null)
+            ->default($field['default'] ?? null)
+            ->rules($field['rules'] ?? [])
+            ->columnSpan($field['column_span'] ?? 'full');
     }
 
     private static function createPasswordInput(string $fieldKey, array $field): TextInput
     {
         return TextInput::make($fieldKey)
             ->label(__($field['label']))
-            ->placeholder(__($field['placeholder']))
-            ->required($field['required'])
+            ->placeholder(__($field['placeholder'] ?? null))
+            ->hintIcon($field['hint_icon'] ?? null)
+            ->hint(__($field['hint'] ?? null))
+            ->required($field['required'] ?? false)
+            ->revealable($field['revealable'] ?? true)
             ->password()
-            ->rules($field['rules']);
+            ->default($field['default'] ?? null)
+            ->rules($field['rules'] ?? [])
+            ->columnSpan($field['column_span'] ?? 'full');
     }
 
     private static function createCheckbox(string $fieldKey, array $field): Checkbox
     {
         return Checkbox::make($fieldKey)
-            ->label(__($field['label']));
+            ->label(__($field['label']))
+            ->required($field['required'] ?? false)
+            ->hintIcon($field['hint_icon'] ?? null)
+            ->hint(__($field['hint'] ?? null))
+            ->default($field['default'] ?? null)
+            ->rules($field['rules'] ?? [])
+            ->columnSpan($field['column_span'] ?? 'full');
     }
 
     private static function createSelect(string $fieldKey, array $field): Select
     {
         return Select::make($fieldKey)
             ->label(__($field['label']))
-            ->placeholder(__($field['placeholder']))
-            ->options($field['options'])
-            ->required($field['required']);
+            ->placeholder(__($field['placeholder'] ?? null))
+            ->options($field['options'] ?? [])
+            ->required($field['required'] ?? false)
+            ->selectablePlaceholder($field['selectable_placeholder'] ?? true)
+            ->native($field['native'] ?? true)
+            ->preload($field['preload'] ?? true)
+            ->suffixIcon($field['suffix_icon'] ?? null)
+            ->default($field['default'] ?? null)
+            ->searchable($field['searchable'] ?? true)
+            ->columnSpan($field['column_span'] ?? 'full')
+            ->rules($field['rules'] ?? []);
     }
 
     private static function createTextarea(string $fieldKey, array $field): Textarea
     {
         return Textarea::make($fieldKey)
             ->label(__($field['label']))
-            ->placeholder(__($field['placeholder']))
-            ->rows($field['rows'])
-            ->required($field['required']);
+            ->placeholder(__($field['placeholder'] ?? null))
+            ->required($field['required'] ?? false)
+            ->hintIcon($field['hint_icon'] ?? null)
+            ->hint(__($field['hint'] ?? null))
+            ->default($field['default'] ?? null)
+            ->rules($field['rules'] ?? [])
+            ->rows($field['rows'] ?? 3)
+            ->columnSpan($field['column_span'] ?? 'full');
     }
 
     private static function createDateTimePicker(string $fieldKey, array $field): DateTimePicker
     {
         return DateTimePicker::make($fieldKey)
             ->label(__($field['label']))
-            ->placeholder(__($field['placeholder']))
-            ->seconds($field['seconds']);
+            ->placeholder(__($field['placeholder'] ?? null))
+            ->required($field['required'] ?? false)
+            ->hintIcon($field['hint_icon'] ?? null)
+            ->hint(__($field['hint'] ?? null))
+            ->suffixIcon($field['suffix_icon'] ?? null)
+            ->prefixIcon($field['prefix_icon'] ?? null)
+            ->default($field['default'] ?? null)
+            ->rules($field['rules'] ?? [])
+            ->format($field['format'] ?? 'Y-m-d H:i:s')
+            ->time($field['time'] ?? true)
+            ->native($field['native'] ?? true)
+            ->columnSpan($field['column_span'] ?? 'full')
+            ->seconds($field['seconds'] ?? true);
     }
 
     public function updateCustomFields(): void
