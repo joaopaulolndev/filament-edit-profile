@@ -299,7 +299,7 @@ return [
             'placeholder' => 'Custom Field 1', // optional
             'required' => true, // optional
             'rules' => [], // optional
-            'hintIcon' => '', // optional
+            'hint_icon' => '', // optional
             'hint' => '', // optional
             'suffix_icon' => '', // optional
             'prefix_icon' => '', // optional
@@ -313,7 +313,7 @@ return [
             'placeholder' => 'Custom Password Field 2', // optional
             'required' => true, // optional
             'rules' => [], // optional
-            'hintIcon' => '', // optional
+            'hint_icon' => '', // optional
             'hint' => '', // optional
             'default' => '', // optional
             'column_span' => 'full',
