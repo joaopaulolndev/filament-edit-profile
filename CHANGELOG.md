@@ -2,6 +2,20 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.34 - 2025-02-07
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/joaopaulolndev/filament-edit-profile/pull/65
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/joaopaulolndev/filament-edit-profile/pull/67
+* Feat: Add more property support to custom fields by @gigili in https://github.com/joaopaulolndev/filament-edit-profile/pull/64
+
+### New Contributors
+
+* @gigili made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/64
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.33...v1.0.34
+
 ## v1.0.33 - 2024-12-05
 
 ### What's Changed
