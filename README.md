@@ -297,6 +297,7 @@ return [
             'type' => 'text', // required
             'label' => 'Custom Textfield 1', // required
             'placeholder' => 'Custom Field 1', // optional
+            'id' => 'custom-field-1', // optional
             'required' => true, // optional
             'rules' => [], // optional
             'hint_icon' => '', // optional
@@ -311,6 +312,7 @@ return [
             'type' => 'password', // required
             'label' => 'Custom Password field 2', // required
             'placeholder' => 'Custom Password Field 2', // optional
+            'id' => 'custom-field-2', // optional
             'required' => true, // optional
             'rules' => [], // optional
             'hint_icon' => '', // optional
@@ -324,6 +326,7 @@ return [
             'type' => 'select', // required
             'label' => 'Custom Select 3', // required
             'placeholder' => 'Select', // optional
+            'id' => 'custom-field-3', // optional
             'required' => true, // optional
             'options' => [
                 'option_1' => 'Option 1',
@@ -345,6 +348,7 @@ return [
             'type' =>'textarea', // required
             'label' => 'Custom Textarea 4', // required
             'placeholder' => 'Textarea', // optional
+            'id' => 'custom-field-4', // optional
             'rows' => '3', // optional
             'required' => true, // optional
             'hint_icon' => '', // optional
@@ -357,6 +361,7 @@ return [
             'type' => 'datetime', // required
             'label' => 'Custom Datetime 5', // required
             'placeholder' => 'Datetime', // optional
+            'id' => 'custom-field-5', // optional
             'seconds' => false, // optional
             'required' => true, // optional
             'hint_icon' => '', // optional
@@ -374,6 +379,7 @@ return [
             'type' => 'boolean', // required
             'label' => 'Custom Boolean 6', // required
             'placeholder' => 'Boolean', // optional
+            'id' => 'custom-field-6', // optional
             'hint_icon' => '', // optional
             'hint' => '', // optional
             'default' => '', // optional
