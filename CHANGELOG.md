@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.35 - 2025-02-12
+
+### What's Changed
+
+* Add id to custom fields by @Ercogx in https://github.com/joaopaulolndev/filament-edit-profile/pull/68
+
+### New Contributors
+
+* @Ercogx made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/68
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.34...v1.0.35
+
 ## v1.0.34 - 2025-02-07
 
 ### What's Changed
