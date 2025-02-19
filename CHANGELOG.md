@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.36 - 2025-02-19
+
+### What's Changed
+
+* feat localization : add Turkish lang by @AzizEmir in https://github.com/joaopaulolndev/filament-edit-profile/pull/72
+
+### New Contributors
+
+* @AzizEmir made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/72
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.35...v1.0.36
+
 ## v1.0.35 - 2025-02-12
 
 ### What's Changed
