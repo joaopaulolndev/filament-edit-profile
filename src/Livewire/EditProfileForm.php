@@ -55,7 +55,7 @@ class EditProfileForm extends BaseProfileForm
                             ->visibility(config('filament-edit-profile.visibility', 'public'))
                             ->directory(filament('filament-edit-profile')->getAvatarDirectory())
                             ->rules(filament('filament-edit-profile')->getAvatarRules())
-                            ->hidden(!filament('filament-edit-profile')->getShouldShowAvatarForm()),
+                            ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
                         TextInput::make('name')
                             ->label(__('filament-edit-profile::default.name'))
                             ->required(),
