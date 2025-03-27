@@ -2,6 +2,21 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.37 - 2025-03-27
+
+### What's Changed
+
+* Support Laravel 12 by @patriciomartinns in https://github.com/joaopaulolndev/filament-edit-profile/pull/73
+* Add Japanese Language Support by @staffkojinpro in https://github.com/joaopaulolndev/filament-edit-profile/pull/77
+* [Bug} compatibily with Model::shouldBeStrict() by @gpibarra in https://github.com/joaopaulolndev/filament-edit-profile/pull/75
+
+### New Contributors
+
+* @patriciomartinns made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/73
+* @staffkojinpro made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/77
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.36...v1.0.37
+
 ## v1.0.36 - 2025-02-19
 
 ### What's Changed
