@@ -76,6 +76,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
+       
         $this->registerLivewireComponents();
     }
 
