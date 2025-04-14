@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Support\Exceptions\Halt;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class EditProfileForm extends BaseProfileForm
 {
@@ -19,6 +20,8 @@ class EditProfileForm extends BaseProfileForm
     public ?array $data = [];
 
     public $userClass;
+
+    public $avatar;
 
     protected static int $sort = 10;
 
@@ -32,9 +35,6 @@ class EditProfileForm extends BaseProfileForm
             'name',
             'email',
         ];
-        if (filament('filament-edit-profile')->getShouldShowAvatarForm()) {
-            $fields[] = config('filament-edit-profile.avatar_column', 'avatar_url');
-        }
 
         $this->form->fill($this->user->only($fields));
     }
@@ -44,18 +44,19 @@ class EditProfileForm extends BaseProfileForm
         return $form
             ->schema([
                 Section::make(__('filament-edit-profile::default.profile_information'))
-                    ->aside()
+                   /*  ->aside() */
                     ->description(__('filament-edit-profile::default.profile_information_description'))
                     ->schema([
-                        FileUpload::make(config('filament-edit-profile.avatar_column', 'avatar_url'))
+                        SpatieMediaLibraryFileUpload::make('avatar')
+                            ->model($this->user)
                             ->label(__('filament-edit-profile::default.avatar'))
+                            ->collection('avatar')
                             ->avatar()
                             ->imageEditor()
-                            ->disk(config('filament-edit-profile.disk', 'public'))
+                            ->disk(config('filament-edit-profile.disk', 'public')) 
                             ->visibility(config('filament-edit-profile.visibility', 'public'))
-                            ->directory(filament('filament-edit-profile')->getAvatarDirectory())
                             ->rules(filament('filament-edit-profile')->getAvatarRules())
-                            ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
+                            ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()), 
                         TextInput::make('name')
                             ->label(__('filament-edit-profile::default.name'))
                             ->required(),
@@ -71,11 +72,14 @@ class EditProfileForm extends BaseProfileForm
 
     public function updateProfile(): void
     {
+      
         try {
-            $data = $this->form->getState();
-
-            $this->user->update($data);
+             $data = $this->form->getState();
+           
+            // Update other fields
+            $this->user->update($data); 
         } catch (Halt $exception) {
+            dd($exception);
             return;
         }
 

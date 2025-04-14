@@ -1,11 +1,15 @@
-<x-filament-panels::form wire:submit="updateProfile">
-    {{ $this->form }}
+<!-- content -->
+<div class="space-y-6">
+    
 
-    <div class="fi-form-actions">
-        <div class="flex flex-row-reverse flex-wrap items-center gap-3 fi-ac">
+    <x-filament-panels::form wire:submit="updateProfile">
+        {{ $this->form }}
+
+        <div class="flex justify-end">
             <x-filament::button type="submit">
                 {{ __('filament-edit-profile::default.save') }}
             </x-filament::button>
         </div>
-    </div>
-</x-filament-panels::form>
+    </x-filament-panels::form>
+</div>
+<!-- content -->

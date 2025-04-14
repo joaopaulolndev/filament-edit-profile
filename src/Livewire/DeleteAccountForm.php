@@ -22,7 +22,7 @@ class DeleteAccountForm extends BaseProfileForm
             ->schema([
                 Section::make(__('filament-edit-profile::default.delete_account'))
                     ->description(__('filament-edit-profile::default.delete_account_description'))
-                    ->aside()
+                  /*   ->aside() */
                     ->schema([
                         Forms\Components\ViewField::make('deleteAccount')
                             ->label(__('Delete Account'))

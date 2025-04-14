@@ -84,7 +84,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
                     ], $publishTag);
                 }
             };
-            $publishMigration('add_avatar_url_to_users_table.php', 'filament-edit-profile-avatar-migration');
             $publishMigration('add_custom_fields_to_users_table.php', 'filament-edit-profile-custom-field-migration');
         }
 
@@ -150,7 +149,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     {
         return [
             'add_custom_fields_to_users_table',
-            'add_avatar_url_to_users_table',
         ];
     }
 

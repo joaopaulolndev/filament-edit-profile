@@ -24,7 +24,7 @@ class BrowserSessionsForm extends BaseProfileForm
             ->schema([
                 Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
                     ->description(__('filament-edit-profile::default.browser_section_description'))
-                    ->aside()
+                 /*    ->aside() */
                     ->schema([
                         Forms\Components\ViewField::make('browserSessions')
                             ->label(__(__('filament-edit-profile::default.browser_section_title')))
