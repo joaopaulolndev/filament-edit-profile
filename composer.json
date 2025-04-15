@@ -1,21 +1,21 @@
 {
-    "name": "joaopaulolndev/filament-edit-profile",
+    "name": "noopstudios/filament-edit-profile",
     "description": "Filament package to edit profile",
     "keywords": [
-        "joaopaulolndev",
+        "noopstudios",
         "laravel",
         "filament-edit-profile"
     ],
-    "homepage": "https://github.com/joaopaulolndev/filament-edit-profile",
+    "homepage": "https://github.com/noopstudios/filament-edit-profile",
     "support": {
-        "issues": "https://github.com/joaopaulolndev/filament-edit-profile/issues",
-        "source": "https://github.com/joaopaulolndev/filament-edit-profile"
+        "issues": "https://github.com/noopstudios/filament-edit-profile/issues",
+        "source": "https://github.com/noopstudios/filament-edit-profile"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "João Paulo Leite Nascimento",
-            "email": "joaopauloln7@gmail.com",
+            "name": "Noop Studios",
+            "email": "geral@noop.pt",
             "role": "Developer"
         }
     ],
@@ -38,13 +38,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Joaopaulolndev\\FilamentEditProfile\\": "src/",
-            "Joaopaulolndev\\FilamentEditProfile\\Database\\Factories\\": "database/factories/"
+            "NoopStudios\\FilamentEditProfile\\": "src/",
+            "NoopStudios\\FilamentEditProfile\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Joaopaulolndev\\FilamentEditProfile\\Tests\\": "tests/"
+            "NoopStudios\\FilamentEditProfile\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfileServiceProvider"
+                "NoopStudios\\FilamentEditProfile\\FilamentEditProfileServiceProvider"
             ],
             "aliases": {
-                "FilamentEditProfile": "Joaopaulolndev\\FilamentEditProfile\\Facades\\FilamentEditProfile"
+                "FilamentEditProfile": "NoopStudios\\FilamentEditProfile\\Facades\\FilamentEditProfile"
             }
         }
     },

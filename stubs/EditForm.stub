@@ -9,7 +9,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Livewire\Component;
 use Illuminate\Contracts\View\View;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasSort;
+use NoopStudios\FilamentEditProfile\Concerns\HasSort;
 
 class {{ class }} extends Component implements HasForms
 {

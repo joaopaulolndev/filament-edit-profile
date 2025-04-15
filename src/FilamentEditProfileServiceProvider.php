@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile;
+namespace NoopStudios\FilamentEditProfile;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -8,8 +8,8 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
-use Joaopaulolndev\FilamentEditProfile\Commands\FilamentEditProfileCommand;
-use Joaopaulolndev\FilamentEditProfile\Testing\TestsFilamentEditProfile;
+use NoopStudios\FilamentEditProfile\Commands\FilamentEditProfileCommand;
+use NoopStudios\FilamentEditProfile\Testing\TestsFilamentEditProfile;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -36,7 +36,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('joaopaulolndev/filament-edit-profile');
+                    ->askToStarRepoOnGitHub('noopstudios/filament-edit-profile');
             });
 
         $configFileName = $package->shortName();
@@ -98,7 +98,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'Joaopaulolndev/filament-edit-profile';
+        return 'NoopStudios/filament-edit-profile';
     }
 
     /**
@@ -178,7 +178,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
         Route::middleware(['web', 'auth'])
             ->name('verification.email.')
             ->group(function () {
-                Route::get('/email/change/verify', \Joaopaulolndev\FilamentEditProfile\Http\Controllers\EmailChangeController::class)
+                Route::get('/email/change/verify', \NoopStudios\FilamentEditProfile\Http\Controllers\EmailChangeController::class)
                     ->name('change');
             });
     }

@@ -1,16 +1,16 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Facades;
+namespace NoopStudios\FilamentEditProfile\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Joaopaulolndev\FilamentEditProfile\FilamentEditProfile
+ * @see \NoopStudios\FilamentEditProfile\FilamentEditProfile
  */
 class FilamentEditProfile extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Joaopaulolndev\FilamentEditProfile\FilamentEditProfile::class;
+        return \NoopStudios\FilamentEditProfile\FilamentEditProfile::class;
     }
 }

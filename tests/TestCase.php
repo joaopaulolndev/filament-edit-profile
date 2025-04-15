@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Tests;
+namespace NoopStudios\FilamentEditProfile\Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
@@ -13,7 +13,7 @@ use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Joaopaulolndev\FilamentEditProfile\FilamentEditProfileServiceProvider;
+use NoopStudios\FilamentEditProfile\FilamentEditProfileServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
@@ -25,7 +25,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Joaopaulolndev\\FilamentEditProfile\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'NoopStudios\\FilamentEditProfile\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 

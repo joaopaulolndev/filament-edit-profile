@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Http\Controllers;
+namespace NoopStudios\FilamentEditProfile\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

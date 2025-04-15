@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -8,7 +8,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasSort;
+use NoopStudios\FilamentEditProfile\Concerns\HasSort;
 use Livewire\Component;
 
 class BaseProfileForm extends Component implements HasActions, HasForms

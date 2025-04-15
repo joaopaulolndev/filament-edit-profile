@@ -1,5 +1,5 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile;
+namespace NoopStudios\FilamentEditProfile;
 
 class FilamentEditProfile {}

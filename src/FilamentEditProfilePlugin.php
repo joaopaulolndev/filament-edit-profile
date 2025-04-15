@@ -1,18 +1,18 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile;
+namespace NoopStudios\FilamentEditProfile;
 
 use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
-use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
-use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
+use NoopStudios\FilamentEditProfile\Livewire\BrowserSessionsForm;
+use NoopStudios\FilamentEditProfile\Livewire\CustomFieldsForm;
+use NoopStudios\FilamentEditProfile\Livewire\DeleteAccountForm;
+use NoopStudios\FilamentEditProfile\Livewire\EditPasswordForm;
+use NoopStudios\FilamentEditProfile\Livewire\EditProfileForm;
+use NoopStudios\FilamentEditProfile\Livewire\SanctumTokens;
+use NoopStudios\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
 
 class FilamentEditProfilePlugin implements Plugin
@@ -41,7 +41,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public bool $shouldEditEmail = true;
 
-    public bool $shouldConfirmEmail = true;
+    public bool $shouldConfirmEmail = false;
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
 

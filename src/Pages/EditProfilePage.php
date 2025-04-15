@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Pages;
+namespace NoopStudios\FilamentEditProfile\Pages;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Tabs;
@@ -44,7 +44,7 @@ class EditProfilePage extends Page
 
         foreach($components as $component){
           
-            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm'){
+            if($component == 'NoopStudios\FilamentEditProfile\Livewire\EditProfileForm'){
                 $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.profile_information'))
                     ->icon('heroicon-o-user')
                     ->schema([
@@ -54,7 +54,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm'){
+            if($component == 'NoopStudios\FilamentEditProfile\Livewire\EditPasswordForm'){
                 $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.password'))
                     ->icon('heroicon-o-key')
                     ->schema([
@@ -64,7 +64,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm'){
+            if($component == 'NoopStudios\FilamentEditProfile\Livewire\DeleteAccountForm'){
                 $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.delete_account'))
                     ->icon('heroicon-o-trash')
                     ->schema([
@@ -74,7 +74,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens'){
+            if($component == 'NoopStudios\FilamentEditProfile\Livewire\SanctumTokens'){
                 $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.api_tokens_title'))
                     ->icon('heroicon-o-key')
                     ->schema([
@@ -84,7 +84,7 @@ class EditProfilePage extends Page
                     ]);
             }   
 
-            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm'){
+            if($component == 'NoopStudios\FilamentEditProfile\Livewire\BrowserSessionsForm'){
                 $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.browser_section_title'))
                     ->icon('heroicon-o-computer-desktop')
                     ->schema([
@@ -94,7 +94,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm'){
+            if($component == 'NoopStudios\FilamentEditProfile\Livewire\CustomFieldsForm'){
                 $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.custom_fields'))
                     ->icon('heroicon-o-document-text')
                     ->schema([
