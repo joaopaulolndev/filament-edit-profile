@@ -42,78 +42,70 @@ class EditProfilePage extends Page
 
         $components = $plugin->getRegisteredCustomProfileComponents();
 
-        dd($components);
-
         foreach($components as $component){
-            Log::info($component);
-        }
+          
+            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm'){
+                $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.profile_information'))
+                    ->icon('heroicon-o-user')
+                    ->schema([
+                        View::make('edit_profile_form')
+                            ->view('filament-edit-profile::livewire-component-view')
+                            ->viewData(['component' => 'edit_profile_form']),
+                    ]);
+            }
 
-        // Profile tab
-        if ($plugin->shouldShowEditProfileForm) {
-            $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.profile_information'))
-                ->icon('heroicon-o-user')
-                ->schema([
-                    View::make('edit_profile_form')
-                        ->view('filament-edit-profile::livewire-component-view')
-                        ->viewData(['component' => 'edit_profile_form']),
-                ]);
-        }
+            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm'){
+                $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.password'))
+                    ->icon('heroicon-o-key')
+                    ->schema([
+                        View::make('edit_password_form')
+                            ->view('filament-edit-profile::livewire-component-view')
+                            ->viewData(['component' => 'edit_password_form']),
+                    ]);
+            }
 
-        // Password tab
-        if ($plugin->shouldShowEditPasswordForm) {
-            $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.password'))
-                ->icon('heroicon-o-key')
-                ->schema([
-                    View::make('edit_password_form')
-                        ->view('filament-edit-profile::livewire-component-view')
-                        ->viewData(['component' => 'edit_password_form']),
-                ]);
-        }
+            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm'){
+                $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.delete_account'))
+                    ->icon('heroicon-o-trash')
+                    ->schema([
+                        View::make('delete_account_form')
+                            ->view('filament-edit-profile::livewire-component-view')
+                            ->viewData(['component' => 'delete_account_form']),
+                    ]);
+            }
 
-        // Delete account tab
-        if ($plugin->getShouldShowDeleteAccountForm()) {
-            $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.delete_account'))
-                ->icon('heroicon-o-trash')
-                ->schema([
-                    View::make('delete_account_form')
-                        ->view('filament-edit-profile::livewire-component-view')
-                        ->viewData(['component' => 'delete_account_form']),
-                ]);
-        }
+            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens'){
+                $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.api_tokens_title'))
+                    ->icon('heroicon-o-key')
+                    ->schema([
+                        View::make('sanctum_tokens')
+                            ->view('filament-edit-profile::livewire-component-view')
+                            ->viewData(['component' => 'sanctum_tokens']),
+                    ]);
+            }   
 
-        // API tokens tab
-        if ($plugin->getShouldShowSanctumTokens()) {
-            $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.api_tokens_title'))
-                ->icon('heroicon-o-key')
-                ->schema([
-                    View::make('sanctum_tokens')
-                        ->view('filament-edit-profile::livewire-component-view')
-                        ->viewData(['component' => 'sanctum_tokens']),
-                ]);
-        }
+            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm'){
+                $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.browser_section_title'))
+                    ->icon('heroicon-o-computer-desktop')
+                    ->schema([
+                        View::make('browser_sessions_form')
+                            ->view('filament-edit-profile::livewire-component-view')
+                            ->viewData(['component' => 'browser_sessions_form']),
+                    ]);
+            }
 
-        // Browser sessions tab
-        if ($plugin->getShouldShowBrowserSessionsForm()) {
-            $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.browser_section_title'))
-                ->icon('heroicon-o-computer-desktop')
-                ->schema([
-                    View::make('browser_sessions_form')
-                        ->view('filament-edit-profile::livewire-component-view')
-                        ->viewData(['component' => 'browser_sessions_form']),
-                ]);
-        }
+            if($component == 'Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm'){
+                $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.custom_fields'))
+                    ->icon('heroicon-o-document-text')
+                    ->schema([
+                        View::make('custom_fields_form')
+                            ->view('filament-edit-profile::livewire-component-view')
+                            ->viewData(['component' => 'custom_fields_form']),
+                    ]);
+            }
 
-        // Custom fields tab
-        if (config('filament-edit-profile.show_custom_fields') && ! empty(config('filament-edit-profile.custom_fields'))) {
-            $tabsConfig[] = Tabs\Tab::make(__('filament-edit-profile::default.custom_fields'))
-                ->icon('heroicon-o-document-text')
-                ->schema([
-                    View::make('custom_fields_form')
-                        ->view('filament-edit-profile::livewire-component-view')
-                        ->viewData(['component' => 'custom_fields_form']),
-                ]);
         }
-
+        
         return Tabs::make('profile_tabs')
             ->tabs($tabsConfig);
     }

@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'Terminar Sessões de Outros Navegadores',
     'browser_sessions_confirm_pass' => 'Por favor, introduza a sua palavra-passe para confirmar que deseja terminar as sessões de outros navegadores em todos os seus dispositivos.',
     'browser_sessions_logout_success_notification' => 'Todas as outras sessões do navegador foram desconectadas com êxito.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Verificação de Email Enviada',
+    'email_verification_sent_message' => 'Foi enviado um link de verificação para o seu novo endereço de email. Por favor, verifique a sua caixa de entrada e clique no link para confirmar a alteração.',
+    'email_change_confirmation_subject' => 'Confirmação de Alteração de Email',
+    'email_change_request_message' => 'Solicitou a alteração do seu endereço de email.',
+    'email_confirm_action_message' => 'Por favor, clique no botão abaixo para confirmar o seu novo endereço de email.',
+    'confirm_email_change' => 'Confirmar Alteração de Email',
+    'email_change_no_action_message' => 'Se não solicitou esta alteração, nenhuma ação adicional é necessária.',
+    'invalid_link' => 'O link de verificação é inválido ou expirou.',
+    'unauthorized' => 'Não está autorizado a realizar esta ação.',
+    'invalid_email_verification' => 'A verificação de email é inválida.',
+    'email_changed_successfully' => 'O seu email foi alterado com sucesso.',
 ];

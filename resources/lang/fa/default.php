@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'از سایر سشن های مرورگر خارج شوید',
     'browser_sessions_confirm_pass' => 'لطفاً رمز عبور خود را وارد کنید تا تأیید کنید که می خواهید از سایر سشن های مرورگر خود در همه دستگاه های خود خارج شوید.',
     'browser_sessions_logout_success_notification' => 'تمامی جلسات دیگر مرورگر با موفقیت خارج شدند.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'تایید ایمیل ارسال شد',
+    'email_verification_sent_message' => 'یک لینک تایید به آدرس ایمیل جدید شما ارسال شده است. لطفاً صندوق ورودی خود را بررسی کنید و روی لینک کلیک کنید تا تغییر را تایید کنید.',
+    'email_change_confirmation_subject' => 'تایید تغییر ایمیل',
+    'email_change_request_message' => 'شما درخواست تغییر آدرس ایمیل خود را داده اید.',
+    'email_confirm_action_message' => 'لطفاً روی دکمه زیر کلیک کنید تا آدرس ایمیل جدید خود را تایید کنید.',
+    'confirm_email_change' => 'تایید تغییر ایمیل',
+    'email_change_no_action_message' => 'اگر شما این تغییر را درخواست نکرده اید، نیازی به اقدام بیشتر نیست.',
+    'invalid_link' => 'لینک تایید نامعتبر است یا منقضی شده است.',
+    'unauthorized' => 'شما مجاز به انجام این عمل نیستید.',
+    'invalid_email_verification' => 'تایید ایمیل نامعتبر است.',
+    'email_changed_successfully' => 'ایمیل شما با موفقیت تغییر کرد.',
 ];

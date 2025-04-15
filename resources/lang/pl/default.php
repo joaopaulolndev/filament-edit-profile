@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'Wyloguj inne sesje przeglądarki',
     'browser_sessions_confirm_pass' => 'Wprowadź swoje hasło, aby potwierdzić, że chcesz wylogować się z innych sesji przeglądarki na wszystkich swoich urządzeniach.',
     'browser_sessions_logout_success_notification' => 'Wszystkie inne sesje przeglądarki zostały pomyślnie wylogowane.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Wysłano weryfikację e-mail',
+    'email_verification_sent_message' => 'Link weryfikacyjny został wysłany na Twój nowy adres e-mail. Sprawdź swoją skrzynkę odbiorczą i kliknij link, aby potwierdzić zmianę.',
+    'email_change_confirmation_subject' => 'Potwierdzenie zmiany adresu e-mail',
+    'email_change_request_message' => 'Poprosiłeś o zmianę swojego adresu e-mail.',
+    'email_confirm_action_message' => 'Kliknij przycisk poniżej, aby potwierdzić swój nowy adres e-mail.',
+    'confirm_email_change' => 'Potwierdź zmianę adresu e-mail',
+    'email_change_no_action_message' => 'Jeśli nie prosiłeś o tę zmianę, nie musisz podejmować żadnych działań.',
+    'invalid_link' => 'Link weryfikacyjny jest nieprawidłowy lub wygasł.',
+    'unauthorized' => 'Nie masz uprawnień do wykonania tej akcji.',
+    'invalid_email_verification' => 'Weryfikacja e-mail jest nieprawidłowa.',
+    'email_changed_successfully' => 'Twój adres e-mail został pomyślnie zmieniony.',
 ];

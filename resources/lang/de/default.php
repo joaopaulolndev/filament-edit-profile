@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'Von anderen Browsersitzungen abmelden',
     'browser_sessions_confirm_pass' => 'Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie sich von Ihren anderen Browsersitzungen auf all Ihren Geräten abmelden möchten.',
     'browser_sessions_logout_success_notification' => 'Alle anderen Browsersitzungen wurden erfolgreich abgemeldet.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'E-Mail-Verifizierung gesendet',
+    'email_verification_sent_message' => 'Ein Bestätigungslink wurde an Ihre neue E-Mail-Adresse gesendet. Bitte überprüfen Sie Ihren Posteingang und klicken Sie auf den Link, um die Änderung zu bestätigen.',
+    'email_change_confirmation_subject' => 'Bestätigung der E-Mail-Änderung',
+    'email_change_request_message' => 'Sie haben beantragt, Ihre E-Mail-Adresse zu ändern.',
+    'email_confirm_action_message' => 'Bitte klicken Sie auf die Schaltfläche unten, um Ihre neue E-Mail-Adresse zu bestätigen.',
+    'confirm_email_change' => 'E-Mail-Änderung bestätigen',
+    'email_change_no_action_message' => 'Wenn Sie diese Änderung nicht beantragt haben, ist keine weitere Aktion erforderlich.',
+    'invalid_link' => 'Der Bestätigungslink ist ungültig oder abgelaufen.',
+    'unauthorized' => 'Sie sind nicht berechtigt, diese Aktion durchzuführen.',
+    'invalid_email_verification' => 'Die E-Mail-Verifizierung ist ungültig.',
+    'email_changed_successfully' => 'Ihre E-Mail wurde erfolgreich geändert.',
 ];

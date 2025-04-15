@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'Cerrar otras sesiones del navegador',
     'browser_sessions_confirm_pass' => 'Por favor, introduzca su contraseña para confirmar que desea salir de sus otras sesiones de navegación en todos sus dispositivos',
     'browser_sessions_logout_success_notification' => 'Se han cerrado todas las demás sesiones del navegador con éxito.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Verificación de correo electrónico enviada',
+    'email_verification_sent_message' => 'Se ha enviado un enlace de verificación a tu nueva dirección de correo electrónico. Por favor, revisa tu bandeja de entrada y haz clic en el enlace para confirmar el cambio.',
+    'email_change_confirmation_subject' => 'Confirmación de cambio de correo electrónico',
+    'email_change_request_message' => 'Has solicitado cambiar tu dirección de correo electrónico.',
+    'email_confirm_action_message' => 'Por favor, haz clic en el botón de abajo para confirmar tu nueva dirección de correo electrónico.',
+    'confirm_email_change' => 'Confirmar cambio de correo electrónico',
+    'email_change_no_action_message' => 'Si no solicitaste este cambio, no es necesario realizar ninguna acción.',
+    'invalid_link' => 'El enlace de verificación no es válido o ha caducado.',
+    'unauthorized' => 'No estás autorizado para realizar esta acción.',
+    'invalid_email_verification' => 'La verificación del correo electrónico no es válida.',
+    'email_changed_successfully' => 'Tu correo electrónico ha sido cambiado con éxito.',
 ];

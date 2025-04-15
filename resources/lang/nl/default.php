@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'Log Uit bij Andere Browsersessies',
     'browser_sessions_confirm_pass' => 'Voer uw wachtwoord in om te bevestigen dat u wilt uitloggen bij uw andere browsersessies op al uw apparaten.',
     'browser_sessions_logout_success_notification' => 'Alle andere browsersessies zijn succesvol uitgelogd.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'E-mailverificatie Verzonden',
+    'email_verification_sent_message' => 'Er is een verificatielink verzonden naar uw nieuwe e-mailadres. Controleer uw inbox en klik op de link om de wijziging te bevestigen.',
+    'email_change_confirmation_subject' => 'Bevestiging E-mailadreswijziging',
+    'email_change_request_message' => 'U heeft verzocht om uw e-mailadres te wijzigen.',
+    'email_confirm_action_message' => 'Klik op de onderstaande knop om uw nieuwe e-mailadres te bevestigen.',
+    'confirm_email_change' => 'Bevestig E-mailadreswijziging',
+    'email_change_no_action_message' => 'Als u deze wijziging niet heeft aangevraagd, is geen verdere actie nodig.',
+    'invalid_link' => 'De verificatielink is ongeldig of verlopen.',
+    'unauthorized' => 'U bent niet geautoriseerd om deze actie uit te voeren.',
+    'invalid_email_verification' => 'De e-mailverificatie is ongeldig.',
+    'email_changed_successfully' => 'Uw e-mailadres is succesvol gewijzigd.',
 ];
