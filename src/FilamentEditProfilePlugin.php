@@ -39,6 +39,10 @@ class FilamentEditProfilePlugin implements Plugin
 
     public bool $shouldShowEditPasswordForm = true;
 
+    public bool $shouldEditEmail = true;
+
+    public bool $shouldConfirmEmail = true;
+
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
     public Closure | bool $shouldShowBrowserSessionsForm = true;
@@ -196,6 +200,20 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
+    public function shouldEditEmail(bool $value = true): static
+    {
+        $this->shouldEditEmail = $value;
+
+        return $this;
+    }
+
+    public function shouldConfirmEmail(bool $value = true): static
+    {
+        $this->shouldConfirmEmail = $value;
+
+        return $this;
+    }
+    
     public function getShouldShowEditProfileForm(): bool
     {
         return $this->evaluate($this->shouldShowEditProfileForm);
@@ -305,7 +323,7 @@ class FilamentEditProfilePlugin implements Plugin
         $components = collect();
 
         if ($this->shouldShowEditProfileForm) {
-            $components->put('edit_profile_form', EditProfileForm::class);
+            $components->put('edit_profile_form', EditProfileForm::class); 
         }
 
         if ($this->shouldShowEditPasswordForm) {

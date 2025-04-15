@@ -45,13 +45,14 @@ class CustomFieldsForm extends BaseProfileForm
         );
 
         return $form
-            ->schema([
+          /*   ->schema([
                 Forms\Components\Section::make(__('filament-edit-profile::default.custom_fields'))
-                  /*   ->aside() */
+                    ->aside() 
                     ->description(__('filament-edit-profile::default.custom_fields_description'))
-                    ->columns()
-                    ->schema($fields),
-            ])
+                    ->columns() */
+                    ->schema($fields)
+            /*         ,
+            ]) */
             ->model($this->getUser())
             ->statePath('data');
     }

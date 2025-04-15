@@ -45,4 +45,17 @@ return [
     'browser_sessions_log_out' => 'Log Out Other Browser Sessions',
     'browser_sessions_confirm_pass' => 'Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.',
     'browser_sessions_logout_success_notification' => 'All other browser sessions have been logged out successfully.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Email Verification Sent',
+    'email_verification_sent_message' => 'A verification link has been sent to your new email address. Please check your inbox and click the link to confirm the change.',
+    'email_change_confirmation_subject' => 'Email Change Confirmation',
+    'email_change_request_message' => 'You have requested to change your email address.',
+    'email_confirm_action_message' => 'Please click the button below to confirm your new email address.',
+    'confirm_email_change' => 'Confirm Email Change',
+    'email_change_no_action_message' => 'If you did not request this change, no further action is required.',
+    'invalid_link' => 'The verification link is invalid or has expired.',
+    'unauthorized' => 'You are not authorized to perform this action.',
+    'invalid_email_verification' => 'The email verification is invalid.',
+    'email_changed_successfully' => 'Your email has been changed successfully.',
 ];

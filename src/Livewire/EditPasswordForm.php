@@ -33,10 +33,10 @@ class EditPasswordForm extends BaseProfileForm
     {
         return $form
             ->schema([
-                Section::make(__('filament-edit-profile::default.update_password'))
-                   /*  ->aside() */
+               /*  Section::make(__('filament-edit-profile::default.update_password'))
+                    ->aside() 
                     ->description(__('filament-edit-profile::default.ensure_your_password'))
-                    ->schema([
+                    ->schema([ */
                         TextInput::make('Current password')
                             ->label(__('filament-edit-profile::default.current_password'))
                             ->password()
@@ -59,7 +59,7 @@ class EditPasswordForm extends BaseProfileForm
                             ->required()
                             ->dehydrated(false)
                             ->revealable(),
-                    ]),
+                  /*   ]), */
             ])
             ->model($this->getUser())
             ->statePath('data');

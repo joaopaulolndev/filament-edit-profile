@@ -22,10 +22,10 @@ class BrowserSessionsForm extends BaseProfileForm
     {
         return $form
             ->schema([
-                Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
+              /*   Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
                     ->description(__('filament-edit-profile::default.browser_section_description'))
-                 /*    ->aside() */
-                    ->schema([
+                    ->aside() 
+                    ->schema([*/
                         Forms\Components\ViewField::make('browserSessions')
                             ->label(__(__('filament-edit-profile::default.browser_section_title')))
                             ->hiddenLabel()
@@ -51,7 +51,8 @@ class BrowserSessionsForm extends BaseProfileForm
                                 ->modalWidth('2xl'),
                         ]),
 
-                    ]),
+                  /*   ])
+                    , */
             ]);
     }
 

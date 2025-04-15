@@ -6,4 +6,5 @@ return [
     'media' => [
         'collection' => 'avatar',
     ],
+    'redirectUrl' => '/admin/edit-profile',
 ];

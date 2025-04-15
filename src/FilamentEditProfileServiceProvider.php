@@ -14,6 +14,7 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class FilamentEditProfileServiceProvider extends PackageServiceProvider
 {
@@ -74,6 +75,10 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
         // Icon Registration
         FilamentIcon::register($this->getIcons());
+
+
+        //register route for email change
+        $this->registerRoutes();
 
         // Handle Stubs
         if (app()->runningInConsole()) {
@@ -163,4 +168,20 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
         return false;
     }
+
+    protected static function registerRoutes(): void
+    {
+        if (app()->routesAreCached()) {
+            return;
+        }
+
+        Route::middleware(['web', 'auth'])
+            ->name('verification.email.')
+            ->group(function () {
+                Route::get('/email/change/verify', \Joaopaulolndev\FilamentEditProfile\Http\Controllers\EmailChangeController::class)
+                    ->name('change');
+            });
+    }
+
+    
 }
