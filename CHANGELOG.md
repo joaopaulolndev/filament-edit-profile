@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.38 - 2025-04-16
+
+### What's Changed
+
+* Simplify slug retrieval logic by @andrefelipe18 in https://github.com/joaopaulolndev/filament-edit-profile/pull/80
+
+### New Contributors
+
+* @andrefelipe18 made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/80
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.37...v1.0.38
+
 ## v1.0.37 - 2025-03-27
 
 ### What's Changed
