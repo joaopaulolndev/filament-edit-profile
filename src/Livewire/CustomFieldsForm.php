@@ -5,6 +5,7 @@ namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -71,6 +72,8 @@ class CustomFieldsForm extends BaseProfileForm
                 return self::createTextarea($fieldKey, $field);
             case 'datetime':
                 return self::createDateTimePicker($fieldKey, $field);
+            case 'image':
+                return self::createImageUpload($fieldKey, $field);
             default:
                 return self::createFieldFromString($fieldKey, $field);
         }
@@ -194,6 +197,16 @@ class CustomFieldsForm extends BaseProfileForm
             ->native($field['native'] ?? true)
             ->columnSpan($field['column_span'] ?? 'full')
             ->seconds($field['seconds'] ?? true);
+    }
+
+    private static function createImageUpload(string $fieldKey, array $field): FileUpload
+    {
+        return FileUpload::make($fieldKey)
+            ->label(__($field['label']))
+            ->required($field['required'])
+            ->image()
+            ->directory($field['directory'] ?? 'uploads')
+            ->rules($field['rules']);
     }
 
     public function updateCustomFields(): void
