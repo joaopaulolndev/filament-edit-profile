@@ -2,6 +2,25 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.40 - 2025-05-19
+
+### What's Changed
+
+* Call to a member function getSlug() on null by @bigraja in https://github.com/joaopaulolndev/filament-edit-profile/pull/82
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/joaopaulolndev/filament-edit-profile/pull/85
+* Use `getAuthIdentifierName()` instead of hardcoded `email` in profile… by @leandrogehlen in https://github.com/joaopaulolndev/filament-edit-profile/pull/83
+* Fix null plugin access in EditProfilePage when panel context is unavailable by @MiguelAngelMP10 in https://github.com/joaopaulolndev/filament-edit-profile/pull/84
+* Update CustomFieldsForm.php by @Emotard1991 in https://github.com/joaopaulolndev/filament-edit-profile/pull/87
+
+### New Contributors
+
+* @bigraja made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/82
+* @leandrogehlen made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/83
+* @MiguelAngelMP10 made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/84
+* @Emotard1991 made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/87
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.39...v1.0.40
+
 ## v1.0.39 - 2025-04-22
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.38...v1.0.39
