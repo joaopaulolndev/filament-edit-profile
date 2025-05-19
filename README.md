@@ -86,6 +86,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
         ->setSort(10)
         ->canAccess(fn () => auth()->user()->id === 1)
         ->shouldRegisterNavigation(false)
+        ->shouldShowEmailForm()
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
         ->shouldShowBrowserSessionsForm()
