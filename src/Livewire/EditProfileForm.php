@@ -63,6 +63,7 @@ class EditProfileForm extends BaseProfileForm
                             ->label(__('filament-edit-profile::default.email'))
                             ->email()
                             ->required()
+                            ->hidden(! filament('filament-edit-profile')->getShouldShowEmailForm())
                             ->unique($this->userClass, ignorable: $this->user),
                     ]),
             ])
