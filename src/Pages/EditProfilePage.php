@@ -15,13 +15,7 @@ class EditProfilePage extends Page
     {
         $plugin = Filament::getCurrentPanel()?->getPlugin('filament-edit-profile');
 
-        if (! $plugin) {
-            return self::$slug; // fallback slug
-        }
-
-        $slug = $plugin->getSlug();
-
-        return $slug ?: self::$slug;
+        return $plugin?->getSlug() ?? self::$slug;
     }
 
     public static function shouldRegisterNavigation(): bool
