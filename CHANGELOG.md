@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.41 - 2025-05-19
+
+### What's Changed
+
+* feat(profile): add email form visibility toggle by @andrefelipe18 in https://github.com/joaopaulolndev/filament-edit-profile/pull/88
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.40...v1.0.41
+
 ## v1.0.40 - 2025-05-19
 
 ### What's Changed
