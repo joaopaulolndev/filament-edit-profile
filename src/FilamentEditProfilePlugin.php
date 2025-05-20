@@ -248,6 +248,10 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function getShouldShowSanctumTokens(): bool
     {
+        if (! class_exists('Laravel\Sanctum\Sanctum')) {
+            $this->sanctumTokens = false;
+        }
+
         return $this->evaluate($this->sanctumTokens);
     }
 
