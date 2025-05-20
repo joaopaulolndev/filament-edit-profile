@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.42 - 2025-05-20
+
+### What's Changed
+
+* fix(profile): correct input field to use 'email' instead of auth identifier by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/90
+* fix(profile): handle missing Sanctum class in token visibility logic by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/91
+
+### New Contributors
+
+* @jeffersongoncalves made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/90
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.41...v1.0.42
+
 ## v1.0.41 - 2025-05-19
 
 ### What's Changed
