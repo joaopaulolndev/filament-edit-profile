@@ -2,6 +2,10 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.43 - 2025-05-21
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.42...v1.0.43
+
 ## v1.0.42 - 2025-05-20
 
 ### What's Changed
