@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.44 - 2025-06-14
+
+### What's Changed
+
+* fix: avoid error when plugin is null in getSlug() method by @edeoliv in https://github.com/joaopaulolndev/filament-edit-profile/pull/98
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.43...v1.0.44
+
 ## v1.0.43 - 2025-05-21
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.42...v1.0.43
