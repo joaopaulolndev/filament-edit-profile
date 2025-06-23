@@ -4,13 +4,15 @@ namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
 use Carbon\Carbon;
 use Filament\Actions\Action;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\Alignment;
-use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
@@ -35,7 +37,7 @@ class SanctumTokens extends BaseProfileForm implements HasTable
 
     public function table(Table $table): Table
     {
-        $auth = Filament::getCurrentPanel()->auth();
+        $auth = Filament::getCurrentOrDefaultPanel()->auth();
 
         return $table
             ->query(app(Sanctum::$personalAccessTokenModel)->where([
@@ -43,26 +45,26 @@ class SanctumTokens extends BaseProfileForm implements HasTable
                 ['tokenable_type', '=', get_class($auth->user())],
             ]))
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('filament-edit-profile::default.token_name')),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->date()
                     ->label(__('filament-edit-profile::default.token_created_at'))
                     ->sortable(),
-                Tables\Columns\TextColumn::make('expires_at')
+                TextColumn::make('expires_at')
                     ->color(fn ($record) => now()->gt($record->expires_at) ? 'danger' : null)
                     ->date()
                     ->label(__('filament-edit-profile::default.token_expires_at'))
                     ->sortable(),
             ])
-            ->actions([
-                Tables\Actions\DeleteAction::make(),
+            ->recordActions([
+                DeleteAction::make(),
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make()
+                CreateAction::make()
                     ->label(__('filament-edit-profile::default.token_action_label'))
                     ->modalWidth('md')
-                    ->form([
+                    ->schema([
                         TextInput::make('token_name')
                             ->label(__('filament-edit-profile::default.token_name'))
                             ->required(),
@@ -102,7 +104,7 @@ class SanctumTokens extends BaseProfileForm implements HasTable
             ->fillForm(fn (array $arguments) => [
                 'token' => $arguments['token'],
             ])
-            ->form([
+            ->schema([
                 TextInput::make('token')
                     ->helperText(__('filament-edit-profile::default.token_helper_text')),
             ])
