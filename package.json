@@ -6,12 +6,12 @@
         "dev:scripts": "node bin/build.js --dev",
         "build:styles": "npx @tailwindcss/cli -i resources/css/index.css -o resources/dist/filament-edit-profile.css --postcss --minify && npm run purge",
         "build:scripts": "node bin/build.js",
-        "purge": "filament-purge -i resources/dist/filament-edit-profile.css -o resources/dist/filament-edit-profile.css -v 3.x",
+        "purge": "filament-purge -i resources/dist/filament-edit-profile.css -o resources/dist/filament-edit-profile.css -v 4.x",
         "dev": "npm-run-all --parallel dev:*",
         "build": "npm-run-all build:*"
     },
     "devDependencies": {
-        "@awcodes/filament-plugin-purge": "^1.1.1",
+        "filament-plugin-purge": "github:agcodex01/filament-plugin-purge",
         "@tailwindcss/forms": "^0.5.4",
         "@tailwindcss/postcss": "^4.1.10",
         "@tailwindcss/typography": "^0.5.9",
