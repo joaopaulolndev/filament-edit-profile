@@ -2,11 +2,13 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
-use Filament\Forms;
-use Filament\Forms\Components\Actions;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Form;
+use Filament\Actions\Action;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ViewField;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,20 +18,20 @@ class DeleteAccountForm extends BaseProfileForm
 
     protected static int $sort = 60;
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make(__('filament-edit-profile::default.delete_account'))
                     ->description(__('filament-edit-profile::default.delete_account_description'))
                     ->aside()
                     ->schema([
-                        Forms\Components\ViewField::make('deleteAccount')
+                        ViewField::make('deleteAccount')
                             ->label(__('Delete Account'))
                             ->hiddenLabel()
                             ->view('filament-edit-profile::forms.components.delete-account-description'),
                         Actions::make([
-                            Actions\Action::make('deleteAccount')
+                            Action::make('deleteAccount')
                                 ->label(__('filament-edit-profile::default.delete_account'))
                                 ->icon('heroicon-m-trash')
                                 ->color('danger')
@@ -37,8 +39,8 @@ class DeleteAccountForm extends BaseProfileForm
                                 ->modalHeading(__('filament-edit-profile::default.delete_account'))
                                 ->modalDescription(__('filament-edit-profile::default.are_you_sure'))
                                 ->modalSubmitActionLabel(__('filament-edit-profile::default.yes_delete_it'))
-                                ->form([
-                                    Forms\Components\TextInput::make('password')
+                                ->schema([
+                                    TextInput::make('password')
                                         ->password()
                                         ->revealable()
                                         ->label(__('filament-edit-profile::default.password'))

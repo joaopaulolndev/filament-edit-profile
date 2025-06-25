@@ -20,12 +20,13 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "filament/filament": "^3.0",
+        "php": "^8.2",
+        "filament/filament": "~4.0",
         "jenssegers/agent": "^2.6",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
+        "filament/upgrade": "~4.0",
         "laradumps/laradumps": "^3.1",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.9|^8.6",
@@ -68,6 +69,6 @@
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "prefer-stable": true
 }

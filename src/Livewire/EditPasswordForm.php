@@ -3,10 +3,10 @@
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
 use Filament\Facades\Filament;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -29,10 +29,10 @@ class EditPasswordForm extends BaseProfileForm
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make(__('filament-edit-profile::default.update_password'))
                     ->aside()
                     ->description(__('filament-edit-profile::default.ensure_your_password'))
