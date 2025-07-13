@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.45 - 2025-07-13
+
+### What's Changed
+
+* chore(deps): bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/99
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.44...v1.0.45
+
 ## v1.0.44 - 2025-06-14
 
 ### What's Changed
