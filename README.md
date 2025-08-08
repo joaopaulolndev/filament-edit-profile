@@ -104,7 +104,7 @@ use Filament\Actions\Action;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
 ->userMenuItems([
-    'profile' => Action::make()
+    'profile' => Action::make('profile')
         ->label(fn() => auth()->user()->name)
         ->url(fn (): string => EditProfilePage::getUrl())
         ->icon('heroicon-m-user-circle')

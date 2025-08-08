@@ -61,20 +61,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-        // Asset Registration
-        FilamentAsset::register(
-            $this->getAssets(),
-            $this->getAssetPackageName()
-        );
-
-        // FilamentAsset::registerScriptData(
-        //     $this->getScriptData(),
-        //     $this->getAssetPackageName()
-        // );
-
-        // Icon Registration
-        FilamentIcon::register($this->getIcons());
-
         // Handle Stubs
         if (app()->runningInConsole()) {
             $publishMigration = function ($migrationFileName, $publishTag) {
@@ -98,18 +84,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * @return array<Asset>
-     */
-    protected function getAssets(): array
-    {
-        return [
-            // AlpineComponent::make('filament-edit-profile', __DIR__ . '/../resources/dist/components/filament-edit-profile.js'),
-            Css::make('filament-edit-profile-styles', __DIR__ . '/../resources/dist/filament-edit-profile.css'),
-            // Js::make('filament-edit-profile-scripts', __DIR__ . '/../resources/dist/filament-edit-profile.js'),
-        ];
-    }
-
-    /**
      * @return array<class-string>
      */
     protected function getCommands(): array
@@ -117,30 +91,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
         return [
             FilamentEditProfileCommand::class,
         ];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getIcons(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getRoutes(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function getScriptData(): array
-    {
-        return [];
     }
 
     /**
