@@ -100,11 +100,11 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 Optionally, you can add a user menu item to the user menu in the navigation bar:
 
 ```php
-use Filament\Navigation\MenuItem;
+use Filament\Actions\Action;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
 ->userMenuItems([
-    'profile' => MenuItem::make()
+    'profile' => Action::make()
         ->label(fn() => auth()->user()->name)
         ->url(fn (): string => EditProfilePage::getUrl())
         ->icon('heroicon-m-user-circle')
