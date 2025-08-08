@@ -1,5 +1,5 @@
 <div>
-    <x-filament-panels::form wire:submit="save">
+    <form wire:submit="save">
         {{ $this->form }}
 
         <div class="fi-form-actions">
@@ -9,7 +9,7 @@
                 </x-filament::button>
             </div>
         </div>
-    </x-filament-panels::form>
+    </form>
 
     <x-filament-actions::modals />
 </div>

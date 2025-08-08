@@ -29,8 +29,10 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-edit-profile
+composer require joaopaulolndev/filament-edit-profile:^2.0
 ```
+
+**Filament V3** - if you are using Filament v3.x, you can use [this section](https://github.com/joaopaulolndev/filament-edit-profile/tree/main)
 
 You can publish and run the migrations with:
 
@@ -100,11 +102,11 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 Optionally, you can add a user menu item to the user menu in the navigation bar:
 
 ```php
-use Filament\Navigation\MenuItem;
+use Filament\Actions\Action;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
 ->userMenuItems([
-    'profile' => MenuItem::make()
+    'profile' => Action::make('profile')
         ->label(fn() => auth()->user()->name)
         ->url(fn (): string => EditProfilePage::getUrl())
         ->icon('heroicon-m-user-circle')

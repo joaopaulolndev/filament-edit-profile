@@ -1,7 +1,7 @@
 <div>
-    <x-filament-panels::form>
+    <form class="fi-sc-form">
         {{ $this->form }}
-    </x-filament-panels::form>
+    </form>
 
     <x-filament-actions::modals />
 </div>
