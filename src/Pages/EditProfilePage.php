@@ -2,9 +2,9 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Pages;
 
-use Filament\Panel;
 use Filament\Facades\Filament;
 use Filament\Pages\Page;
+use Filament\Panel;
 
 class EditProfilePage extends Page
 {

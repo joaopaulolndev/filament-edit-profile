@@ -4,14 +4,14 @@
 >
     <div>
         <div class="">
-            <div class="text-sm text-gray-600">
+            <div class="text-sm text-gray-600 fi-in-entry">
                 <div class="text-sm text-gray-600 dark:text-gray-400">
                     {{ __('filament-edit-profile::default.browser_sessions_content') }}
                 </div>
                 @if (count($data) > 0)
-                    <div class="mt-5 space-y-6">
+                    <div class="fi-in-entry">
                         @foreach ($data as $session)
-                            <div class="flex items-center">
+                            <div class="fi-sc fi-inline fi-sc-has-gap">
                                 <div>
                                     @if ($session->device['desktop'])
                                         <x-filament::icon

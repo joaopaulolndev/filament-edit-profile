@@ -2,12 +2,6 @@
 
 namespace Joaopaulolndev\FilamentEditProfile;
 
-use Filament\Support\Assets\AlpineComponent;
-use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
-use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
 use Joaopaulolndev\FilamentEditProfile\Commands\FilamentEditProfileCommand;
 use Joaopaulolndev\FilamentEditProfile\Testing\TestsFilamentEditProfile;
 use Livewire\Features\SupportTesting\Testable;

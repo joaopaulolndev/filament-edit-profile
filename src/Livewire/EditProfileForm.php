@@ -2,11 +2,11 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 
@@ -74,6 +74,8 @@ class EditProfileForm extends BaseProfileForm
             $data = $this->form->getState();
 
             $this->user->update($data);
+
+            $this->dispatch('refresh-topbar');
         } catch (Halt $exception) {
             return;
         }
