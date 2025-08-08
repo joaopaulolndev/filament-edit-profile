@@ -2,10 +2,10 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Support\Exceptions\Halt;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
@@ -37,10 +37,10 @@ class EditProfileForm extends BaseProfileForm
         $this->form->fill($this->user->only($fields));
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make(__('filament-edit-profile::default.profile_information'))
                     ->aside()
                     ->description(__('filament-edit-profile::default.profile_information_description'))

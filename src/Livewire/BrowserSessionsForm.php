@@ -2,10 +2,14 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\ViewField;
+use Filament\Schemas\Components\Actions;
+use Filament\Actions\Action;
+use Filament\Forms\Components\TextInput;
 use Carbon\Carbon;
 use Filament\Forms;
-use Filament\Forms\Components\Actions;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,28 +22,28 @@ class BrowserSessionsForm extends BaseProfileForm
 
     protected static int $sort = 50;
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
+        return $schema
+            ->components([
+                Section::make(__('filament-edit-profile::default.browser_section_title'))
                     ->description(__('filament-edit-profile::default.browser_section_description'))
                     ->aside()
                     ->schema([
-                        Forms\Components\ViewField::make('browserSessions')
+                        ViewField::make('browserSessions')
                             ->label(__(__('filament-edit-profile::default.browser_section_title')))
                             ->hiddenLabel()
                             ->view('filament-edit-profile::forms.components.browser-sessions')
                             ->viewData(['data' => self::getSessions()]),
                         Actions::make([
-                            Actions\Action::make('deleteBrowserSessions')
+                            Action::make('deleteBrowserSessions')
                                 ->label(__('filament-edit-profile::default.browser_sessions_log_out'))
                                 ->requiresConfirmation()
                                 ->modalHeading(__('filament-edit-profile::default.browser_sessions_log_out'))
                                 ->modalDescription(__('filament-edit-profile::default.browser_sessions_confirm_pass'))
                                 ->modalSubmitActionLabel(__('filament-edit-profile::default.browser_sessions_log_out'))
-                                ->form([
-                                    Forms\Components\TextInput::make('password')
+                                ->schema([
+                                    TextInput::make('password')
                                         ->password()
                                         ->revealable()
                                         ->label(__('filament-edit-profile::default.password'))

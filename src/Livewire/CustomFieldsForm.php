@@ -2,6 +2,10 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Component;
+use Illuminate\Support\Str;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
@@ -9,7 +13,6 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Throwable;
@@ -37,7 +40,7 @@ class CustomFieldsForm extends BaseProfileForm
         $this->form->fill($data['custom_fields'] ?? []);
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
         $fields = array_map(
             [self::class, 'createField'],
@@ -45,9 +48,9 @@ class CustomFieldsForm extends BaseProfileForm
             $this->customFields
         );
 
-        return $form
-            ->schema([
-                Forms\Components\Section::make(__('filament-edit-profile::default.custom_fields'))
+        return $schema
+            ->components([
+                Section::make(__('filament-edit-profile::default.custom_fields'))
                     ->aside()
                     ->description(__('filament-edit-profile::default.custom_fields_description'))
                     ->columns()
@@ -57,7 +60,7 @@ class CustomFieldsForm extends BaseProfileForm
             ->statePath('data');
     }
 
-    private static function createField(string $fieldKey, array | Closure $field): ?Forms\Components\Component
+    private static function createField(string $fieldKey, array | Closure $field): ?Component
     {
         switch ($field['type']) {
             case 'text':
@@ -79,11 +82,11 @@ class CustomFieldsForm extends BaseProfileForm
         }
     }
 
-    private static function createFieldFromString(string $fieldKey, array $field): ?Forms\Components\Component
+    private static function createFieldFromString(string $fieldKey, array $field): ?Component
     {
         try {
 
-            $class = \Illuminate\Support\Str::camel($field['type']);
+            $class = Str::camel($field['type']);
             $class = "Filament\Forms\Components\\{$class}";
 
             return $class::make($fieldKey)
