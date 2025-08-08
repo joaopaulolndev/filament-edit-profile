@@ -26,7 +26,6 @@
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
-        "filament/upgrade": "4.0.0-beta23",
         "laradumps/laradumps": "^3.1",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.9|^8.6",
