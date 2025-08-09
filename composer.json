@@ -62,10 +62,7 @@
         "laravel": {
             "providers": [
                 "Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfileServiceProvider"
-            ],
-            "aliases": {
-                "FilamentEditProfile": "Joaopaulolndev\\FilamentEditProfile\\Facades\\FilamentEditProfile"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
