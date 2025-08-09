@@ -252,7 +252,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function getShouldShowMultiFactorAuthentication(): bool
     {
-        if (! $this->isEnabledMultiFactorAuthentication()) {
+        if (! Filament::hasMultiFactorAuthentication()) {
             $this->multiFactorAuthentication = false;
         }
 
@@ -261,7 +261,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function shouldShowMultiFactorAuthentication(Closure | bool $condition = true)
     {
-        $this->sanctumTokens = $condition;
+        $this->multiFactorAuthentication = $condition;
 
         return $this;
     }
@@ -391,18 +391,5 @@ class FilamentEditProfilePlugin implements Plugin
         return collect($this->registeredCustomProfileComponents)
             ->sortBy(fn (string $component) => $component::getSort())
             ->all();
-    }
-
-    protected function isEnabledMultiFactorAuthentication(): bool
-    {
-        $user = Filament::auth()->user();
-
-        foreach (Filament::getMultiFactorAuthenticationProviders() as $provider) {
-            if ($provider->isEnabled($user)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

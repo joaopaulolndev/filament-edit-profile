@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'パーソナルアクセストークンをコピー',
     'token_empty_state_heading' => '最初のトークンを作成',
     'token_empty_state_description' => 'パーソナルアクセストークンを作成して始めましょう。',
+    'mfa_section_title' => '多要素認証',
+    'mfa_section_description' => '多要素認証の設定を管理します。',
     'browser_section_title' => 'ブラウザセッション',
     'browser_section_description' => '他のブラウザやデバイスでのアクティブなセッションを管理し、ログアウトします。',
     'browser_sessions_content' => '必要に応じて、すべてのデバイスでの他のブラウザセッションからログアウトすることができます。最近のセッションの一部が下に表示されていますが、すべてが表示されるわけではありません。アカウントが不正アクセスされた場合は、パスワードも更新してください。',

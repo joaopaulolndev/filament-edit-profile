@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Zkopírovat osobní přístupový token',
     'token_empty_state_heading' => 'Vytvořit první token',
     'token_empty_state_description' => 'Vytvořte si osobní přístupový token a začněte.',
+    'mfa_section_title' => 'Vícefaktorové ověřování',
+    'mfa_section_description' => 'Spravujte nastavení vícefaktorového ověřování.',
     'browser_section_title' => 'Relace prohlížeče',
     'browser_section_description' => 'Spravujte a odhlašujte své aktivní relace v jiných prohlížečích a zařízeních.',
     'browser_sessions_content' => 'V případě potřeby se můžete odhlásit ze všech ostatních relací na všech svých zařízeních. Některé z vašich posledních relací jsou uvedeny níže; tento seznam však nemusí být úplný. Pokud máte pocit, že byl váš účet kompromitován, měli byste také aktualizovat své heslo.',

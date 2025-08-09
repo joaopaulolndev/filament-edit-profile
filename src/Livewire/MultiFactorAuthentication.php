@@ -2,10 +2,8 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
-use Filament\Actions\Action;
 use Filament\Auth\MultiFactor\Contracts\MultiFactorAuthenticationProvider;
 use Filament\Facades\Filament;
-use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
@@ -20,14 +18,16 @@ class MultiFactorAuthentication extends BaseProfileForm
 
     protected string $view = 'filament-edit-profile::livewire.multi-factor-authentication';
 
-    public function mount() {}
-
     public function content(Schema $schema): Schema
     {
         return $schema
             ->components([
-                $this->getMultiFactorAuthenticationContentComponent(),
-                $this->getFooterActionsContentComponent(),
+                Section::make(__('filament-edit-profile::default.mfa_section_title'))
+                    ->description(__('filament-edit-profile::default.mfa_section_description'))
+                    ->aside()
+                    ->schema([
+                        $this->getMultiFactorAuthenticationContentComponent(),
+                    ]),
             ]);
     }
 
@@ -44,30 +44,6 @@ class MultiFactorAuthentication extends BaseProfileForm
                 ->map(fn (MultiFactorAuthenticationProvider $multiFactorAuthenticationProvider): Component => Group::make($multiFactorAuthenticationProvider->getManagementSchemaComponents())
                     ->statePath($multiFactorAuthenticationProvider->getId()))
                 ->all());
-    }
-
-    public function getFooterActionsContentComponent(): Component
-    {
-        return Actions::make($this->getFooterActions())
-            ->fullWidth();
-    }
-
-    /**
-     * @return array<Action>
-     */
-    public function getFooterActions(): array
-    {
-        return [
-            $this->getContinueAction(),
-        ];
-    }
-
-    public function getContinueAction(): Action
-    {
-        return Action::make('continue')
-            ->label(__('filament-panels::auth/multi-factor/pages/set-up-required-multi-factor-authentication.actions.continue.label'))
-            ->action(fn () => redirect()->intended(Filament::getUrl()))
-            ->visible($this->isEnabled(...));
     }
 
     public function isEnabled(): bool

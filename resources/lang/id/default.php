@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Salin Token Akses Pribadi',
     'token_empty_state_heading' => 'Buat token pertama Anda',
     'token_empty_state_description' => 'Buat token akses pribadi untuk memulai.',
+    'mfa_section_title' => 'Autentikasi Multi-Faktor',
+    'mfa_section_description' => 'Kelola pengaturan autentikasi multi-faktor Anda.',
     'browser_section_title' => 'Sesi Browser',
     'browser_section_description' => 'Kelola dan keluar dari sesi aktif Anda di browser dan perangkat lain.',
     'browser_sessions_content' => 'Jika perlu, Anda dapat keluar dari semua sesi browser Anda di semua perangkat. Beberapa sesi terbaru Anda terdaftar di bawah; daftar ini mungkin tidak lengkap. Jika Anda merasa akun Anda telah dikompromikan, perbarui kata sandi Anda.',

@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Kopírovať osobný prístupový token',
     'token_empty_state_heading' => 'Vytvorte svoj prvý token',
     'token_empty_state_description' => 'Vytvorte si osobný prístupový token, aby ho mohli začať používať.',
+    'mfa_section_title' => 'Viacfaktorové overenie',
+    'mfa_section_description' => 'Spravujte nastavenia viacfaktorového overenia.',
     'browser_section_title' => 'Vaše relácie na zariadeniach',
     'browser_section_description' => 'Spravujte a odhláste sa z aplikácie na ostatných zariadeniach.',
     'browser_sessions_content' => 'V prípade potreby sa môžete odhlásiť z ostatných relácií na svojich zariadeniach. Niektoré z vašich nedávnych prihlásení sú uvedené nižšie. Tento zoznam však nemusí byť úplný. Ak máte pocit, že váš účet bol odcudzený, mali by ste aktualizovať svoje heslo.',

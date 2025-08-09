@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Persönlichen Zugriffstoken Kopieren',
     'token_empty_state_heading' => 'Erstellen Sie Ihren ersten Token',
     'token_empty_state_description' => 'Erstellen Sie einen persönlichen Zugriffstoken, um zu beginnen.',
+    'mfa_section_title' => 'Mehrfaktor-Authentifizierung',
+    'mfa_section_description' => 'Verwalten Sie Ihre Einstellungen für die Mehrfaktor-Authentifizierung.',
     'browser_section_title' => 'Browsersitzungen',
     'browser_section_description' => 'Verwalten und melden Sie sich von Ihren aktiven Sitzungen auf anderen Browsern und Geräten ab.',
     'browser_sessions_content' => 'Bei Bedarf können Sie sich von all Ihren anderen Browsersitzungen auf all Ihren Geräten abmelden. Einige Ihrer letzten Sitzungen sind unten aufgeführt; diese Liste ist jedoch möglicherweise nicht vollständig. Wenn Sie glauben, dass Ihr Konto kompromittiert wurde, sollten Sie auch Ihr Passwort aktualisieren.',

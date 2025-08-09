@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Skopiuj osobisty token dostępu',
     'token_empty_state_heading' => 'Utwórz swój pierwszy token',
     'token_empty_state_description' => 'Utwórz osobisty token dostępu, aby rozpocząć.',
+    'mfa_section_title' => 'Uwierzytelnianie wieloskładnikowe',
+    'mfa_section_description' => 'Zarządzaj ustawieniami uwierzytelniania wieloskładnikowego.',
     'browser_section_title' => 'Sesje przeglądarki',
     'browser_section_description' => 'Zarządzaj i wyloguj swoje aktywne sesje na innych przeglądarkach i urządzeniach.',
     'browser_sessions_content' => 'Jeśli to konieczne, możesz wylogować się ze wszystkich innych sesji przeglądarki na wszystkich swoich urządzeniach. Poniżej wymieniono niektóre z Twoich ostatnich sesji, jednak lista ta może nie być pełna. Jeśli uważasz, że Twoje konto zostało naruszone, powinieneś również zaktualizować hasło.',
