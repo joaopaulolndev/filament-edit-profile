@@ -1,14 +1,14 @@
 # Filament package to edit profile
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joaopaulolndev/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-edit-profile)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/run-tests.yml?branch=2.x&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3Arun-tests+branch%3A2.x)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/fix-php-code-style-issues.yml?branch=2.x&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3A2.x)
 [![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-edit-profile)
 
 The Filament library is a user-friendly tool that simplifies profile editing, offering an intuitive interface and robust features to easily customize and manage user information.
 <div class="filament-hidden">
     
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/joaopaulolndev-filament-edit-profile.jpg)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/joaopaulolndev-filament-edit-profile.jpg)
 
 </div>
 
@@ -133,7 +133,7 @@ return [
 
 ## Profile Avatar
 
-![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/profile-avatar.png)
+![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/profile-avatar.png)
 Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/3.x/panels/users#setting-up-user-avatars) to manage the avatar.
 
 To show the avatar form, you need the following steps:
@@ -208,7 +208,7 @@ class User extends Authenticatable
 }
 ```
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/sanctum_tokens.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/sanctum_tokens.png)
 
 If you want to control access, you can use `condition`, passing Closure or Boolean
 
@@ -226,7 +226,7 @@ Sanctum allows you to assign "abilities" to tokens. by default we have ['create'
 
 ## Browser Sessions
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/browser-sessions.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/browser-sessions.png)
 
 To utilize browser session, ensure that your session configuration's driver (or SESSION_DRIVER environment variable) is set to `database`.
 
@@ -266,7 +266,7 @@ If you want to control access or disable multi factor authentication, you can pa
 
 ## Custom Fields
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/custom_fields.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/custom_fields.png)
 Optionally, you can add custom fields to the form.
 To create custom fields you need to follow the steps below:
 
