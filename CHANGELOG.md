@@ -2,6 +2,16 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.1 - 2025-08-09
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v1.0.45...v2.0.1
+
+### What's Changed
+
+* 2.x add mfa by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/105
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.0...v2.0.1
+
 ## v2.0.0 - 2025-08-09
 
 ### What's Changed
