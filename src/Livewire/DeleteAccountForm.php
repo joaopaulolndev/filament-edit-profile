@@ -16,7 +16,7 @@ class DeleteAccountForm extends BaseProfileForm
 {
     protected string $view = 'filament-edit-profile::livewire.delete-account-form';
 
-    protected static int $sort = 60;
+    protected static int $sort = 70;
 
     public function form(Schema $schema): Schema
     {

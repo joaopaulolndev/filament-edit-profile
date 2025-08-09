@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Copiar clave de acceso personal',
     'token_empty_state_heading' => 'Crea tu primer token',
     'token_empty_state_description' => 'Crea un token de acceso personal para empezar',
+    'mfa_section_title' => 'Autenticación multifactor',
+    'mfa_section_description' => 'Administra la configuración de la autenticación multifactor.',
     'browser_section_title' => 'Sesiones del navegador',
     'browser_section_description' => 'Gestiona y cierra tus sesiones activas en otros navegadores y dispositivos',
     'browser_sessions_content' => 'Si es necesario, puedes cerrar todas tus sesiones de navegación en todos tus dispositivos. Algunas de sus sesiones recientes se enumeran a continuación; sin embargo, esta lista puede no ser exhaustiva. Si cree que su cuenta ha sido comprometida, también debería actualizar su contraseña',

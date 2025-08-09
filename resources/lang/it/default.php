@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Copia il Token di Accesso Personale',
     'token_empty_state_heading' => 'Crea il tuo primo token',
     'token_empty_state_description' => 'Crea un token di accesso personale per iniziare.',
+    'mfa_section_title' => 'Autenticazione a più fattori',
+    'mfa_section_description' => 'Gestisci le impostazioni della tua autenticazione a più fattori.',
     'browser_section_title' => 'Sessioni del Browser',
     'browser_section_description' => 'Gestisci e disconnetti le tue sessioni attive su altri browser e dispositivi.',
     'browser_sessions_content' => 'Se necessario, puoi disconnetterti da tutte le tue altre sessioni del browser su tutti i tuoi dispositivi. Alcune delle tue sessioni recenti sono elencate di seguito; tuttavia, questo elenco potrebbe non essere esaustivo. Se ritieni che il tuo account sia stato compromesso, dovresti anche aggiornare la tua password.',

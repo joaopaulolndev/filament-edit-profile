@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Copiar Token de Acesso Pessoal',
     'token_empty_state_heading' => 'Crie o seu primeiro token',
     'token_empty_state_description' => 'Crie um token de acesso pessoal para começar.',
+    'mfa_section_title' => 'Autenticação multifator',
+    'mfa_section_description' => 'Gira as definições da sua autenticação multifator.',
     'browser_section_title' => 'Sessões do Navegador',
     'browser_section_description' => 'Gerir e terminar as suas sessões ativas em outros navegadores e dispositivos.',
     'browser_sessions_content' => 'Se necessário, pode terminar todas as suas outras sessões de navegador em todos os seus dispositivos. Algumas das suas sessões recentes estão listadas abaixo; no entanto, esta lista pode não ser exaustiva. Se sentir que a sua conta foi comprometida, deve também atualizar a sua palavra-passe.',

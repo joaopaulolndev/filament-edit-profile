@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Persoonlijke Toegangstoken Kopiëren',
     'token_empty_state_heading' => 'Maak uw eerste token aan',
     'token_empty_state_description' => 'Maak een persoonlijke toegangstoken om te beginnen.',
+    'mfa_section_title' => 'Multi-factorauthenticatie',
+    'mfa_section_description' => 'Beheer je instellingen voor multi-factorauthenticatie.',
     'browser_section_title' => 'Browsersessies',
     'browser_section_description' => 'Beheer en log uit uw actieve sessies op andere browsers en apparaten.',
     'browser_sessions_content' => 'Indien nodig kunt u uitloggen bij al uw andere browsersessies op al uw apparaten. Sommige van uw recente sessies worden hieronder vermeld; deze lijst is echter mogelijk niet uitputtend. Als u vermoedt dat uw account is gecompromitteerd, moet u ook uw wachtwoord bijwerken.',

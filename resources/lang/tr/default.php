@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Kişisel Erişim Jetonlarını Kopyala',
     'token_empty_state_heading' => 'İlk jetonunuzu oluşturun',
     'token_empty_state_description' => 'Başlamak için bir kişisel erişim jetonu oluşturun.',
+    'mfa_section_title' => 'Çok Faktörlü Kimlik Doğrulama',
+    'mfa_section_description' => 'Çok faktörlü kimlik doğrulama ayarlarınızı yönetin.',
     'browser_section_title' => 'Tarayıcı Oturumları',
     'browser_section_description' => 'Diğer tarayıcılar ve cihazlardaki aktif oturumlarınızı yönetin ve çıkış yapın.',
     'browser_sessions_content' => 'Gerekirse, diğer tüm tarayıcı oturumlarınızdan çıkış yapabilirsiniz. Aşağıda bazı son oturumlarınız listelenmiştir, ancak bu liste tam kapsamlı olmayabilir. Hesabınızın güvenliğinin ihlal edildiğini düşünüyorsanız, şifrenizi de güncellemeniz gerekir.',

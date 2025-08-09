@@ -4,6 +4,7 @@ namespace Joaopaulolndev\FilamentEditProfile;
 
 use Closure;
 use Filament\Contracts\Plugin;
+use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
@@ -11,6 +12,7 @@ use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\MultiFactorAuthentication;
 use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
@@ -46,6 +48,8 @@ class FilamentEditProfilePlugin implements Plugin
     public Closure | bool $shouldShowBrowserSessionsForm = true;
 
     protected Closure | bool $sanctumTokens = false;
+
+    protected Closure | bool $multiFactorAuthentication = false;
 
     protected array $sanctumPermissions = ['create', 'view', 'update', 'delete'];
 
@@ -246,6 +250,22 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldShowBrowserSessionsForm);
     }
 
+    public function getShouldShowMultiFactorAuthentication(): bool
+    {
+        if (! Filament::hasMultiFactorAuthentication()) {
+            $this->multiFactorAuthentication = false;
+        }
+
+        return $this->evaluate($this->multiFactorAuthentication);
+    }
+
+    public function shouldShowMultiFactorAuthentication(Closure | bool $condition = true)
+    {
+        $this->multiFactorAuthentication = $condition;
+
+        return $this;
+    }
+
     public function getShouldShowSanctumTokens(): bool
     {
         if (! class_exists('Laravel\Sanctum\Sanctum')) {
@@ -331,6 +351,10 @@ class FilamentEditProfilePlugin implements Plugin
 
         if ($this->getShouldShowDeleteAccountForm()) {
             $components->put('delete_account_form', DeleteAccountForm::class);
+        }
+
+        if ($this->getShouldShowMultiFactorAuthentication()) {
+            $components->put('multi_factor_authentication', MultiFactorAuthentication::class);
         }
 
         if ($this->getShouldShowSanctumTokens()) {

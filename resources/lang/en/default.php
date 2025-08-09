@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Copy Personal Access Token',
     'token_empty_state_heading' => 'Create your first token',
     'token_empty_state_description' => 'Create a personal access token to get started.',
+    'mfa_section_title' => 'Multi-Factor Authentication',
+    'mfa_section_description' => 'Manage your multi factor authentication settings.',
     'browser_section_title' => 'Browser Sessions',
     'browser_section_description' => 'Manage and log out your active sessions on other browsers and devices.',
     'browser_sessions_content' => 'If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.',

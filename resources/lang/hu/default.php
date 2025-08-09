@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Személyes hozzáférési token másolása',
     'token_empty_state_heading' => 'Hozd létre az első tokent',
     'token_empty_state_description' => 'Hozz létre egy személyes hozzáférési tokent a kezdéshez.',
+    'mfa_section_title' => 'Többfaktoros hitelesítés',
+    'mfa_section_description' => 'A többfaktoros hitelesítés beállításainak kezelése.',
     'browser_section_title' => 'Böngésző munkamenetek',
     'browser_section_description' => 'Kezeld és jelentkezz ki az aktív munkameneteidből más böngészőkben és eszközökön.',
     'browser_sessions_content' => 'Szükség esetén kijelentkezhetsz az összes többi böngésző munkamenetéből az összes eszközödön. Az alábbiakban néhány aktuális munkamenet látható; azonban ez a lista nem feltétlenül teljes. Ha úgy érzed, hogy a fiókodat feltörték, frissítsd jelszavad is.',

@@ -37,6 +37,8 @@ return [
     'token_modal_heading_2' => 'Copier le jeton d\'accès personnel',
     'token_empty_state_heading' => 'Créez votre premier jeton',
     'token_empty_state_description' => 'Créez un jeton d\'accès personnel pour commencer.',
+    'mfa_section_title' => 'Authentification multifacteur',
+    'mfa_section_description' => 'Gérez les paramètres de votre authentification multifacteur.',
     'browser_section_title' => 'Sessions du navigateur',
     'browser_section_description' => 'Gérez et déconnectez-vous de vos sessions actives sur d\'autres navigateurs et appareils.',
     'browser_sessions_content' => 'Si nécessaire, vous pouvez vous déconnecter de toutes vos autres sessions de navigateur sur tous vos appareils. Certaines de vos sessions récentes sont répertoriées ci-dessous ; cependant, cette liste n\'est peut-être pas exhaustive. Si vous pensez que votre compte a été compromis, vous devez également mettre à jour votre mot de passe.',

@@ -19,6 +19,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 -   **Profile Photo:** Upload and manage your profile photo.
 -   **Delete Account:** Manage your account, such as delete account.
 -   **Sanctum Personal Access tokens:** Manage your personal access tokens.
+-   **Multi Factor Authentication:** Manage multi factor authentication.
 -   **Browser Sessions** Manage and log out your active sessions on other browsers and devices.
 -   **Custom Fields:** Add custom fields to the form.
 -   **Custom Components:** Add custom component to the page.
@@ -91,6 +92,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
         ->shouldShowEmailForm()
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
+        ->shouldShowMultiFactorAuthentication()
         ->shouldShowBrowserSessionsForm()
         ->shouldShowAvatarForm()
         ->customProfileComponents([
@@ -238,6 +240,23 @@ If you want to control access or disable browser sessions, you can pass a Closur
  ->plugins([
     FilamentEditProfilePlugin::make()
         ->shouldShowBrowserSessionsForm(
+            fn() => auth()->user()->id === 1, //optional
+                //OR
+            false //optional
+        )
+ ])
+```
+
+## Multi Factor Authentication
+
+To utilize multi factor authentication.
+
+If you want to control access or disable multi factor authentication, you can pass a Closure or Boolean
+
+```php
+ ->plugins([
+    FilamentEditProfilePlugin::make()
+        ->shouldShowMultiFactorAuthentication(
             fn() => auth()->user()->id === 1, //optional
                 //OR
             false //optional
