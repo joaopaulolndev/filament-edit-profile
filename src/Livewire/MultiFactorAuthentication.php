@@ -45,17 +45,4 @@ class MultiFactorAuthentication extends BaseProfileForm
                     ->statePath($multiFactorAuthenticationProvider->getId()))
                 ->all());
     }
-
-    public function isEnabled(): bool
-    {
-        $user = Filament::auth()->user();
-
-        foreach (Filament::getMultiFactorAuthenticationProviders() as $provider) {
-            if ($provider->isEnabled($user)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }
