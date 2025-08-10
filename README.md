@@ -24,6 +24,13 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 -   **Custom Components:** Add custom component to the page.
 -   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
+## Compatibility
+
+| Package Version | Filament Version |
+|-----------------|------------------|
+| 1.x             | 3.x              |
+| 2.x             | 4.x              |
+
 ## Installation
 
 You can install the package via composer:
