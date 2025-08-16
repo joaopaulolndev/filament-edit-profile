@@ -141,7 +141,7 @@ return [
 ## Profile Avatar
 
 ![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/profile-avatar.png)
-Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/3.x/panels/users#setting-up-user-avatars) to manage the avatar.
+Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/4.x/users/overview#setting-up-user-avatars) to manage the avatar.
 
 To show the avatar form, you need the following steps:
 
@@ -454,7 +454,7 @@ return [
 If you need more control over your profile edit fields, you can create a custom component. To make this process easier, just use the artisan command.
 
 > [!NOTE]
-> If you are not confident in using custom components, please review [Filament Docs](https://filamentphp.com/docs/3.x/forms/adding-a-form-to-a-livewire-component)
+> If you are not confident in using custom components, please review [Filament Docs](https://filamentphp.com/docs/4.x/components/form)
 
 ```bash
 php artisan make:edit-profile-form CustomProfileComponent
