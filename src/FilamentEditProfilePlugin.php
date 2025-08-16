@@ -213,7 +213,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
-    public function getShouldShowEditePasswordForm(): bool
+    public function getShouldShowEditPasswordForm(): bool
     {
         return $this->evaluate($this->shouldShowEditPasswordForm);
     }
@@ -341,11 +341,11 @@ class FilamentEditProfilePlugin implements Plugin
     {
         $components = collect();
 
-        if ($this->shouldShowEditProfileForm) {
+        if ($this->getShouldShowEditProfileForm()) {
             $components->put('edit_profile_form', EditProfileForm::class);
         }
 
-        if ($this->shouldShowEditPasswordForm) {
+        if ($this->getShouldShowEditPasswordForm()) {
             $components->put('edit_password_form', EditPasswordForm::class);
         }
 
