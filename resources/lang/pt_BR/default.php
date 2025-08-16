@@ -8,6 +8,7 @@ return [
     'email' => 'E-mail',
     'password' => 'Senha',
     'locale' => 'Idioma',
+        'theme_color' => 'Cor do tema',
     'update_password' => 'Atualizar Senha',
     'current_password' => 'Senha Atual',
     'new_password' => 'Nova Senha',

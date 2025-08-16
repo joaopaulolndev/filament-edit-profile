@@ -9,6 +9,7 @@ return [
     'avatar' => 'Foto',
     'password' => 'Kata Sandi',
     'locale' => 'Bahasa',
+        'theme_color' => 'Warna Tema',
     'update_password' => 'Perbarui Kata Sandi',
     'current_password' => 'Kata Sandi Saat Ini',
     'new_password' => 'Kata Sandi Baru',

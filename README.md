@@ -104,6 +104,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
                 'es' => '🇪🇸 Espanhol',
             ],
         )
+        ->shouldShowThemeColorForm()
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
         ->shouldShowMultiFactorAuthentication()
@@ -232,6 +233,36 @@ protected $fillable = [
     'email',
     'password',
     'locale', // or column name according to config('filament-edit-profile.locale_column', 'locale')
+];
+```
+
+## Profile Theme Color
+
+Show the user theme_color form using `shouldShowThemeColorForm()`.
+
+To show the theme_color form, you need the following steps:
+
+1. Publish the migration file to add the theme_color field to the users table:
+
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-theme-color-migration"
+php artisan migrate
+```
+
+2. Update the primary color default value:
+
+```php
+->shouldShowThemeColorForm()
+```
+
+3. Add in your User model the locale field in the fillable array:
+
+```php
+protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'theme_color', // or column name according to config('filament-edit-profile.theme_color_column', 'theme_color')
 ];
 ```
 

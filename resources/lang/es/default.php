@@ -9,6 +9,7 @@ return [
     'avatar' => 'Foto',
     'password' => 'Contraseña',
     'locale' => 'Idioma',
+        'theme_color' => 'Color del tema',
     'update_password' => 'Actualizar Contraseña',
     'current_password' => 'Contraseña actual',
     'new_password' => 'Nueva Contraseña',

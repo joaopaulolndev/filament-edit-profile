@@ -9,6 +9,7 @@ return [
     'avatar' => 'صورة',
     'password' => 'كلمة المرور',
     'locale' => 'اللغة',
+        'theme_color' => 'لون السمة',
     'update_password' => 'تحديث كلمة المرور',
     'current_password' => 'كلمة المرور الحالية',
     'new_password' => 'كلمة المرور الجديدة',

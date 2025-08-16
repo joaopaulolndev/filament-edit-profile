@@ -8,6 +8,7 @@ use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserLocale;
+use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserThemeColor;
 use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
@@ -46,6 +47,8 @@ class FilamentEditProfilePlugin implements Plugin
 
     public array $localeOptions = [];
 
+    public bool $shouldShowThemeColorForm = false;
+
     public bool $shouldShowEditPasswordForm = true;
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
@@ -76,13 +79,13 @@ class FilamentEditProfilePlugin implements Plugin
         $panel
             ->pages($this->preparePages())
             ->middleware([
+                SetUserThemeColor::class . ':' . $panel->getAuthGuard(),
                 SetUserLocale::class . ':' . $panel->getAuthGuard(),
             ]);
     }
 
     protected function preparePages(): array
     {
-
         return [
             EditProfilePage::class,
         ];
@@ -334,6 +337,18 @@ class FilamentEditProfilePlugin implements Plugin
     public function getOptionsLocaleForm(): array
     {
         return $this->evaluate($this->localeOptions);
+    }
+
+    public function shouldShowThemeColorForm(Closure | bool $value = true): static
+    {
+        $this->shouldShowThemeColorForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowThemeColorForm(): bool
+    {
+        return $this->evaluate($this->shouldShowThemeColorForm);
     }
 
     public function shouldShowAvatarForm(Closure | bool $value = true, ?string $directory = null, string | array | null $rules = null): static

@@ -2,6 +2,7 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -39,6 +40,10 @@ class EditProfileForm extends BaseProfileForm
             $fields[] = config('filament-edit-profile.locale_column', 'locale');
         }
 
+        if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
+            $fields[] = config('filament-edit-profile.theme_color_column', 'theme_color');
+        }
+
         $this->form->fill($this->user->only($fields));
     }
 
@@ -73,6 +78,10 @@ class EditProfileForm extends BaseProfileForm
                             ->options(filament('filament-edit-profile')->getOptionsLocaleForm())
                             ->required()
                             ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
+                        ColorPicker::make('theme_color')
+                            ->label(__('filament-edit-profile::default.theme_color'))
+                            ->required()
+                            ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
                     ]),
             ])
             ->statePath('data');
@@ -81,8 +90,12 @@ class EditProfileForm extends BaseProfileForm
     public function updateProfile(): void
     {
         $locale = null;
+        $theme_color = null;
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
             $locale = $this->user->getAttributeValue('locale');
+        }
+        if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
+            $theme_color = $this->user->getAttributeValue('theme_color');
         }
 
         try {
@@ -102,6 +115,13 @@ class EditProfileForm extends BaseProfileForm
 
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
             if ($locale !== $this->user->getAttributeValue('locale')) {
+                redirect(request()->header('referer'));
+
+                return;
+            }
+        }
+        if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
+            if ($theme_color !== $this->user->getAttributeValue('theme_color')) {
                 redirect(request()->header('referer'));
             }
         }
