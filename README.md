@@ -97,6 +97,13 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
         ->canAccess(fn () => auth()->user()->id === 1)
         ->shouldRegisterNavigation(false)
         ->shouldShowEmailForm()
+        ->shouldShowLocaleForm(
+            options: [
+                'pt_BR' => '🇧🇷 Português',
+                'en' => '🇺🇸 Inglês',
+                'es' => '🇪🇸 Espanhol',
+            ],
+        )
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
         ->shouldShowMultiFactorAuthentication()
