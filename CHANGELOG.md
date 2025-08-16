@@ -2,6 +2,17 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.4 - 2025-08-16
+
+### What's Changed
+
+* chore(deps): bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/108
+* chore(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/106
+* docs(readme): enhance multi-factor authentication setup and visibility guidelines by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/110
+* docs(readme): add usage guide for locale selection in profile settings by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/111
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.3...v2.0.4
+
 ## v2.0.3 - 2025-08-09
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.2...v2.0.3
