@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.5 - 2025-08-16
+
+### What's Changed
+
+* feat(theme-color): add support for user-configurable theme color by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/112
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.4...v2.0.5
+
 ## v2.0.4 - 2025-08-16
 
 ### What's Changed
