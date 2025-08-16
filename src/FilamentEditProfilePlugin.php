@@ -78,7 +78,7 @@ class FilamentEditProfilePlugin implements Plugin
     {
         $panel
             ->pages($this->preparePages())
-            ->middleware([
+            ->authMiddleware([
                 SetUserThemeColor::class . ':' . $panel->getAuthGuard(),
                 SetUserLocale::class . ':' . $panel->getAuthGuard(),
             ]);
