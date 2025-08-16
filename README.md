@@ -14,7 +14,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 
 ## Features & Screenshots
 
--   **Edit Information:** Manage your information such as email, and password.
+-   **Edit Information:** Manage your information such as email, password, locale, theme color.
 -   **Change Password:** Change your password.
 -   **Profile Photo:** Upload and manage your profile photo.
 -   **Delete Account:** Manage your account, such as delete account.
