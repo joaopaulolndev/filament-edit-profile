@@ -13,9 +13,10 @@ class SetUserLocale
     {
         /** @var \Illuminate\Foundation\Auth\User $user */
         $user = Auth::guard($guard)->user();
+        $locale = config('filament-edit-profile.locale_column', 'locale');
 
-        if ($user && filled($user->getAttributeValue('locale'))) {
-            App::setLocale($user->getAttributeValue('locale'));
+        if ($user && filled($user->getAttributeValue($locale))) {
+            App::setLocale($user->getAttributeValue($locale));
         }
 
         return $next($request);
