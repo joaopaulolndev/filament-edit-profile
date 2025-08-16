@@ -67,6 +67,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
             $publishMigration('add_avatar_url_to_users_table.php', 'filament-edit-profile-avatar-migration');
             $publishMigration('add_custom_fields_to_users_table.php', 'filament-edit-profile-custom-field-migration');
             $publishMigration('add_locale_to_users_table.php', 'filament-edit-profile-locale-migration');
+            $publishMigration('add_theme_color_to_users_table.php', 'filament-edit-profile-theme-color-migration');
         }
 
         // Testing
@@ -97,6 +98,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
             'add_custom_fields_to_users_table',
             'add_avatar_url_to_users_table',
             'add_locale_to_users_table',
+            'add_theme_color_to_users_table',
         ];
     }
 

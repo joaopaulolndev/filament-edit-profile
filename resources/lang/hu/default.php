@@ -9,6 +9,7 @@ return [
     'avatar' => 'Fotó',
     'password' => 'Jelszó',
     'locale' => 'Nyelv',
+    'theme_color' => 'Témaszín',
     'update_password' => 'Jelszó frissítése',
     'current_password' => 'Jelenlegi jelszó',
     'new_password' => 'Új jelszó',

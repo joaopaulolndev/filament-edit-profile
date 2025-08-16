@@ -9,6 +9,7 @@ return [
     'avatar' => '写真',
     'password' => 'パスワード',
     'locale' => '言語',
+    'theme_color' => 'テーマカラー',
     'update_password' => 'パスワード更新',
     'current_password' => '現在のパスワード',
     'new_password' => '新しいパスワード',

@@ -3,20 +3,22 @@
 namespace Joaopaulolndev\FilamentEditProfile\Http\Middleware;
 
 use Closure;
+use Filament\Support\Facades\FilamentColor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-class SetUserLocale
+class SetUserThemeColor
 {
     public function handle(Request $request, Closure $next, ?string $guard = null)
     {
         /** @var \Illuminate\Foundation\Auth\User $user */
         $user = Auth::guard($guard)->user();
-        $locale = config('filament-edit-profile.locale_column', 'locale');
+        $theme_color = config('filament-edit-profile.theme_color_column', 'theme_color');
 
-        if ($user && filled($user->getAttributeValue($locale))) {
-            App::setLocale($user->getAttributeValue($locale));
+        if ($user && filled($user->getAttributeValue($theme_color))) {
+            FilamentColor::register([
+                'primary' => $user->getAttributeValue($theme_color),
+            ]);
         }
 
         return $next($request);

@@ -9,6 +9,7 @@ return [
     'avatar' => 'Fotografie',
     'password' => 'Heslo',
     'locale' => 'Jazyk',
+    'theme_color' => 'Barva motivu',
     'update_password' => 'Aktualizovat heslo',
     'current_password' => 'Současné heslo',
     'new_password' => 'Nové heslo',
