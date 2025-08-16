@@ -141,7 +141,7 @@ return [
 ## Profile Avatar
 
 ![Screenshot of avatar Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/profile-avatar.png)
-Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/3.x/panels/users#setting-up-user-avatars) to manage the avatar.
+Show the user avatar form using `shouldShowAvatarForm()`. This package follows the [Filament user avatar](https://filamentphp.com/docs/4.x/users/overview#setting-up-user-avatars) to manage the avatar.
 
 To show the avatar form, you need the following steps:
 
@@ -191,6 +191,42 @@ class User extends Authenticatable implements HasAvatar
 ```
 
 5. Don't forget to run the command `php artisan storage:link`
+
+## Profile Locale
+
+Show the user locale form using `shouldShowLocaleForm()`.
+
+To show the locale form, you need the following steps:
+
+1. Publish the migration file to add the locale field to the users table:
+
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-locale-migration"
+php artisan migrate
+```
+
+2. Update the options array with the languages you want to show:
+
+```php
+->shouldShowLocaleForm(
+    options: [
+        'pt_BR' => '🇧🇷 Português',
+        'en' => '🇺🇸 Inglês',
+        'es' => '🇪🇸 Espanhol',
+    ],
+)
+```
+
+3. Add in your User model the locale field in the fillable array:
+
+```php
+protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'locale', // or column name according to config('filament-edit-profile.locale_column', 'locale')
+];
+```
 
 ## Sanctum Personal Access tokens
 
@@ -454,7 +490,7 @@ return [
 If you need more control over your profile edit fields, you can create a custom component. To make this process easier, just use the artisan command.
 
 > [!NOTE]
-> If you are not confident in using custom components, please review [Filament Docs](https://filamentphp.com/docs/3.x/forms/adding-a-form-to-a-livewire-component)
+> If you are not confident in using custom components, please review [Filament Docs](https://filamentphp.com/docs/4.x/components/form)
 
 ```bash
 php artisan make:edit-profile-form CustomProfileComponent

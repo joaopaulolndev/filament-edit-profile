@@ -7,6 +7,7 @@ return [
     'name' => 'Nome',
     'email' => 'E-mail',
     'password' => 'Senha',
+    'locale' => 'Idioma',
     'update_password' => 'Atualizar Senha',
     'current_password' => 'Senha Atual',
     'new_password' => 'Nova Senha',

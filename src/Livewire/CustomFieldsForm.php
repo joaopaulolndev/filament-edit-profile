@@ -2,6 +2,7 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
+use Closure;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
@@ -12,6 +13,7 @@ use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Str;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Throwable;

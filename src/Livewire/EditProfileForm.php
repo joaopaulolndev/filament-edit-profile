@@ -3,6 +3,7 @@
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Section;
@@ -34,6 +35,10 @@ class EditProfileForm extends BaseProfileForm
             $fields[] = config('filament-edit-profile.avatar_column', 'avatar_url');
         }
 
+        if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
+            $fields[] = config('filament-edit-profile.locale_column', 'locale');
+        }
+
         $this->form->fill($this->user->only($fields));
     }
 
@@ -63,6 +68,11 @@ class EditProfileForm extends BaseProfileForm
                             ->required()
                             ->hidden(! filament('filament-edit-profile')->getShouldShowEmailForm())
                             ->unique($this->userClass, ignorable: $this->user),
+                        Select::make('locale')
+                            ->label(__('filament-edit-profile::default.locale'))
+                            ->options(filament('filament-edit-profile')->getOptionsLocaleForm())
+                            ->required()
+                            ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
                     ]),
             ])
             ->statePath('data');
@@ -70,6 +80,11 @@ class EditProfileForm extends BaseProfileForm
 
     public function updateProfile(): void
     {
+        $locale = null;
+        if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
+            $locale = $this->user->getAttributeValue('locale');
+        }
+
         try {
             $data = $this->form->getState();
 
@@ -84,5 +99,11 @@ class EditProfileForm extends BaseProfileForm
             ->success()
             ->title(__('filament-edit-profile::default.saved_successfully'))
             ->send();
+
+        if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
+            if ($locale !== $this->user->getAttributeValue('locale')) {
+                redirect(request()->header('referer'));
+            }
+        }
     }
 }
