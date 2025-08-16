@@ -9,7 +9,7 @@ return [
     'avatar' => 'Zdjęcie',
     'password' => 'Hasło',
     'locale' => 'Język',
-        'theme_color' => 'Kolor motywu',
+    'theme_color' => 'Kolor motywu',
     'update_password' => 'Zaktualizuj hasło',
     'current_password' => 'Obecne hasło',
     'new_password' => 'Nowe hasło',
