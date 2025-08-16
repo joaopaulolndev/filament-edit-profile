@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 
 trait HasUser
 {
+    /**
+     * @var Authenticatable & Model
+     */
     public $user;
 
     protected function getUser(): Authenticatable & Model

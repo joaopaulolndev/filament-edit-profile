@@ -192,6 +192,42 @@ class User extends Authenticatable implements HasAvatar
 
 5. Don't forget to run the command `php artisan storage:link`
 
+## Profile Locale
+
+Show the user locale form using `shouldShowLocaleForm()`.
+
+To show the locale form, you need the following steps:
+
+1. Publish the migration file to add the locale field to the users table:
+
+```bash
+php artisan vendor:publish --tag="filament-edit-profile-locale-migration"
+php artisan migrate
+```
+
+2. Update the options array with the languages you want to show:
+
+```php
+->shouldShowLocaleForm(
+    options: [
+        'pt_BR' => '🇧🇷 Português',
+        'en' => '🇺🇸 Inglês',
+        'es' => '🇪🇸 Espanhol',
+    ],
+)
+```
+
+3. Add in your User model the locale field in the fillable array:
+
+```php
+protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'locale', // or column name according to config('filament-edit-profile.locale_column', 'locale')
+];
+```
+
 ## Sanctum Personal Access tokens
 
 Show the Sanctum token management component:

@@ -8,6 +8,7 @@ return [
     'email' => 'E-posta',
     'avatar' => 'Fotoğraf',
     'password' => 'Şifre',
+    'locale' => 'Dil',
     'update_password' => 'Şifreyi Güncelle',
     'current_password' => 'Mevcut Şifre',
     'new_password' => 'Yeni Şifre',

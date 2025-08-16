@@ -8,6 +8,7 @@ return [
     'email' => 'E-mail',
     'avatar' => 'Foto',
     'password' => 'Wachtwoord',
+    'locale' => 'Taal',
     'update_password' => 'Wachtwoord Bijwerken',
     'current_password' => 'Huidig Wachtwoord',
     'new_password' => 'Nieuw Wachtwoord',

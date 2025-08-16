@@ -7,6 +7,7 @@ use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserLocale;
 use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
@@ -41,6 +42,10 @@ class FilamentEditProfilePlugin implements Plugin
 
     public bool $shouldShowEmailForm = true;
 
+    public bool $shouldShowLocaleForm = false;
+
+    public array $localeOptions = [];
+
     public bool $shouldShowEditPasswordForm = true;
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
@@ -69,7 +74,10 @@ class FilamentEditProfilePlugin implements Plugin
     public function register(Panel $panel): void
     {
         $panel
-            ->pages($this->preparePages());
+            ->pages($this->preparePages())
+            ->middleware([
+                SetUserLocale::class . ':' . $panel->getAuthGuard(),
+            ]);
     }
 
     protected function preparePages(): array
@@ -295,6 +303,39 @@ class FilamentEditProfilePlugin implements Plugin
         })->toArray();
     }
 
+    public function shouldShowEmailForm(Closure | bool $value = true): static
+    {
+        $this->shouldShowEmailForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowEmailForm(): bool
+    {
+        return $this->evaluate($this->shouldShowEmailForm);
+    }
+
+    public function shouldShowLocaleForm(Closure | bool $value = true, array $options = []): static
+    {
+        if (empty($options)) {
+            $options = config('filament-edit-profile.locales');
+        }
+        $this->localeOptions = $options;
+        $this->shouldShowLocaleForm = $value;
+
+        return $this;
+    }
+
+    public function getShouldShowLocaleForm(): bool
+    {
+        return $this->evaluate($this->shouldShowLocaleForm);
+    }
+
+    public function getOptionsLocaleForm(): array
+    {
+        return $this->evaluate($this->localeOptions);
+    }
+
     public function shouldShowAvatarForm(Closure | bool $value = true, ?string $directory = null, string | array | null $rules = null): static
     {
         $this->shouldShowAvatarForm = $value;
@@ -308,18 +349,6 @@ class FilamentEditProfilePlugin implements Plugin
         }
 
         return $this;
-    }
-
-    public function shouldShowEmailForm(Closure | bool $value = true): static
-    {
-        $this->shouldShowEmailForm = $value;
-
-        return $this;
-    }
-
-    public function getShouldShowEmailForm(): bool
-    {
-        return $this->evaluate($this->shouldShowEmailForm);
     }
 
     public function getShouldShowAvatarForm(): bool

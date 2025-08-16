@@ -8,6 +8,7 @@ return [
     'email' => 'E-mail',
     'avatar' => 'Fotó',
     'password' => 'Jelszó',
+    'locale' => 'Nyelv',
     'update_password' => 'Jelszó frissítése',
     'current_password' => 'Jelenlegi jelszó',
     'new_password' => 'Új jelszó',

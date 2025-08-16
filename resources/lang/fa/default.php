@@ -8,6 +8,7 @@ return [
     'email' => 'ایمیل',
     'avatar' => 'آواتار',
     'password' => 'رمز عبور',
+    'locale' => 'زبان',
     'update_password' => 'بروزرسانی رمز عبور',
     'current_password' => 'رمز عبور فعلی',
     'new_password' => 'رمز عبور جدید',

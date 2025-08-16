@@ -8,6 +8,7 @@ return [
     'email' => 'E-mail',
     'avatar' => 'Zdjęcie',
     'password' => 'Hasło',
+    'locale' => 'Język',
     'update_password' => 'Zaktualizuj hasło',
     'current_password' => 'Obecne hasło',
     'new_password' => 'Nowe hasło',
