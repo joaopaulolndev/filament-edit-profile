@@ -9,7 +9,7 @@ return [
     'avatar' => 'Foto',
     'password' => 'Wachtwoord',
     'locale' => 'Taal',
-        'theme_color' => 'Themakleur',
+    'theme_color' => 'Themakleur',
     'update_password' => 'Wachtwoord Bijwerken',
     'current_password' => 'Huidig Wachtwoord',
     'new_password' => 'Nieuw Wachtwoord',

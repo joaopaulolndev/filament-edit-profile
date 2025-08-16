@@ -9,7 +9,7 @@ return [
     'avatar' => 'Fotoğraf',
     'password' => 'Şifre',
     'locale' => 'Dil',
-        'theme_color' => 'Tema rengi',
+    'theme_color' => 'Tema rengi',
     'update_password' => 'Şifreyi Güncelle',
     'current_password' => 'Mevcut Şifre',
     'new_password' => 'Yeni Şifre',

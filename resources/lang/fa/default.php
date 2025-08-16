@@ -9,7 +9,7 @@ return [
     'avatar' => 'آواتار',
     'password' => 'رمز عبور',
     'locale' => 'زبان',
-        'theme_color' => 'رنگ تم',
+    'theme_color' => 'رنگ تم',
     'update_password' => 'بروزرسانی رمز عبور',
     'current_password' => 'رمز عبور فعلی',
     'new_password' => 'رمز عبور جدید',
