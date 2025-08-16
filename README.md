@@ -254,22 +254,52 @@ If you want to control access or disable browser sessions, you can pass a Closur
  ])
 ```
 
-## Multi Factor Authentication
+## Multi-Factor Authentication (MFA)
 
-To utilize multi factor authentication.
+This plugin integrates with Filament's native Multi-Factor Authentication (MFA) system, allowing your users to manage their MFA settings directly from the profile edit page.
 
-If you want to control access or disable multi factor authentication, you can pass a Closure or Boolean
+### Required Setup
+
+For the MFA functionality to be available on the profile page, **you must first set up MFA in your Filament panel** by following the official documentation.
+
+This typically involves running a database migration and adding the `TwoFactorAuthenticatable` trait to your `User` model. You can find the detailed instructions at the link below:
+
+➡️ **[Official Filament MFA Documentation](https://filamentphp.com/docs/4.x/users/multi-factor-authentication)**
+
+### Controlling the MFA Section's Visibility
+
+After setting up MFA in your project, the MFA section will be displayed by default for all users. However, this plugin provides a method to dynamically control who can see and manage the MFA options.
+
+In your panel provider file (usually `app/Providers/Filament/AdminPanelProvider.php`), you can use the `shouldShowMultiFactorAuthentication()` method in two ways:
+
+#### 1\. Display based on a condition (Closure)
+
+You can pass a `Closure` that returns `true` or `false`. The MFA section will only be displayed if the condition is met. In the example below, only the user with ID `1` will be able to see the MFA options.
 
 ```php
  ->plugins([
     FilamentEditProfilePlugin::make()
         ->shouldShowMultiFactorAuthentication(
+            // The section will only be visible to the user with ID 1.
             fn() => auth()->user()->id === 1, //optional
                 //OR
             false //optional
         )
  ])
 ```
+
+#### 2\. Disable it completely
+
+If you want to hide the MFA section for all users through the profile page, simply pass `false` as the argument.
+
+```php
+ ->plugins([
+    FilamentEditProfilePlugin::make()
+        ->shouldShowMultiFactorAuthentication(false)
+ ])
+```
+
+> **Note:** If the `shouldShowMultiFactorAuthentication()` method is not called, the default behavior is to display the MFA section for all users (equivalent to passing `true`), provided that the required setup has been completed correctly.
 
 ## Custom Fields
 
