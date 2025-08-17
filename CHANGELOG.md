@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.6 - 2025-08-17
+
+### What's Changed
+
+* feat(profile): add email change verification logic by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/114
+* fix(theme-color): use the correct getter to show/hide the theme_color field by @ricardoh in https://github.com/joaopaulolndev/filament-edit-profile/pull/113
+
+### New Contributors
+
+* @ricardoh made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/113
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.5...v2.0.6
+
 ## v2.0.5 - 2025-08-16
 
 ### What's Changed
