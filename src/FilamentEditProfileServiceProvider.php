@@ -2,7 +2,9 @@
 
 namespace Joaopaulolndev\FilamentEditProfile;
 
+use Filament\Auth\Http\Responses\Contracts\EmailChangeVerificationResponse as EmailChangeVerificationResponseContract;
 use Joaopaulolndev\FilamentEditProfile\Commands\FilamentEditProfileCommand;
+use Joaopaulolndev\FilamentEditProfile\Http\Responses\EmailChangeVerificationResponse;
 use Joaopaulolndev\FilamentEditProfile\Testing\TestsFilamentEditProfile;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
@@ -51,7 +53,10 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
+    public function packageRegistered(): void
+    {
+        $this->app->bind(EmailChangeVerificationResponseContract::class, EmailChangeVerificationResponse::class);
+    }
 
     public function packageBooted(): void
     {
