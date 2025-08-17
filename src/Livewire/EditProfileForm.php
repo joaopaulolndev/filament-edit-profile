@@ -2,15 +2,22 @@
 
 namespace Joaopaulolndev\FilamentEditProfile\Livewire;
 
+use Filament\Auth\Notifications\NoticeOfEmailChangeRequest;
+use Filament\Auth\Notifications\VerifyEmailChange;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
+use Filament\Notifications\Notification as FilamentNotification;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Notification;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use League\Uri\Components\Query;
 
 class EditProfileForm extends BaseProfileForm
 {
@@ -101,6 +108,12 @@ class EditProfileForm extends BaseProfileForm
         try {
             $data = $this->form->getState();
 
+            if (Filament::hasEmailChangeVerification() && array_key_exists('email', $data)) {
+                $this->sendEmailChangeVerification($this->user, $data['email']);
+
+                unset($data['email']);
+            }
+
             $this->user->update($data);
 
             $this->dispatch('refresh-topbar');
@@ -108,7 +121,7 @@ class EditProfileForm extends BaseProfileForm
             return;
         }
 
-        Notification::make()
+        FilamentNotification::make()
             ->success()
             ->title(__('filament-edit-profile::default.saved_successfully'))
             ->send();
@@ -125,5 +138,39 @@ class EditProfileForm extends BaseProfileForm
                 redirect(request()->header('referer'));
             }
         }
+    }
+
+    private function sendEmailChangeVerification(Authenticatable & Model $user, string $newEmail): void
+    {
+        if ($user->getAttributeValue('email') === $newEmail) {
+            return;
+        }
+
+        $notification = app(VerifyEmailChange::class);
+        $notification->url = Filament::getVerifyEmailChangeUrl($user, $newEmail);
+
+        $verificationSignature = Query::new($notification->url)->get('signature');
+
+        cache()->put($verificationSignature, true, ttl: now()->addHour());
+
+        $user->notify(app(NoticeOfEmailChangeRequest::class, [/** @phpstan-ignore-line */
+            'blockVerificationUrl' => Filament::getBlockEmailChangeVerificationUrl($user, $newEmail, $verificationSignature),
+            'newEmail' => $newEmail,
+        ]));
+
+        Notification::route('mail', $newEmail)
+            ->notify($notification);
+
+        $this->getEmailChangeVerificationSentNotification($newEmail)?->send();
+
+        $this->data['email'] = $user->getAttributeValue('email');
+    }
+
+    private function getEmailChangeVerificationSentNotification(string $newEmail): ?FilamentNotification
+    {
+        return FilamentNotification::make()
+            ->success()
+            ->title(__('filament-panels::auth/pages/edit-profile.notifications.email_change_verification_sent.title', ['email' => $newEmail]))
+            ->body(__('filament-panels::auth/pages/edit-profile.notifications.email_change_verification_sent.body', ['email' => $newEmail]));
     }
 }
