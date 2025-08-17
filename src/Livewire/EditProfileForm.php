@@ -88,7 +88,7 @@ class EditProfileForm extends BaseProfileForm
                         ColorPicker::make('theme_color')
                             ->label(__('filament-edit-profile::default.theme_color'))
                             ->required()
-                            ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
+                            ->hidden(! filament('filament-edit-profile')->getShouldShowThemeColorForm()),
                     ]),
             ])
             ->statePath('data');
