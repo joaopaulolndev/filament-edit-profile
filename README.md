@@ -266,6 +266,47 @@ protected $fillable = [
 ];
 ```
 
+## Email Change Verification
+
+The `filament-edit-profile` plugin is fully compatible with the `emailChangeVerification` feature introduced in Filament.
+
+When this feature is enabled in your Panel Provider, the plugin ensures that an email address change is only finalized after the user confirms ownership of the new email address.
+
+### How It Works
+
+1.  A user navigates to the edit profile page provided by this plugin.
+2.  They change their email address and click "Save".
+3.  The plugin, using Filament's core logic, **does not update the email in the database immediately**.
+4.  Instead, a verification email with a signed link is sent to the **new** email address.
+5.  The user's email in the database is only updated after they click the confirmation link sent to the new address.
+
+This prevents users from being locked out of their accounts if they enter an incorrect email address, and it stops malicious attempts to take over an account by changing the owner's email without permission.
+
+### How to Enable
+
+You don't need to change any code within the `filament-edit-profile` plugin to enable this feature. Simply follow the official Filament documentation steps:
+
+1.  **Enable verification in your Panel Provider:**
+
+    In your Panel Provider file (e.g., `app/Providers/Filament/AdminPanelProvider.php`), add the `emailChangeVerification()` method to the panel configuration:
+
+    ```php
+    use Filament\Panel;
+    use Filament\PanelProvider;
+
+    class AdminPanelProvider extends PanelProvider
+    {
+        public function panel(Panel $panel): Panel
+        {
+            return $panel
+                // ...
+                ->emailChangeVerification();
+        }
+    }
+    ```
+
+That's it\! The `filament-edit-profile` plugin will now respect this configuration and trigger the email verification flow automatically.
+
 ## Sanctum Personal Access tokens
 
 Show the Sanctum token management component:
