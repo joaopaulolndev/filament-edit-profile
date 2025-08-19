@@ -321,7 +321,7 @@ class FilamentEditProfilePlugin implements Plugin
     public function shouldShowLocaleForm(Closure | bool $value = true, array $options = []): static
     {
         if (empty($options)) {
-            $options = config('filament-edit-profile.locales');
+            $value = false;
         }
         $this->localeOptions = $options;
         $this->shouldShowLocaleForm = $value;
