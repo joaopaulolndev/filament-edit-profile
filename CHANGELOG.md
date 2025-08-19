@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.7 - 2025-08-19
+
+### What's Changed
+
+* Remove default locale options from configuration by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/115
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.6...v2.0.7
+
 ## v2.0.6 - 2025-08-17
 
 ### What's Changed
