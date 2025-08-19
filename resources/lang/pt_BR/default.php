@@ -6,6 +6,7 @@ return [
     'profile_information_description' => 'Atualize as informações do seu perfil e endereço de e-mail.',
     'name' => 'Nome',
     'email' => 'E-mail',
+    'avatar' => 'Foto',
     'password' => 'Senha',
     'locale' => 'Idioma',
     'theme_color' => 'Cor do tema',

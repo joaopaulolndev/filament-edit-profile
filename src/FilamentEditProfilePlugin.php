@@ -67,6 +67,10 @@ class FilamentEditProfilePlugin implements Plugin
 
     protected array | string $avatarRules = ['max:1024'];
 
+    protected array | string $localeRules = [];
+
+    protected array | string $themeColorRules = [];
+
     protected array $registeredCustomProfileComponents = [];
 
     public function getId(): string
@@ -318,13 +322,16 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldShowEmailForm);
     }
 
-    public function shouldShowLocaleForm(Closure | bool $value = true, array $options = []): static
+    public function shouldShowLocaleForm(Closure | bool $value = true, array $options = [], string | array | null $rules = null): static
     {
         if (empty($options)) {
             $value = false;
         }
         $this->localeOptions = $options;
         $this->shouldShowLocaleForm = $value;
+        if (! is_null($rules)) {
+            $this->localeRules = $rules;
+        }
 
         return $this;
     }
@@ -339,9 +346,12 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->localeOptions);
     }
 
-    public function shouldShowThemeColorForm(Closure | bool $value = true): static
+    public function shouldShowThemeColorForm(Closure | bool $value = true, string | array | null $rules = null): static
     {
         $this->shouldShowThemeColorForm = $value;
+        if (! is_null($rules)) {
+            $this->localeRules = $rules;
+        }
 
         return $this;
     }
@@ -379,6 +389,16 @@ class FilamentEditProfilePlugin implements Plugin
     public function getAvatarRules(): array | string
     {
         return $this->avatarRules;
+    }
+
+    public function getLocaleRules(): array | string
+    {
+        return $this->localeRules;
+    }
+
+    public function getThemeColorRules(): array | string
+    {
+        return $this->themeColorRules;
     }
 
     private function registerLivewireComponents(): void

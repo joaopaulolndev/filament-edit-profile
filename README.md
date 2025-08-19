@@ -103,8 +103,9 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
                 'en' => '🇺🇸 Inglês',
                 'es' => '🇪🇸 Espanhol',
             ],
+            rules: 'required' // optional validation rules for the locale field
         )
-        ->shouldShowThemeColorForm()
+        ->shouldShowThemeColorForm(rules: 'required') // optional validation rules for the theme color field
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
         ->shouldShowMultiFactorAuthentication()
@@ -202,7 +203,7 @@ class User extends Authenticatable implements HasAvatar
 
 ## Profile Locale
 
-Show the user locale form using `shouldShowLocaleForm()`.
+Show the user locale form using `shouldShowLocaleForm()`. You can now customize validation rules for this field using the `rules` parameter (e.g., 'required'). If you don't set rules, the field is not required by default.
 
 To show the locale form, you need the following steps:
 
@@ -222,6 +223,7 @@ php artisan migrate
         'en' => '🇺🇸 Inglês',
         'es' => '🇪🇸 Espanhol',
     ],
+    rules: 'required' // optional validation rules, e.g. 'required|in:pt_BR,en,es'
 )
 ```
 
@@ -238,7 +240,7 @@ protected $fillable = [
 
 ## Profile Theme Color
 
-Show the user theme_color form using `shouldShowThemeColorForm()`.
+Show the user theme_color form using `shouldShowThemeColorForm()`. You can now customize validation rules for this field using the `rules` parameter (e.g., 'required'). If you don't set rules, the field is not required by default.
 
 To show the theme_color form, you need the following steps:
 
@@ -252,7 +254,7 @@ php artisan migrate
 2. Update the primary color default value:
 
 ```php
-->shouldShowThemeColorForm()
+->shouldShowThemeColorForm(rules: 'required') // optional validation rules, e.g. 'required|regex:/^#?[0-9a-fA-F]{6}$/'
 ```
 
 3. Add in your User model the locale field in the fillable array:
