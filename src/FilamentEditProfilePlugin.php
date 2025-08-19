@@ -66,7 +66,9 @@ class FilamentEditProfilePlugin implements Plugin
     protected string $avatarDirectory = 'avatars';
 
     protected array | string $avatarRules = ['max:1024'];
+
     protected array | string $localeRules = [];
+
     protected array | string $themeColorRules = [];
 
     protected array $registeredCustomProfileComponents = [];
