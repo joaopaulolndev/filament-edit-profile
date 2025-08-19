@@ -83,11 +83,11 @@ class EditProfileForm extends BaseProfileForm
                         Select::make('locale')
                             ->label(__('filament-edit-profile::default.locale'))
                             ->options(filament('filament-edit-profile')->getOptionsLocaleForm())
-                            ->required()
+                            ->rules(filament('filament-edit-profile')->getLocaleRules())
                             ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
                         ColorPicker::make('theme_color')
                             ->label(__('filament-edit-profile::default.theme_color'))
-                            ->required()
+                            ->rules(filament('filament-edit-profile')->getThemeColorRules())
                             ->hidden(! filament('filament-edit-profile')->getShouldShowThemeColorForm()),
                     ]),
             ])
