@@ -1,7 +1,7 @@
 <!-- content -->
 <div>
     <x-filament-panels::page>
-        {{ $this->form }}
+        {{ $this->schema }}
     </x-filament-panels::page>
 </div>
 <!-- content -->

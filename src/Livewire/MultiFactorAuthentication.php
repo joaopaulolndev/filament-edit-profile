@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Filament\Auth\MultiFactor\Contracts\MultiFactorAuthenticationProvider;
 use Filament\Facades\Filament;
@@ -8,7 +8,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 
 class MultiFactorAuthentication extends BaseProfileForm
 {

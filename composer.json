@@ -25,7 +25,7 @@
         "jenssegers/agent": "^2.6",
         "spatie/laravel-package-tools": "^1.15.0",
         "spatie/laravel-medialibrary": "^11.12",
-        "filament/spatie-laravel-media-library-plugin": "^3.2"
+        "filament/spatie-laravel-media-library-plugin": "^4.0"
     },
     "require-dev": {
         "laradumps/laradumps": "^3.1",
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfileServiceProvider"
+                "NoopStudios\\FilamentEditProfile\\FilamentEditProfileServiceProvider"
             ],
             "aliases": {
-                "FilamentEditProfile": "Joaopaulolndev\\FilamentEditProfile\\Facades\\FilamentEditProfile"
+                "FilamentEditProfile": "NoopStudios\\FilamentEditProfile\\Facades\\FilamentEditProfile"
             }
         }
     },

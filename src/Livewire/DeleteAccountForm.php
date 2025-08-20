@@ -4,13 +4,12 @@ namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\ViewField;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Actions;
-use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\ViewField;
 
 class DeleteAccountForm extends BaseProfileForm
 {
@@ -26,7 +25,7 @@ class DeleteAccountForm extends BaseProfileForm
                     ->description(__('filament-edit-profile::default.delete_account_description'))
                     ->aside() 
                     ->schema([ */
-                        Forms\Components\ViewField::make('deleteAccount')
+                        ViewField::make('deleteAccount')
                             ->label(__('Delete Account'))
                             ->hiddenLabel()
                             ->view('filament-edit-profile::forms.components.delete-account-description'),

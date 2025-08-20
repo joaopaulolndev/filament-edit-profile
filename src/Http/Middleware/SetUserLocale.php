@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Http\Middleware;
+namespace NoopStudios\FilamentEditProfile\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
