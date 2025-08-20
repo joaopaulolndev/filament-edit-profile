@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
@@ -10,7 +10,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 
 class EditPasswordForm extends BaseProfileForm
 {
@@ -32,11 +32,11 @@ class EditPasswordForm extends BaseProfileForm
     public function form(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                Section::make(__('filament-edit-profile::default.update_password'))
-                    ->aside()
+            ->schema([
+               /*  Section::make(__('filament-edit-profile::default.update_password'))
+                    ->aside() 
                     ->description(__('filament-edit-profile::default.ensure_your_password'))
-                    ->schema([
+                    ->schema([ */
                         TextInput::make('Current password')
                             ->label(__('filament-edit-profile::default.current_password'))
                             ->password()
@@ -59,7 +59,7 @@ class EditPasswordForm extends BaseProfileForm
                             ->required()
                             ->dehydrated(false)
                             ->revealable(),
-                    ]),
+                  /*   ]), */
             ])
             ->model($this->getUser())
             ->statePath('data');

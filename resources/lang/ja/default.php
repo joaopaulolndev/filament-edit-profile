@@ -49,4 +49,17 @@ return [
     'browser_sessions_log_out' => '他のブラウザセッションからログアウト',
     'browser_sessions_confirm_pass' => 'すべてのデバイスで他のブラウザセッションからログアウトすることを確認するために、パスワードを入力してください。',
     'browser_sessions_logout_success_notification' => '他のすべてのブラウザセッションから正常にログアウトしました。',
+    
+    // Email verification messages
+    'email_verification_sent' => 'メール確認が送信されました',
+    'email_verification_sent_message' => '新しいメールアドレスに確認用リンクが送信されました。受信トレイを確認し、リンクをクリックして変更を確認してください。',
+    'email_change_confirmation_subject' => 'メールアドレス変更確認',
+    'email_change_request_message' => 'メールアドレスの変更をリクエストしました。',
+    'email_confirm_action_message' => '下のボタンをクリックして、新しいメールアドレスを確認してください。',
+    'confirm_email_change' => 'メールアドレス変更を確認',
+    'email_change_no_action_message' => 'この変更をリクエストしていない場合は、何も操作する必要はありません。',
+    'invalid_link' => '確認用リンクが無効または期限切れです。',
+    'unauthorized' => 'この操作を実行する権限がありません。',
+    'invalid_email_verification' => 'メール確認が無効です。',
+    'email_changed_successfully' => 'メールアドレスが正常に変更されました。',
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Carbon\Carbon;
 use Filament\Actions\Action;
@@ -24,12 +24,12 @@ class BrowserSessionsForm extends BaseProfileForm
     public function form(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                Section::make(__('filament-edit-profile::default.browser_section_title'))
+            ->schema([
+              /*   Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
                     ->description(__('filament-edit-profile::default.browser_section_description'))
-                    ->aside()
-                    ->schema([
-                        ViewField::make('browserSessions')
+                    ->aside() 
+                    ->schema([*/
+                        Forms\Components\ViewField::make('browserSessions')
                             ->label(__(__('filament-edit-profile::default.browser_section_title')))
                             ->hiddenLabel()
                             ->view('filament-edit-profile::forms.components.browser-sessions')
@@ -54,7 +54,8 @@ class BrowserSessionsForm extends BaseProfileForm
                                 ->modalWidth('2xl'),
                         ]),
 
-                    ]),
+                  /*   ])
+                    , */
             ]);
     }
 

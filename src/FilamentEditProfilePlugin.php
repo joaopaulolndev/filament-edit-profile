@@ -1,22 +1,22 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile;
+namespace NoopStudios\FilamentEditProfile;
 
 use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
-use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserLocale;
-use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserThemeColor;
-use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
-use Joaopaulolndev\FilamentEditProfile\Livewire\MultiFactorAuthentication;
-use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
-use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
+use NoopStudios\FilamentEditProfile\Http\Middleware\SetUserLocale;
+use NoopStudios\FilamentEditProfile\Http\Middleware\SetUserThemeColor;
+use NoopStudios\FilamentEditProfile\Livewire\BrowserSessionsForm;
+use NoopStudios\FilamentEditProfile\Livewire\CustomFieldsForm;
+use NoopStudios\FilamentEditProfile\Livewire\DeleteAccountForm;
+use NoopStudios\FilamentEditProfile\Livewire\EditPasswordForm;
+use NoopStudios\FilamentEditProfile\Livewire\EditProfileForm;
+use NoopStudios\FilamentEditProfile\Livewire\MultiFactorAuthentication;
+use NoopStudios\FilamentEditProfile\Livewire\SanctumTokens;
+use NoopStudios\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Livewire;
 
 class FilamentEditProfilePlugin implements Plugin
@@ -50,6 +50,10 @@ class FilamentEditProfilePlugin implements Plugin
     public bool $shouldShowThemeColorForm = false;
 
     public bool $shouldShowEditPasswordForm = true;
+
+    public bool $shouldEditEmail = true;
+
+    public bool $shouldConfirmEmail = false;
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
@@ -97,6 +101,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
+       
         $this->registerLivewireComponents();
     }
 
@@ -120,7 +125,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): Closure | string
     {
         return ! empty($this->title) ? $this->evaluate($this->title) : null;
     }
@@ -132,7 +137,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
-    public function getSlug(): string
+    public function getSlug(): Closure | string
     {
         return $this->evaluate($this->slug);
     }
@@ -144,7 +149,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
-    public function getNavigationLabel(): ?string
+    public function getNavigationLabel(): Closure | string
     {
         return ! empty($this->navigationLabel) ? $this->evaluate($this->navigationLabel) : null;
     }
@@ -156,7 +161,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
-    public function getNavigationGroup(): ?string
+    public function getNavigationGroup(): Closure | string
     {
         return ! empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
     }
@@ -168,7 +173,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
-    public function getIcon(): ?string
+    public function getIcon(): Closure | string
     {
         return ! empty($this->icon) ? $this->evaluate($this->icon) : null;
     }
@@ -216,6 +221,20 @@ class FilamentEditProfilePlugin implements Plugin
         return $this;
     }
 
+    public function shouldEditEmail(bool $value = true): static
+    {
+        $this->shouldEditEmail = $value;
+
+        return $this;
+    }
+
+    public function shouldConfirmEmail(bool $value = true): static
+    {
+        $this->shouldConfirmEmail = $value;
+
+        return $this;
+    }
+    
     public function getShouldShowEditProfileForm(): bool
     {
         return $this->evaluate($this->shouldShowEditProfileForm);
@@ -408,6 +427,11 @@ class FilamentEditProfilePlugin implements Plugin
         if ($this->getShouldShowEditProfileForm()) {
             $components->put('edit_profile_form', EditProfileForm::class);
         }
+
+       /*  if ($this->shouldShowEditProfileForm) {
+            $components->put('edit_profile_form', EditProfileForm::class); 
+
+        } */
 
         if ($this->getShouldShowEditPasswordForm()) {
             $components->put('edit_password_form', EditPasswordForm::class);

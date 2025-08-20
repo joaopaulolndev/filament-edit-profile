@@ -49,4 +49,17 @@ return [
     'browser_sessions_log_out' => 'Kijelentkezés más böngésző munkamenetekből',
     'browser_sessions_confirm_pass' => 'Kérjük, add meg a jelszavad, hogy megerősítsd, ki szeretnél jelentkezni az összes többi böngésző munkamenetből az összes eszközödön.',
     'browser_sessions_logout_success_notification' => 'Az összes többi böngésző munkamenet sikeresen kijelentkezett.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'E-mail ellenőrzés elküldve',
+    'email_verification_sent_message' => 'Ellenőrző linket küldtünk az új e-mail címedre. Kérjük, ellenőrizd a bejövő üzeneteidet és kattints a linkre a változtatás megerősítéséhez.',
+    'email_change_confirmation_subject' => 'E-mail változtatás megerősítése',
+    'email_change_request_message' => 'E-mail címed megváltoztatását kérted.',
+    'email_confirm_action_message' => 'Kérjük, kattints az alábbi gombra az új e-mail címed megerősítéséhez.',
+    'confirm_email_change' => 'E-mail változtatás megerősítése',
+    'email_change_no_action_message' => 'Ha nem te kérted ezt a változtatást, nincs szükség további műveletre.',
+    'invalid_link' => 'Az ellenőrző link érvénytelen vagy lejárt.',
+    'unauthorized' => 'Nincs jogosultságod ehhez a művelethez.',
+    'invalid_email_verification' => 'Az e-mail ellenőrzés érvénytelen.',
+    'email_changed_successfully' => 'E-mail címed sikeresen megváltoztatva.',
 ];

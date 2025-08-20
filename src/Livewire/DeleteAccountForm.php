@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
@@ -21,12 +21,12 @@ class DeleteAccountForm extends BaseProfileForm
     public function form(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                Section::make(__('filament-edit-profile::default.delete_account'))
+            ->schema([
+               /*  Section::make(__('filament-edit-profile::default.delete_account'))
                     ->description(__('filament-edit-profile::default.delete_account_description'))
-                    ->aside()
-                    ->schema([
-                        ViewField::make('deleteAccount')
+                    ->aside() 
+                    ->schema([ */
+                        Forms\Components\ViewField::make('deleteAccount')
                             ->label(__('Delete Account'))
                             ->hiddenLabel()
                             ->view('filament-edit-profile::forms.components.delete-account-description'),
@@ -57,7 +57,7 @@ class DeleteAccountForm extends BaseProfileForm
                                     auth()->user()?->delete();
                                 }),
                         ]),
-                    ]),
+                   /*  ]), */
             ]);
     }
 

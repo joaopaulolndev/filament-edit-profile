@@ -1,9 +1,17 @@
-<form wire:submit="updateProfile" class="fi-sc-form">
-    {{ $this->form }}
+<!-- content -->
+<div class="space-y-6">
+    
 
-    <div class="fi-ac fi-align-end">
-        <x-filament::button type="submit">
-            {{ __('filament-edit-profile::default.save') }}
-        </x-filament::button>
-    </div>
-</form>
+  <x-filament-panels::form wire:submit="updateProfile"> 
+        {{ $this->form }}
+
+        <div class="flex justify-end">
+            <x-filament::button type="submit">
+                {{ __('filament-edit-profile::default.save') }}
+            </x-filament::button>
+        </div>
+    </x-filament-panels::form>
+
+    
+</div>
+<!-- content -->

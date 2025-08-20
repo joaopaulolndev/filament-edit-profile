@@ -1,15 +1,16 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile;
+namespace NoopStudios\FilamentEditProfile;
 
 use Filament\Auth\Http\Responses\Contracts\EmailChangeVerificationResponse as EmailChangeVerificationResponseContract;
-use Joaopaulolndev\FilamentEditProfile\Commands\FilamentEditProfileCommand;
-use Joaopaulolndev\FilamentEditProfile\Http\Responses\EmailChangeVerificationResponse;
-use Joaopaulolndev\FilamentEditProfile\Testing\TestsFilamentEditProfile;
+use NoopStudios\FilamentEditProfile\Commands\FilamentEditProfileCommand;
+use NoopStudios\FilamentEditProfile\Http\Responses\EmailChangeVerificationResponse;
+use NoopStudios\FilamentEditProfile\Testing\TestsFilamentEditProfile;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class FilamentEditProfileServiceProvider extends PackageServiceProvider
 {
@@ -31,7 +32,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('joaopaulolndev/filament-edit-profile');
+                    ->askToStarRepoOnGitHub('noopstudios/filament-edit-profile');
             });
 
         $configFileName = $package->shortName();
@@ -69,7 +70,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
                     ], $publishTag);
                 }
             };
-            $publishMigration('add_avatar_url_to_users_table.php', 'filament-edit-profile-avatar-migration');
             $publishMigration('add_custom_fields_to_users_table.php', 'filament-edit-profile-custom-field-migration');
             $publishMigration('add_locale_to_users_table.php', 'filament-edit-profile-locale-migration');
             $publishMigration('add_theme_color_to_users_table.php', 'filament-edit-profile-theme-color-migration');
@@ -81,7 +81,7 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'Joaopaulolndev/filament-edit-profile';
+        return 'NoopStudios/filament-edit-profile';
     }
 
     /**
@@ -118,4 +118,20 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
         return false;
     }
+
+    protected static function registerRoutes(): void
+    {
+        if (app()->routesAreCached()) {
+            return;
+        }
+
+        Route::middleware(['web', 'auth'])
+            ->name('verification.email.')
+            ->group(function () {
+                Route::get('/email/change/verify', \NoopStudios\FilamentEditProfile\Http\Controllers\EmailChangeController::class)
+                    ->name('change');
+            });
+    }
+
+    
 }

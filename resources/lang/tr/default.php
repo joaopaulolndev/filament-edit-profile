@@ -49,4 +49,17 @@ return [
     'browser_sessions_log_out' => 'Diğer Tarayıcı Oturumlarından Çıkış Yap',
     'browser_sessions_confirm_pass' => 'Tüm cihazlarınızdaki diğer tarayıcı oturumlarından çıkış yapmak istediğinizi onaylamak için lütfen şifrenizi girin.',
     'browser_sessions_logout_success_notification' => 'Tüm diğer tarayıcı oturumlarından başarıyla çıkış yapıldı.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'E-posta Doğrulaması Gönderildi',
+    'email_verification_sent_message' => 'Yeni e-posta adresinize bir doğrulama bağlantısı gönderildi. Lütfen gelen kutunuzu kontrol edin ve değişikliği onaylamak için bağlantıya tıklayın.',
+    'email_change_confirmation_subject' => 'E-posta Değişikliği Onayı',
+    'email_change_request_message' => 'E-posta adresinizi değiştirmeyi talep ettiniz.',
+    'email_confirm_action_message' => 'Yeni e-posta adresinizi onaylamak için lütfen aşağıdaki düğmeye tıklayın.',
+    'confirm_email_change' => 'E-posta Değişikliğini Onayla',
+    'email_change_no_action_message' => 'Bu değişikliği talep etmediyseniz, başka bir işlem yapmanıza gerek yoktur.',
+    'invalid_link' => 'Doğrulama bağlantısı geçersiz veya süresi dolmuş.',
+    'unauthorized' => 'Bu işlemi gerçekleştirme yetkiniz yok.',
+    'invalid_email_verification' => 'E-posta doğrulaması geçersiz.',
+    'email_changed_successfully' => 'E-posta adresiniz başarıyla değiştirildi.',
 ];

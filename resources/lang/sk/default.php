@@ -49,4 +49,17 @@ return [
     'browser_sessions_log_out' => 'Odhláste sa z ostatných relácií',
     'browser_sessions_confirm_pass' => 'Zadajte prosím svoje heslo, aby ste potvrdili, že sa naozaj chcete odhlásiť z ostatných relácií na svojich zariadeniach.',
     'browser_sessions_logout_success_notification' => 'Boli ste úspešne odhlásený z ostatných relácií na svojich zariadeniach.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Overenie e-mailu odoslané',
+    'email_verification_sent_message' => 'Na vašu novú e-mailovú adresu bol odoslaný overovací odkaz. Skontrolujte svoju e-mailovú schránku a kliknite na odkaz pre potvrdenie zmeny.',
+    'email_change_confirmation_subject' => 'Potvrdenie zmeny e-mailu',
+    'email_change_request_message' => 'Požiadali ste o zmenu vašej e-mailovej adresy.',
+    'email_confirm_action_message' => 'Kliknite na tlačidlo nižšie a potvrďte svoju novú e-mailovú adresu.',
+    'confirm_email_change' => 'Potvrdiť zmenu e-mailu',
+    'email_change_no_action_message' => 'Ak ste o túto zmenu nepožiadali, nie je potrebné žiadne ďalšie konanie.',
+    'invalid_link' => 'Overovací odkaz je neplatný alebo jeho platnosť vypršala.',
+    'unauthorized' => 'Nemáte oprávnenie na vykonanie tejto akcie.',
+    'invalid_email_verification' => 'Overenie e-mailu je neplatné.',
+    'email_changed_successfully' => 'Váš e-mail bol úspešne zmenený.',
 ];

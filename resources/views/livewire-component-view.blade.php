@@ -1,0 +1,3 @@
+<!-- content -->
+@livewire($component)
+<!-- content --> 

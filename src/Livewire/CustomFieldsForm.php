@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Closure;
 use Filament\Forms\Components\Checkbox;
@@ -15,7 +15,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Str;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use Throwable;
 
 class CustomFieldsForm extends BaseProfileForm
@@ -50,13 +50,14 @@ class CustomFieldsForm extends BaseProfileForm
         );
 
         return $schema
-            ->components([
-                Section::make(__('filament-edit-profile::default.custom_fields'))
-                    ->aside()
+          /*   ->schema([
+                Forms\Components\Section::make(__('filament-edit-profile::default.custom_fields'))
+                    ->aside() 
                     ->description(__('filament-edit-profile::default.custom_fields_description'))
-                    ->columns()
-                    ->schema($fields),
-            ])
+                    ->columns() */
+                    ->schema($fields)
+            /*         ,
+            ]) */
             ->model($this->getUser())
             ->statePath('data');
     }
@@ -98,6 +99,7 @@ class CustomFieldsForm extends BaseProfileForm
                 ->rules($field['rules'] ?? []);
 
         } catch (Throwable $exception) {
+            return null;
         }
     }
 

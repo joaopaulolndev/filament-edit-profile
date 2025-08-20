@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Filament\Auth\Notifications\NoticeOfEmailChangeRequest;
 use Filament\Auth\Notifications\VerifyEmailChange;
@@ -16,7 +16,7 @@ use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use League\Uri\Components\Query;
 
 class EditProfileForm extends BaseProfileForm
@@ -29,19 +29,30 @@ class EditProfileForm extends BaseProfileForm
 
     public $userClass;
 
+    public $avatar;
+
     protected static int $sort = 10;
+
+    public bool $shouldEditEmail = true;
+
+    public bool $shouldConfirmEmail = true;
 
     public function mount(): void
     {
-        $this->user = $this->getUser();
+        $this->shouldEditEmail = filament('filament-edit-profile')->shouldEditEmail;
+        $this->shouldConfirmEmail = filament('filament-edit-profile')->shouldConfirmEmail;
 
+        if(!$this->shouldEditEmail){
+            $this->shouldConfirmEmail = false;
+        }
+
+        $this->user = $this->getUser();
         $this->userClass = get_class($this->user);
 
-        $fields = ['name', 'email'];
-
-        if (filament('filament-edit-profile')->getShouldShowAvatarForm()) {
-            $fields[] = config('filament-edit-profile.avatar_column', 'avatar_url');
-        }
+        $fields = [
+            'name',
+            'email',
+        ];
 
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
             $fields[] = config('filament-edit-profile.locale_column', 'locale');
@@ -57,40 +68,33 @@ class EditProfileForm extends BaseProfileForm
     public function form(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                Section::make(__('filament-edit-profile::default.profile_information'))
-                    ->aside()
+            ->schema([
+                /*                 Section::make(__('filament-edit-profile::default.profile_information'))
                     ->description(__('filament-edit-profile::default.profile_information_description'))
-                    ->schema([
-                        FileUpload::make(config('filament-edit-profile.avatar_column', 'avatar_url'))
-                            ->label(__('filament-edit-profile::default.avatar'))
-                            ->avatar()
-                            ->imageEditor()
-                            ->disk(config('filament-edit-profile.disk', 'public'))
-                            ->visibility(config('filament-edit-profile.visibility', 'public'))
-                            ->directory(filament('filament-edit-profile')->getAvatarDirectory())
-                            ->rules(filament('filament-edit-profile')->getAvatarRules())
-                            ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
-                        TextInput::make('name')
-                            ->label(__('filament-edit-profile::default.name'))
-                            ->required(),
-                        TextInput::make('email')
-                            ->label(__('filament-edit-profile::default.email'))
-                            ->email()
-                            ->required()
-                            ->hidden(! filament('filament-edit-profile')->getShouldShowEmailForm())
-                            ->unique($this->userClass, ignorable: $this->user),
-                        Select::make('locale')
-                            ->label(__('filament-edit-profile::default.locale'))
-                            ->options(filament('filament-edit-profile')->getOptionsLocaleForm())
-                            ->rules(filament('filament-edit-profile')->getLocaleRules())
-                            ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
-                        ColorPicker::make('theme_color')
-                            ->label(__('filament-edit-profile::default.theme_color'))
-                            ->rules(filament('filament-edit-profile')->getThemeColorRules())
-                            ->hidden(! filament('filament-edit-profile')->getShouldShowThemeColorForm()),
-                    ]),
+                    ->aside()
+                    ->schema([ */
+                SpatieMediaLibraryFileUpload::make('avatar')
+                    ->model($this->user)
+                    ->label(__('filament-edit-profile::default.avatar'))
+                    ->collection('avatar')
+                    ->avatar()
+                    ->imageEditor()
+                    ->disk(config('filament-edit-profile.disk', 'public'))
+                    ->visibility(config('filament-edit-profile.visibility', 'public'))
+                    ->rules(filament('filament-edit-profile')->getAvatarRules())
+                    ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
+                TextInput::make('name')
+                    ->label(__('filament-edit-profile::default.name'))
+                    ->required(),
+                TextInput::make('email')
+                    ->label(__('filament-edit-profile::default.email'))
+                    ->email()
+                    ->disabled(!$this->shouldEditEmail)
+                    ->required($this->shouldEditEmail)
+                    ->unique($this->userClass, ignorable: $this->user),
             ])
+            /*  ,
+            ]) */
             ->statePath('data');
     }
 
@@ -108,15 +112,30 @@ class EditProfileForm extends BaseProfileForm
         try {
             $data = $this->form->getState();
 
-            if (Filament::hasEmailChangeVerification() && array_key_exists('email', $data)) {
-                $this->sendEmailChangeVerification($this->user, $data['email']);
+            if (!$this->shouldConfirmEmail) {
+                $this->user->update($data);
+            } else {
+                // Save the name change immediately
+                $this->user->name = $data['name'];
+                $this->user->save();
 
-                unset($data['email']);
+                if($this->user->email != $data['email']){
+                    FacadesNotification::route('mail', $data['email'])
+                        ->notify(new ChangeEmailConfirmation($data['email'], $this->user->id));
+                    Notification::make()
+                        ->success()
+                        ->title(__('filament-edit-profile::default.email_verification_sent'))
+                        ->body(__('filament-edit-profile::default.email_verification_sent_message'))
+                        ->send();
+                }
+                else{
+                    Notification::make()
+                    ->success()
+                    ->title(__('filament-edit-profile::default.saved_successfully'))
+                    ->send();
+                }
+                return;
             }
-
-            $this->user->update($data);
-
-            $this->dispatch('refresh-topbar');
         } catch (Halt $exception) {
             return;
         }

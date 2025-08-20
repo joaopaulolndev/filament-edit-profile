@@ -49,4 +49,17 @@ return [
     'browser_sessions_log_out' => 'Keluar dari Sesi Browser Lain',
     'browser_sessions_confirm_pass' => 'Masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin keluar dari sesi browser lain di semua perangkat.',
     'browser_sessions_logout_success_notification' => 'Semua sesi browser lainnya telah berhasil keluar.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Verifikasi Email Terkirim',
+    'email_verification_sent_message' => 'Tautan verifikasi telah dikirim ke alamat email baru Anda. Silakan periksa kotak masuk Anda dan klik tautan untuk mengonfirmasi perubahan.',
+    'email_change_confirmation_subject' => 'Konfirmasi Perubahan Email',
+    'email_change_request_message' => 'Anda telah meminta untuk mengubah alamat email Anda.',
+    'email_confirm_action_message' => 'Silakan klik tombol di bawah untuk mengonfirmasi alamat email baru Anda.',
+    'confirm_email_change' => 'Konfirmasi Perubahan Email',
+    'email_change_no_action_message' => 'Jika Anda tidak meminta perubahan ini, tidak ada tindakan lebih lanjut yang diperlukan.',
+    'invalid_link' => 'Tautan verifikasi tidak valid atau telah kedaluwarsa.',
+    'unauthorized' => 'Anda tidak berwenang untuk melakukan tindakan ini.',
+    'invalid_email_verification' => 'Verifikasi email tidak valid.',
+    'email_changed_successfully' => 'Email Anda telah berhasil diubah.',
 ];

@@ -49,4 +49,17 @@ return [
     'browser_sessions_log_out' => 'Disconnetti altre sessioni del browser',
     'browser_sessions_confirm_pass' => 'Inserisci la tua password per confermare che desideri disconnettere le altre sessioni del browser su tutti i tuoi dispositivi.',
     'browser_sessions_logout_success_notification' => 'Tutte le altre sessioni del browser sono state disconnesse con successo.',
+    
+    // Email verification messages
+    'email_verification_sent' => 'Verifica Email Inviata',
+    'email_verification_sent_message' => 'Un link di verifica è stato inviato al tuo nuovo indirizzo email. Per favore controlla la tua casella di posta e clicca sul link per confermare la modifica.',
+    'email_change_confirmation_subject' => 'Conferma Cambio Email',
+    'email_change_request_message' => 'Hai richiesto di cambiare il tuo indirizzo email.',
+    'email_confirm_action_message' => 'Per favore clicca sul pulsante qui sotto per confermare il tuo nuovo indirizzo email.',
+    'confirm_email_change' => 'Conferma Cambio Email',
+    'email_change_no_action_message' => 'Se non hai richiesto questa modifica, nessuna ulteriore azione è richiesta.',
+    'invalid_link' => 'Il link di verifica non è valido o è scaduto.',
+    'unauthorized' => 'Non sei autorizzato a eseguire questa azione.',
+    'invalid_email_verification' => 'La verifica email non è valida.',
+    'email_changed_successfully' => 'La tua email è stata modificata con successo.',
 ];

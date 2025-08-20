@@ -1,22 +1,65 @@
 # Filament package to edit profile
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/joaopaulolndev/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-edit-profile)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/run-tests.yml?branch=2.x&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3Arun-tests+branch%3A2.x)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-edit-profile/fix-php-code-style-issues.yml?branch=2.x&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-edit-profile/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3A2.x)
-[![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-edit-profile)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/noopstudios/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/noopstudios/filament-edit-profile)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/noopstudios/filament-edit-profile/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/noopstudios/filament-edit-profile/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/noopstudios/filament-edit-profile/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/noopstudios/filament-edit-profile/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/noopstudios/filament-edit-profile.svg?style=flat-square)](https://packagist.org/packages/noopstudios/filament-edit-profile)
 
 The Filament library is a user-friendly tool that simplifies profile editing, offering an intuitive interface and robust features to easily customize and manage user information.
 <div class="filament-hidden">
     
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/joaopaulolndev-filament-edit-profile.jpg)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/noopstudios/filament-edit-profile/main/art/joaopaulolndev-filament-edit-profile.jpg)
+<!-- (https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/joaopaulolndev-filament-edit-profile.jpg) -->
 
 </div>
+
+## Enhancements Added in This Fork
+
+This package is a fork of [joaopaulolndev/filament-edit-profile](https://filamentphp.com/plugins/joaopaulolndev-edit-profile) by João Paulo Leite Nascimento. We extend our gratitude to the original author for creating such a robust profile management solution for Filament.
+
+### Email Management Options
+
+We've added enhanced control over email address management:
+
+1. **Toggle Email Editing**: Ability to enable or disable email editing functionality
+2. **Email Change Verification**: Optional email verification process when changing email addresses
+
+On email confirmation there is a redirect after the confirmation, that url can be overriden with "'redirectUrl' => '/admin/edit-profile'," on the cofings file after it is published.
+
+By default, the following configuration is used:
+
+```php
+public bool $shouldEditEmail = true;
+public bool $shouldConfirmEmail = false;
+```
+
+#### Implementation
+
+Use these methods in your panel provider to customize email behavior:
+
+```php
+use NoopStudios\FilamentEditProfile\FilamentEditProfilePlugin;
+
+ ->plugins([
+     FilamentEditProfilePlugin::make()
+        ->shouldEditEmail(true) // Enable or disable email editing
+        ->shouldConfirmEmail(true) // Enable or disable email verification
+ ])
+```
+
+When email verification is enabled, users receive a verification link to confirm their email change before it takes effect, enhancing security for your application.
+
+### Additional Improvements
+
+- Changed the avatar logic to use Spatie Media Library for more robust image management
+- Redesigned the profile interface to use a tab layout for better organization of profile sections
+- Refactored `EditProfilePage.php` to support the new layout
 
 ## Features & Screenshots
 
 -   **Edit Information:** Manage your information such as email, password, locale, theme color.
 -   **Change Password:** Change your password.
--   **Profile Photo:** Upload and manage your profile photo.
+-   **Profile Photo:** Upload and manage your profile photo using Spatie Media Library.
 -   **Delete Account:** Manage your account, such as delete account.
 -   **Sanctum Personal Access tokens:** Manage your personal access tokens.
 -   **Multi Factor Authentication:** Manage multi factor authentication.
@@ -37,7 +80,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-edit-profile:^2.0
+composer require noopstudios/filament-edit-profile^2.0
 ```
 
 **Filament V3** - if you are using Filament v3.x, you can use [this section](https://github.com/joaopaulolndev/filament-edit-profile/tree/main)
@@ -74,7 +117,7 @@ php artisan vendor:publish --tag="filament-edit-profile-config"
 Add in AdminPanelProvider.php
 
 ```php
-use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
+use NoopStudios\FilamentEditProfile\FilamentEditProfilePlugin;
 
 ->plugins([
     FilamentEditProfilePlugin::make()
@@ -84,7 +127,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 if you want to show for specific parameters to sort, icon, title, navigation group, navigation label and can access, you can use the following example:
 
 ```php
-use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
+use NoopStudios\FilamentEditProfile\FilamentEditProfilePlugin;
 
  ->plugins([
      FilamentEditProfilePlugin::make()
@@ -121,7 +164,7 @@ Optionally, you can add a user menu item to the user menu in the navigation bar:
 
 ```php
 use Filament\Actions\Action;
-use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
+use NoopStudios\FilamentEditProfile\Pages\EditProfilePage;
 
 ->userMenuItems([
     'profile' => Action::make('profile')
@@ -154,31 +197,15 @@ Show the user avatar form using `shouldShowAvatarForm()`. This package follows t
 
 To show the avatar form, you need the following steps:
 
-1. Publish the migration file to add the avatar_url field to the users table:
+1. Make sure Spatie Media Library is installed and set up in your project.
 
-```bash
-php artisan vendor:publish --tag="filament-edit-profile-avatar-migration"
-php artisan migrate
-```
-
-2. Add in your User model the avatar_url field in the fillable array:
+2. Add the HasMedia trait and interface to your User model:
 
 ```php
-protected $fillable = [
-    'name',
-    'email',
-    'password',
-    'avatar_url', // or column name according to config('filament-edit-profile.avatar_column', 'avatar_url')
-];
-```
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-3. Set the getFilamentAvatarUrlAttribute method in your User model:
-
-```php
-use Filament\Models\Contracts\HasAvatar;
-use Illuminate\Support\Facades\Storage;
-
-class User extends Authenticatable implements HasAvatar
+class User extends Authenticatable implements HasMedia
 {
     // ...
     public function getFilamentAvatarUrl(): ?string
@@ -189,17 +216,17 @@ class User extends Authenticatable implements HasAvatar
 }
 ```
 
-4. Optionally, you can specify the image directory path and file upload rules. :
+3. Enable the avatar form in your plugin configuration:
 
 ```php
 ->shouldShowAvatarForm(
     value: true,
-    directory: 'avatars', // image will be stored in 'storage/app/public/avatars
+    directory: 'avatars', // image will be stored based on Spatie Media Library's configuration
     rules: 'mimes:jpeg,png|max:1024' //only accept jpeg and png files with a maximum size of 1MB
 )
 ```
 
-5. Don't forget to run the command `php artisan storage:link`
+4. Don't forget to run the command `php artisan storage:link`
 
 ## Profile Locale
 
@@ -332,7 +359,8 @@ class User extends Authenticatable
 }
 ```
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/sanctum_tokens.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/noopstudios/filament-edit-profile/main/art/sanctum_tokens.png)
+<!-- (https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/sanctum_tokens.png) -->
 
 If you want to control access, you can use `condition`, passing Closure or Boolean
 
@@ -350,7 +378,8 @@ Sanctum allows you to assign "abilities" to tokens. by default we have ['create'
 
 ## Browser Sessions
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/browser-sessions.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/noopstudios/filament-edit-profile/main/art/browser-sessions.png)
+<!-- (https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/browser-sessions.png) -->
 
 To utilize browser session, ensure that your session configuration's driver (or SESSION_DRIVER environment variable) is set to `database`.
 
@@ -420,7 +449,8 @@ If you want to hide the MFA section for all users through the profile page, simp
 
 ## Custom Fields
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/custom_fields.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/noopstudios/filament-edit-profile/main/art/custom_fields.png)
+<!-- (https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/2.x/art/custom_fields.png) -->
 Optionally, you can add custom fields to the form.
 To create custom fields you need to follow the steps below:
 
@@ -610,7 +640,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
--   [João Paulo Leite Nascimento](https://github.com/joaopaulolndev)
+-   [João Paulo Leite Nascimento](https://github.com/joaopaulolndev) - Original Author
+-   [Noop Studios](https://github.com/noopstudios) - Current Maintainer
 -   [All Contributors](../../contributors)
 
 ## License

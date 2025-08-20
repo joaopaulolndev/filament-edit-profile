@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Livewire;
+namespace NoopStudios\FilamentEditProfile\Livewire;
 
 use Carbon\Carbon;
 use Filament\Actions\Action;
@@ -16,7 +16,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use Laravel\Sanctum\Sanctum;
 
 class SanctumTokens extends BaseProfileForm implements HasTable

@@ -1,8 +1,11 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Pages;
+namespace NoopStudios\FilamentEditProfile\Pages;
 
 use Filament\Facades\Filament;
+use Filament\Forms\Components\Tabs;
+use Filament\Forms\Components\View;
+use Filament\Forms\Form;
 use Filament\Pages\Page;
 use Filament\Panel;
 

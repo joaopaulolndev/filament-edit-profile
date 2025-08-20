@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaopaulolndev\FilamentEditProfile\Concerns;
+namespace NoopStudios\FilamentEditProfile\Concerns;
 
 trait HasSort
 {
