@@ -13,9 +13,9 @@ class ChangeEmailConfirmation extends Notification
 
     /**
      * Create a new notification instance.
-     * 
-     * @param string $newEmail The new email address to verify
-     * @param int $userId The ID of the user
+     *
+     * @param  string  $newEmail  The new email address to verify
+     * @param  int  $userId  The ID of the user
      */
     public function __construct(public string $newEmail, public int $userId)
     {

@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Odhláste sa z ostatných relácií',
     'browser_sessions_confirm_pass' => 'Zadajte prosím svoje heslo, aby ste potvrdili, že sa naozaj chcete odhlásiť z ostatných relácií na svojich zariadeniach.',
     'browser_sessions_logout_success_notification' => 'Boli ste úspešne odhlásený z ostatných relácií na svojich zariadeniach.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'Overenie e-mailu odoslané',
     'email_verification_sent_message' => 'Na vašu novú e-mailovú adresu bol odoslaný overovací odkaz. Skontrolujte svoju e-mailovú schránku a kliknite na odkaz pre potvrdenie zmeny.',

@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Kijelentkezés más böngésző munkamenetekből',
     'browser_sessions_confirm_pass' => 'Kérjük, add meg a jelszavad, hogy megerősítsd, ki szeretnél jelentkezni az összes többi böngésző munkamenetből az összes eszközödön.',
     'browser_sessions_logout_success_notification' => 'Az összes többi böngésző munkamenet sikeresen kijelentkezett.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'E-mail ellenőrzés elküldve',
     'email_verification_sent_message' => 'Ellenőrző linket küldtünk az új e-mail címedre. Kérjük, ellenőrizd a bejövő üzeneteidet és kattints a linkre a változtatás megerősítéséhez.',

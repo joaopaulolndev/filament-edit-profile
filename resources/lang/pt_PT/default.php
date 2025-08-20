@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Terminar Sessões de Outros Navegadores',
     'browser_sessions_confirm_pass' => 'Por favor, introduza a sua palavra-passe para confirmar que deseja terminar as sessões de outros navegadores em todos os seus dispositivos.',
     'browser_sessions_logout_success_notification' => 'Todas as outras sessões do navegador foram desconectadas com êxito.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'Verificação de Email Enviada',
     'email_verification_sent_message' => 'Foi enviado um link de verificação para o seu novo endereço de email. Por favor, verifique a sua caixa de entrada e clique no link para confirmar a alteração.',

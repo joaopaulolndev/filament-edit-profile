@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Odhlášení ostatních relací',
     'browser_sessions_confirm_pass' => 'Zadejte své heslo a potvrďte, že se chcete odhlásit z ostatních relací ve všech zařízeních.',
     'browser_sessions_logout_success_notification' => 'Všechny ostatní relace byly úspěšně odhlášeny.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'Ověření e-mailu odesláno',
     'email_verification_sent_message' => 'Na vaši novou e-mailovou adresu byl odeslán ověřovací odkaz. Zkontrolujte svou e-mailovou schránku a klikněte na odkaz pro potvrzení změny.',

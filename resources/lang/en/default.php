@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Log Out Other Browser Sessions',
     'browser_sessions_confirm_pass' => 'Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.',
     'browser_sessions_logout_success_notification' => 'All other browser sessions have been logged out successfully.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'Email Verification Sent',
     'email_verification_sent_message' => 'A verification link has been sent to your new email address. Please check your inbox and click the link to confirm the change.',

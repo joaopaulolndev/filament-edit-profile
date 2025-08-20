@@ -15,9 +15,9 @@ use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification;
-use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use League\Uri\Components\Query;
 use NoopStudios\FilamentEditProfile\Notifications\ChangeEmailConfirmation;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 
 class EditProfileForm extends BaseProfileForm
 {
@@ -42,7 +42,7 @@ class EditProfileForm extends BaseProfileForm
         $this->shouldEditEmail = filament('filament-edit-profile')->shouldEditEmail;
         $this->shouldConfirmEmail = filament('filament-edit-profile')->shouldConfirmEmail;
 
-        if(!$this->shouldEditEmail){
+        if (! $this->shouldEditEmail) {
             $this->shouldConfirmEmail = false;
         }
 
@@ -92,7 +92,7 @@ class EditProfileForm extends BaseProfileForm
                 TextInput::make('email')
                     ->label(__('filament-edit-profile::default.email'))
                     ->email()
-                    ->disabled(!$this->shouldEditEmail)
+                    ->disabled(! $this->shouldEditEmail)
                     ->required($this->shouldEditEmail)
                     ->unique($this->userClass, ignorable: $this->user),
                 Select::make('locale')
@@ -124,8 +124,7 @@ class EditProfileForm extends BaseProfileForm
         try {
             $data = $this->form->getState();
 
-            if (!$this->shouldConfirmEmail) {
-                // Save all data immediately when no email confirmation is needed
+            if (! $this->shouldConfirmEmail) {
                 $this->user->update($data);
                 
                 $this->dispatch('refresh-topbar');

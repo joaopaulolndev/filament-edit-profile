@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Diğer Tarayıcı Oturumlarından Çıkış Yap',
     'browser_sessions_confirm_pass' => 'Tüm cihazlarınızdaki diğer tarayıcı oturumlarından çıkış yapmak istediğinizi onaylamak için lütfen şifrenizi girin.',
     'browser_sessions_logout_success_notification' => 'Tüm diğer tarayıcı oturumlarından başarıyla çıkış yapıldı.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'E-posta Doğrulaması Gönderildi',
     'email_verification_sent_message' => 'Yeni e-posta adresinize bir doğrulama bağlantısı gönderildi. Lütfen gelen kutunuzu kontrol edin ve değişikliği onaylamak için bağlantıya tıklayın.',

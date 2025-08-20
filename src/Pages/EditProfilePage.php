@@ -3,19 +3,18 @@
 namespace NoopStudios\FilamentEditProfile\Pages;
 
 use Filament\Facades\Filament;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Pages\Page;
+use Filament\Panel;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Components\View;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Form;
-use Filament\Pages\Page;
-use Filament\Panel;
 use Filament\Schemas\Schema;
 
 class EditProfilePage extends Page
 {
     use InteractsWithForms;
-    
+
     protected string $view = 'filament-edit-profile::filament.pages.edit-profile-page';
 
     protected static ?string $slug = 'edit-profile';
@@ -48,9 +47,9 @@ class EditProfilePage extends Page
 
         $components = $plugin->getRegisteredCustomProfileComponents();
 
-        foreach($components as $component){
-          
-            if($component == 'NoopStudios\FilamentEditProfile\Livewire\EditProfileForm'){
+        foreach ($components as $component) {
+
+            if ($component == 'NoopStudios\FilamentEditProfile\Livewire\EditProfileForm') {
                 $tabsConfig[] = Tab::make(__('filament-edit-profile::default.profile_information'))
                     ->icon('heroicon-o-user')
                     ->schema([
@@ -60,7 +59,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'NoopStudios\FilamentEditProfile\Livewire\EditPasswordForm'){
+            if ($component == 'NoopStudios\FilamentEditProfile\Livewire\EditPasswordForm') {
                 $tabsConfig[] = Tab::make(__('filament-edit-profile::default.password'))
                     ->icon('heroicon-o-key')
                     ->schema([
@@ -70,7 +69,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'NoopStudios\FilamentEditProfile\Livewire\DeleteAccountForm'){
+            if ($component == 'NoopStudios\FilamentEditProfile\Livewire\DeleteAccountForm') {
                 $tabsConfig[] = Tab::make(__('filament-edit-profile::default.delete_account'))
                     ->icon('heroicon-o-trash')
                     ->schema([
@@ -80,7 +79,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'NoopStudios\FilamentEditProfile\Livewire\SanctumTokens'){
+            if ($component == 'NoopStudios\FilamentEditProfile\Livewire\SanctumTokens') {
                 $tabsConfig[] = Tab::make(__('filament-edit-profile::default.api_tokens_title'))
                     ->icon('heroicon-o-key')
                     ->schema([
@@ -88,9 +87,9 @@ class EditProfilePage extends Page
                             ->view('filament-edit-profile::livewire-component-view')
                             ->viewData(['component' => 'sanctum_tokens']),
                     ]);
-            }   
+            }
 
-            if($component == 'NoopStudios\FilamentEditProfile\Livewire\BrowserSessionsForm'){
+            if ($component == 'NoopStudios\FilamentEditProfile\Livewire\BrowserSessionsForm') {
                 $tabsConfig[] = Tab::make(__('filament-edit-profile::default.browser_section_title'))
                     ->icon('heroicon-o-computer-desktop')
                     ->schema([
@@ -100,7 +99,7 @@ class EditProfilePage extends Page
                     ]);
             }
 
-            if($component == 'NoopStudios\FilamentEditProfile\Livewire\CustomFieldsForm'){
+            if ($component == 'NoopStudios\FilamentEditProfile\Livewire\CustomFieldsForm') {
                 $tabsConfig[] = Tab::make(__('filament-edit-profile::default.custom_fields'))
                     ->icon('heroicon-o-document-text')
                     ->schema([
@@ -111,7 +110,7 @@ class EditProfilePage extends Page
             }
 
         }
-        
+
         return Tabs::make('profile_tabs')
             ->tabs($tabsConfig);
     }
