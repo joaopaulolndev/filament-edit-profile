@@ -61,6 +61,9 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
+        // Register routes
+        static::registerRoutes();
+
         // Handle Stubs
         if (app()->runningInConsole()) {
             $publishMigration = function ($migrationFileName, $publishTag) {
@@ -101,7 +104,6 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
     {
         return [
             'add_custom_fields_to_users_table',
-            'add_avatar_url_to_users_table',
             'add_locale_to_users_table',
             'add_theme_color_to_users_table',
         ];

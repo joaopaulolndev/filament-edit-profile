@@ -28,10 +28,10 @@ class EditPasswordForm extends BaseProfileForm
         $this->form->fill();
     }
 
-    public function form(Schema $schema): Schema
+    public function form(Schema $schema): Schema 
     {
         return $schema
-            ->schema([
+            ->components([
                /*  Section::make(__('filament-edit-profile::default.update_password'))
                     ->aside() 
                     ->description(__('filament-edit-profile::default.ensure_your_password'))

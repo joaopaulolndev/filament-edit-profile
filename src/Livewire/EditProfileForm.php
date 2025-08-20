@@ -5,6 +5,8 @@ namespace NoopStudios\FilamentEditProfile\Livewire;
 use Filament\Auth\Notifications\NoticeOfEmailChangeRequest;
 use Filament\Auth\Notifications\VerifyEmailChange;
 use Filament\Facades\Filament;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification as FilamentNotification;
@@ -15,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification;
 use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use League\Uri\Components\Query;
+use NoopStudios\FilamentEditProfile\Notifications\ChangeEmailConfirmation;
 
 class EditProfileForm extends BaseProfileForm
 {
@@ -58,6 +61,7 @@ class EditProfileForm extends BaseProfileForm
         if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
             $fields[] = config('filament-edit-profile.theme_color_column', 'theme_color');
         }
+        
 
         $this->form->fill($this->user->only($fields));
     }
@@ -65,7 +69,7 @@ class EditProfileForm extends BaseProfileForm
     public function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 /*                 Section::make(__('filament-edit-profile::default.profile_information'))
                     ->description(__('filament-edit-profile::default.profile_information_description'))
                     ->aside()
@@ -74,6 +78,8 @@ class EditProfileForm extends BaseProfileForm
                     ->model($this->user)
                     ->label(__('filament-edit-profile::default.avatar'))
                     ->collection('avatar')
+                    ->image()
+                    ->maxFiles(1)
                     ->avatar()
                     ->imageEditor()
                     ->disk(config('filament-edit-profile.disk', 'public'))
@@ -89,6 +95,15 @@ class EditProfileForm extends BaseProfileForm
                     ->disabled(!$this->shouldEditEmail)
                     ->required($this->shouldEditEmail)
                     ->unique($this->userClass, ignorable: $this->user),
+                Select::make('locale')
+                    ->label(__('filament-edit-profile::default.locale'))
+                    ->options(filament('filament-edit-profile')->getOptionsLocaleForm())
+                    ->rules(filament('filament-edit-profile')->getLocaleRules())
+                    ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
+                ColorPicker::make('theme_color')
+                    ->label(__('filament-edit-profile::default.theme_color'))
+                    ->rules(filament('filament-edit-profile')->getThemeColorRules())
+                    ->hidden(! filament('filament-edit-profile')->getShouldShowThemeColorForm()),
             ])
             /*  ,
             ]) */
@@ -110,45 +125,55 @@ class EditProfileForm extends BaseProfileForm
             $data = $this->form->getState();
 
             if (!$this->shouldConfirmEmail) {
+                // Save all data immediately when no email confirmation is needed
                 $this->user->update($data);
+                
+                $this->dispatch('refresh-topbar');
+                
+                FilamentNotification::make()
+                    ->success()
+                    ->title(__('filament-edit-profile::default.saved_successfully'))
+                    ->send();
             } else {
-                // Save the name change immediately
-                $this->user->name = $data['name'];
-                $this->user->save();
-
-                if($this->user->email != $data['email']){
-                    FacadesNotification::route('mail', $data['email'])
+                // Handle email confirmation flow
+                $updateData = $data;
+                
+                // If email is being changed, remove it from immediate update
+                if ($this->user->email != $data['email']) {
+                    unset($updateData['email']);
+                    
+                    // Send email verification
+                    Notification::route('mail', $data['email'])
                         ->notify(new ChangeEmailConfirmation($data['email'], $this->user->id));
-                    Notification::make()
+                    
+                    FilamentNotification::make()
                         ->success()
                         ->title(__('filament-edit-profile::default.email_verification_sent'))
                         ->body(__('filament-edit-profile::default.email_verification_sent_message'))
                         ->send();
+                } else {
+                    FilamentNotification::make()
+                        ->success()
+                        ->title(__('filament-edit-profile::default.saved_successfully'))
+                        ->send();
                 }
-                else{
-                    Notification::make()
-                    ->success()
-                    ->title(__('filament-edit-profile::default.saved_successfully'))
-                    ->send();
-                }
-                return;
+                
+                // Update all other fields (name, locale, theme_color)
+                $this->user->update($updateData);
+                $this->dispatch('refresh-topbar');
             }
         } catch (Halt $exception) {
             return;
         }
 
-        FilamentNotification::make()
-            ->success()
-            ->title(__('filament-edit-profile::default.saved_successfully'))
-            ->send();
-
+        // Handle redirects for locale and theme color changes
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
             if ($locale !== $this->user->getAttributeValue('locale')) {
                 redirect(request()->header('referer'));
-
                 return;
             }
         }
+        
         if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
             if ($theme_color !== $this->user->getAttributeValue('theme_color')) {
                 redirect(request()->header('referer'));
