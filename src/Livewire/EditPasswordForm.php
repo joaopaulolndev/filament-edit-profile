@@ -32,33 +32,33 @@ class EditPasswordForm extends BaseProfileForm
     {
         return $schema
             ->schema([
-               /*  Section::make(__('filament-edit-profile::default.update_password'))
-                    ->aside() 
+                /*  Section::make(__('filament-edit-profile::default.update_password'))
+                    ->aside()
                     ->description(__('filament-edit-profile::default.ensure_your_password'))
                     ->schema([ */
-                        TextInput::make('Current password')
-                            ->label(__('filament-edit-profile::default.current_password'))
-                            ->password()
-                            ->required()
-                            ->currentPassword()
-                            ->revealable(),
-                        TextInput::make('password')
-                            ->label(__('filament-edit-profile::default.new_password'))
-                            ->password()
-                            ->required()
-                            ->rule(Password::default())
-                            ->autocomplete('new-password')
-                            ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
-                            ->live(debounce: 500)
-                            ->same('passwordConfirmation')
-                            ->revealable(),
-                        TextInput::make('passwordConfirmation')
-                            ->label(__('filament-edit-profile::default.confirm_password'))
-                            ->password()
-                            ->required()
-                            ->dehydrated(false)
-                            ->revealable(),
-                  /*   ]), */
+                TextInput::make('Current password')
+                    ->label(__('filament-edit-profile::default.current_password'))
+                    ->password()
+                    ->required()
+                    ->currentPassword()
+                    ->revealable(),
+                TextInput::make('password')
+                    ->label(__('filament-edit-profile::default.new_password'))
+                    ->password()
+                    ->required()
+                    ->rule(Password::default())
+                    ->autocomplete('new-password')
+                    ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
+                    ->live(debounce: 500)
+                    ->same('passwordConfirmation')
+                    ->revealable(),
+                TextInput::make('passwordConfirmation')
+                    ->label(__('filament-edit-profile::default.confirm_password'))
+                    ->password()
+                    ->required()
+                    ->dehydrated(false)
+                    ->revealable(),
+                /*   ]), */
             ])
             ->model($this->getUser())
             ->statePath('data');

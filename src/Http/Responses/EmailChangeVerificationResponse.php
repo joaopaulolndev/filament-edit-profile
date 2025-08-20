@@ -5,8 +5,8 @@ namespace NoopStudios\FilamentEditProfile\Http\Responses\FilamentEditProfile\Htt
 use Filament\Auth\Http\Responses\Contracts\EmailChangeVerificationResponse as Responsable;
 use Filament\Facades\Filament;
 use Illuminate\Http\RedirectResponse;
-use NoopStudios\FilamentEditProfile\Pages\EditProfilePage;
 use Livewire\Features\SupportRedirects\Redirector;
+use NoopStudios\FilamentEditProfile\Pages\EditProfilePage;
 
 class EmailChangeVerificationResponse implements Responsable
 {

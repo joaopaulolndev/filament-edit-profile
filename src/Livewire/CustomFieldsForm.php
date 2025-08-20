@@ -51,10 +51,10 @@ class CustomFieldsForm extends BaseProfileForm
         return $schema
           /*   ->schema([
                 Forms\Components\Section::make(__('filament-edit-profile::default.custom_fields'))
-                    ->aside() 
+                    ->aside()
                     ->description(__('filament-edit-profile::default.custom_fields_description'))
                     ->columns() */
-                    ->schema($fields)
+            ->schema($fields)
             /*         ,
             ]) */
             ->model($this->getUser())

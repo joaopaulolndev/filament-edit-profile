@@ -13,8 +13,8 @@ use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use NoopStudios\FilamentEditProfile\FilamentEditProfileServiceProvider;
 use Livewire\LivewireServiceProvider;
+use NoopStudios\FilamentEditProfile\FilamentEditProfileServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 

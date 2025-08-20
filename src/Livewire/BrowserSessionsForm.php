@@ -8,7 +8,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Actions;
-use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,36 +24,36 @@ class BrowserSessionsForm extends BaseProfileForm
     {
         return $schema
             ->schema([
-              /*   Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
+                /*   Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
                     ->description(__('filament-edit-profile::default.browser_section_description'))
-                    ->aside() 
+                    ->aside()
                     ->schema([*/
-                        ViewField::make('browserSessions')
-                            ->label(__(__('filament-edit-profile::default.browser_section_title')))
-                            ->hiddenLabel()
-                            ->view('filament-edit-profile::forms.components.browser-sessions')
-                            ->viewData(['data' => self::getSessions()]),
-                        Actions::make([
-                            Action::make('deleteBrowserSessions')
-                                ->label(__('filament-edit-profile::default.browser_sessions_log_out'))
-                                ->requiresConfirmation()
-                                ->modalHeading(__('filament-edit-profile::default.browser_sessions_log_out'))
-                                ->modalDescription(__('filament-edit-profile::default.browser_sessions_confirm_pass'))
-                                ->modalSubmitActionLabel(__('filament-edit-profile::default.browser_sessions_log_out'))
-                                ->schema([
-                                    TextInput::make('password')
-                                        ->password()
-                                        ->revealable()
-                                        ->label(__('filament-edit-profile::default.password'))
-                                        ->required(),
-                                ])
-                                ->action(function (array $data) {
-                                    self::logoutOtherBrowserSessions($data['password']);
-                                })
-                                ->modalWidth('2xl'),
-                        ]),
+                ViewField::make('browserSessions')
+                    ->label(__(__('filament-edit-profile::default.browser_section_title')))
+                    ->hiddenLabel()
+                    ->view('filament-edit-profile::forms.components.browser-sessions')
+                    ->viewData(['data' => self::getSessions()]),
+                Actions::make([
+                    Action::make('deleteBrowserSessions')
+                        ->label(__('filament-edit-profile::default.browser_sessions_log_out'))
+                        ->requiresConfirmation()
+                        ->modalHeading(__('filament-edit-profile::default.browser_sessions_log_out'))
+                        ->modalDescription(__('filament-edit-profile::default.browser_sessions_confirm_pass'))
+                        ->modalSubmitActionLabel(__('filament-edit-profile::default.browser_sessions_log_out'))
+                        ->schema([
+                            TextInput::make('password')
+                                ->password()
+                                ->revealable()
+                                ->label(__('filament-edit-profile::default.password'))
+                                ->required(),
+                        ])
+                        ->action(function (array $data) {
+                            self::logoutOtherBrowserSessions($data['password']);
+                        })
+                        ->modalWidth('2xl'),
+                ]),
 
-                  /*   ])
+                /*   ])
                     , */
             ]);
     }

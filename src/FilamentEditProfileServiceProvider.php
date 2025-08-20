@@ -3,14 +3,14 @@
 namespace NoopStudios\FilamentEditProfile;
 
 use Filament\Auth\Http\Responses\Contracts\EmailChangeVerificationResponse as EmailChangeVerificationResponseContract;
+use Illuminate\Support\Facades\Route;
+use Livewire\Features\SupportTesting\Testable;
 use NoopStudios\FilamentEditProfile\Commands\FilamentEditProfileCommand;
 use NoopStudios\FilamentEditProfile\Http\Responses\EmailChangeVerificationResponse;
 use NoopStudios\FilamentEditProfile\Testing\TestsFilamentEditProfile;
-use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Illuminate\Support\Facades\Route;
 
 class FilamentEditProfileServiceProvider extends PackageServiceProvider
 {
@@ -132,6 +132,4 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
                     ->name('change');
             });
     }
-
-    
 }

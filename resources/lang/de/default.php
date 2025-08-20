@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Von anderen Browsersitzungen abmelden',
     'browser_sessions_confirm_pass' => 'Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie sich von Ihren anderen Browsersitzungen auf all Ihren Geräten abmelden möchten.',
     'browser_sessions_logout_success_notification' => 'Alle anderen Browsersitzungen wurden erfolgreich abgemeldet.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'E-Mail-Verifizierung gesendet',
     'email_verification_sent_message' => 'Ein Bestätigungslink wurde an Ihre neue E-Mail-Adresse gesendet. Bitte überprüfen Sie Ihren Posteingang und klicken Sie auf den Link, um die Änderung zu bestätigen.',

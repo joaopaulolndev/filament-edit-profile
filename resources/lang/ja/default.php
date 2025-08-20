@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => '他のブラウザセッションからログアウト',
     'browser_sessions_confirm_pass' => 'すべてのデバイスで他のブラウザセッションからログアウトすることを確認するために、パスワードを入力してください。',
     'browser_sessions_logout_success_notification' => '他のすべてのブラウザセッションから正常にログアウトしました。',
-    
+
     // Email verification messages
     'email_verification_sent' => 'メール確認が送信されました',
     'email_verification_sent_message' => '新しいメールアドレスに確認用リンクが送信されました。受信トレイを確認し、リンクをクリックして変更を確認してください。',

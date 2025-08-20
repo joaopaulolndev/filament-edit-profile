@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Disconnetti altre sessioni del browser',
     'browser_sessions_confirm_pass' => 'Inserisci la tua password per confermare che desideri disconnettere le altre sessioni del browser su tutti i tuoi dispositivi.',
     'browser_sessions_logout_success_notification' => 'Tutte le altre sessioni del browser sono state disconnesse con successo.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'Verifica Email Inviata',
     'email_verification_sent_message' => 'Un link di verifica è stato inviato al tuo nuovo indirizzo email. Per favore controlla la tua casella di posta e clicca sul link per confermare la modifica.',

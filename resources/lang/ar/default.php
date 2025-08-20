@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'تسجيل الخروج من جلسات المتصفح الأخرى',
     'browser_sessions_confirm_pass' => 'يُرجى إدخال كلمة المرور الخاصة بك لتأكيد رغبتك في تسجيل الخروج من جلسات المتصفح الأخرى عبر جميع أجهزتك.',
     'browser_sessions_logout_success_notification' => 'تم تسجيل الخروج من جميع جلسات المتصفح الأخرى بنجاح.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'تم إرسال رابط التحقق من البريد الإلكتروني',
     'email_verification_sent_message' => 'تم إرسال رابط التحقق إلى عنوان بريدك الإلكتروني الجديد. يرجى التحقق من صندوق الوارد الخاص بك والنقر على الرابط لتأكيد التغيير.',

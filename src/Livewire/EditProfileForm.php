@@ -13,8 +13,8 @@ use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification;
-use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use League\Uri\Components\Query;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 
 class EditProfileForm extends BaseProfileForm
 {
@@ -39,7 +39,7 @@ class EditProfileForm extends BaseProfileForm
         $this->shouldEditEmail = filament('filament-edit-profile')->shouldEditEmail;
         $this->shouldConfirmEmail = filament('filament-edit-profile')->shouldConfirmEmail;
 
-        if(!$this->shouldEditEmail){
+        if (! $this->shouldEditEmail) {
             $this->shouldConfirmEmail = false;
         }
 
@@ -86,7 +86,7 @@ class EditProfileForm extends BaseProfileForm
                 TextInput::make('email')
                     ->label(__('filament-edit-profile::default.email'))
                     ->email()
-                    ->disabled(!$this->shouldEditEmail)
+                    ->disabled(! $this->shouldEditEmail)
                     ->required($this->shouldEditEmail)
                     ->unique($this->userClass, ignorable: $this->user),
             ])
@@ -109,14 +109,14 @@ class EditProfileForm extends BaseProfileForm
         try {
             $data = $this->form->getState();
 
-            if (!$this->shouldConfirmEmail) {
+            if (! $this->shouldConfirmEmail) {
                 $this->user->update($data);
             } else {
                 // Save the name change immediately
                 $this->user->name = $data['name'];
                 $this->user->save();
 
-                if($this->user->email != $data['email']){
+                if ($this->user->email != $data['email']) {
                     FacadesNotification::route('mail', $data['email'])
                         ->notify(new ChangeEmailConfirmation($data['email'], $this->user->id));
                     Notification::make()
@@ -124,13 +124,13 @@ class EditProfileForm extends BaseProfileForm
                         ->title(__('filament-edit-profile::default.email_verification_sent'))
                         ->body(__('filament-edit-profile::default.email_verification_sent_message'))
                         ->send();
-                }
-                else{
+                } else {
                     Notification::make()
-                    ->success()
-                    ->title(__('filament-edit-profile::default.saved_successfully'))
-                    ->send();
+                        ->success()
+                        ->title(__('filament-edit-profile::default.saved_successfully'))
+                        ->send();
                 }
+
                 return;
             }
         } catch (Halt $exception) {

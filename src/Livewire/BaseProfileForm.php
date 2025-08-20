@@ -8,8 +8,8 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use NoopStudios\FilamentEditProfile\Concerns\HasSort;
 use Livewire\Component;
+use NoopStudios\FilamentEditProfile\Concerns\HasSort;
 
 class BaseProfileForm extends Component implements HasActions, HasForms
 {

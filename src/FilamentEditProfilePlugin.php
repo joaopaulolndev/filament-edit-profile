@@ -7,6 +7,7 @@ use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use Livewire\Livewire;
 use NoopStudios\FilamentEditProfile\Http\Middleware\SetUserLocale;
 use NoopStudios\FilamentEditProfile\Http\Middleware\SetUserThemeColor;
 use NoopStudios\FilamentEditProfile\Livewire\BrowserSessionsForm;
@@ -17,7 +18,6 @@ use NoopStudios\FilamentEditProfile\Livewire\EditProfileForm;
 use NoopStudios\FilamentEditProfile\Livewire\MultiFactorAuthentication;
 use NoopStudios\FilamentEditProfile\Livewire\SanctumTokens;
 use NoopStudios\FilamentEditProfile\Pages\EditProfilePage;
-use Livewire\Livewire;
 
 class FilamentEditProfilePlugin implements Plugin
 {
@@ -101,7 +101,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
-       
+
         $this->registerLivewireComponents();
     }
 
@@ -234,7 +234,7 @@ class FilamentEditProfilePlugin implements Plugin
 
         return $this;
     }
-    
+
     public function getShouldShowEditProfileForm(): bool
     {
         return $this->evaluate($this->shouldShowEditProfileForm);
@@ -428,10 +428,10 @@ class FilamentEditProfilePlugin implements Plugin
             $components->put('edit_profile_form', EditProfileForm::class);
         }
 
-       /*  if ($this->shouldShowEditProfileForm) {
-            $components->put('edit_profile_form', EditProfileForm::class); 
+        /*  if ($this->shouldShowEditProfileForm) {
+             $components->put('edit_profile_form', EditProfileForm::class);
 
-        } */
+         } */
 
         if ($this->getShouldShowEditPasswordForm()) {
             $components->put('edit_password_form', EditPasswordForm::class);

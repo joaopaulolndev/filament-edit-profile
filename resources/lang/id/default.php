@@ -49,7 +49,7 @@ return [
     'browser_sessions_log_out' => 'Keluar dari Sesi Browser Lain',
     'browser_sessions_confirm_pass' => 'Masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin keluar dari sesi browser lain di semua perangkat.',
     'browser_sessions_logout_success_notification' => 'Semua sesi browser lainnya telah berhasil keluar.',
-    
+
     // Email verification messages
     'email_verification_sent' => 'Verifikasi Email Terkirim',
     'email_verification_sent_message' => 'Tautan verifikasi telah dikirim ke alamat email baru Anda. Silakan periksa kotak masuk Anda dan klik tautan untuk mengonfirmasi perubahan.',

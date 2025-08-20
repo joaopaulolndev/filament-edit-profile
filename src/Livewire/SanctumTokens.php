@@ -16,8 +16,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 use Laravel\Sanctum\Sanctum;
+use NoopStudios\FilamentEditProfile\Concerns\HasUser;
 
 class SanctumTokens extends BaseProfileForm implements HasTable
 {
