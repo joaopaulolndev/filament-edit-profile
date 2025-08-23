@@ -39,17 +39,17 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | string $navigationLabel = '';
 
-    public bool $shouldShowEditProfileForm = true;
+    public Closure | bool $shouldShowEditProfileForm = true;
 
-    public bool $shouldShowEmailForm = true;
+    public Closure | bool $shouldShowEmailForm = true;
 
-    public bool $shouldShowLocaleForm = false;
+    public Closure | bool $shouldShowLocaleForm = false;
 
     public array $localeOptions = [];
 
-    public bool $shouldShowThemeColorForm = false;
+    public Closure | bool $shouldShowThemeColorForm = false;
 
-    public bool $shouldShowEditPasswordForm = true;
+    public Closure | bool $shouldShowEditPasswordForm = true;
 
     public Closure | bool $shouldShowDeleteAccountForm = true;
 
@@ -209,7 +209,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldRegisterNavigation);
     }
 
-    public function shouldShowEditProfileForm(bool $value = true): static
+    public function shouldShowEditProfileForm(Closure | bool $value = true): static
     {
         $this->shouldShowEditProfileForm = $value;
 
@@ -221,7 +221,7 @@ class FilamentEditProfilePlugin implements Plugin
         return $this->evaluate($this->shouldShowEditProfileForm);
     }
 
-    public function shouldShowEditPasswordForm(bool $value = true): static
+    public function shouldShowEditPasswordForm(Closure | bool $value = true): static
     {
         $this->shouldShowEditPasswordForm = $value;
 
