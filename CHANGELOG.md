@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.9 - 2025-08-23
+
+### What's Changed
+
+* Enable closures for conditional forms visibility by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/118
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.8...v2.0.9
+
 ## v2.0.8 - 2025-08-19
 
 ### What's Changed
