@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.10 - 2025-08-23
+
+### What's Changed
+
+* Add Hebrew translation by @zvizvi in https://github.com/joaopaulolndev/filament-edit-profile/pull/119
+
+### New Contributors
+
+* @zvizvi made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/119
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.9...v2.0.10
+
 ## v2.0.9 - 2025-08-23
 
 ### What's Changed
