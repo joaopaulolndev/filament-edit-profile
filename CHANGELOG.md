@@ -2,6 +2,15 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.11 - 2025-08-24
+
+### What's Changed
+
+* RTL style fix by @zvizvi in https://github.com/joaopaulolndev/filament-edit-profile/pull/120
+* Restructure Hebrew language file location by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/121
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.10...v2.0.11
+
 ## v2.0.10 - 2025-08-23
 
 ### What's Changed
