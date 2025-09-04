@@ -163,10 +163,10 @@ class FilamentEditProfilePlugin implements Plugin
         return ! empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
     }
 
-    public function setIcon(string | BackedEnum | Htmlable | Closure | null $value ): static
+    public function setIcon(string | BackedEnum | Htmlable | Closure | null $value): static
     {
         $this->icon = filled($value) ? $value : false;
-        
+
         return $this;
     }
 
