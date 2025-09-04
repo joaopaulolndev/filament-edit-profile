@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.12 - 2025-09-04
+
+### What's Changed
+
+* Change icon property and modify setIcon method to accept HeroIcon by @codearachnid in https://github.com/joaopaulolndev/filament-edit-profile/pull/122
+
+### New Contributors
+
+* @codearachnid made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/122
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.11...v2.0.12
+
 ## v2.0.11 - 2025-08-24
 
 ### What's Changed
