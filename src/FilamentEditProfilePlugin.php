@@ -2,11 +2,13 @@
 
 namespace Joaopaulolndev\FilamentEditProfile;
 
+use BackedEnum;
 use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use Illuminate\Contracts\Support\Htmlable;
 use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserLocale;
 use Joaopaulolndev\FilamentEditProfile\Http\Middleware\SetUserThemeColor;
 use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
@@ -29,7 +31,7 @@ class FilamentEditProfilePlugin implements Plugin
 
     public Closure | int $sort = 90;
 
-    public Closure | string $icon = '';
+    protected string | BackedEnum | Htmlable | Closure | false | null $icon = null;
 
     public Closure | string $navigationGroup = '';
 
@@ -161,10 +163,10 @@ class FilamentEditProfilePlugin implements Plugin
         return ! empty($this->navigationGroup) ? $this->evaluate($this->navigationGroup) : null;
     }
 
-    public function setIcon(Closure | string $value = ''): static
+    public function setIcon(string | BackedEnum | Htmlable | Closure | null $value ): static
     {
-        $this->icon = $value;
-
+        $this->icon = filled($value) ? $value : false;
+        
         return $this;
     }
 
