@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.13 - 2025-09-13
+
+### What's Changed
+
+* Fix panel fallback for plugin slug retrieval by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/123
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.12...v2.0.13
+
 ## v2.0.12 - 2025-09-04
 
 ### What's Changed
