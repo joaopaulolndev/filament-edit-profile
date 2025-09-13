@@ -14,7 +14,11 @@ class EditProfilePage extends Page
 
     public static function getSlug(?Panel $panel = null): string
     {
-        $plugin = Filament::getCurrentOrDefaultPanel()?->getPlugin('filament-edit-profile');
+        if ($panel === null) {
+            $panel = Filament::getCurrentOrDefaultPanel();
+        }
+
+        $plugin = $panel?->getPlugin('filament-edit-profile');
 
         $slug = $plugin?->getSlug();
 
