@@ -16,8 +16,8 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification;
 use League\Uri\Components\Query;
-use NoopStudios\FilamentEditProfile\Notifications\ChangeEmailConfirmation;
 use NoopStudios\FilamentEditProfile\Concerns\HasUser;
+use NoopStudios\FilamentEditProfile\Notifications\ChangeEmailConfirmation;
 
 class EditProfileForm extends BaseProfileForm
 {
@@ -61,7 +61,6 @@ class EditProfileForm extends BaseProfileForm
         if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
             $fields[] = config('filament-edit-profile.theme_color_column', 'theme_color');
         }
-        
 
         $this->form->fill($this->user->only($fields));
     }
@@ -126,9 +125,9 @@ class EditProfileForm extends BaseProfileForm
 
             if (! $this->shouldConfirmEmail) {
                 $this->user->update($data);
-                
+
                 $this->dispatch('refresh-topbar');
-                
+
                 FilamentNotification::make()
                     ->success()
                     ->title(__('filament-edit-profile::default.saved_successfully'))
@@ -136,15 +135,15 @@ class EditProfileForm extends BaseProfileForm
             } else {
                 // Handle email confirmation flow
                 $updateData = $data;
-                
+
                 // If email is being changed, remove it from immediate update
                 if ($this->user->email != $data['email']) {
                     unset($updateData['email']);
-                    
+
                     // Send email verification
                     Notification::route('mail', $data['email'])
                         ->notify(new ChangeEmailConfirmation($data['email'], $this->user->id));
-                    
+
                     FilamentNotification::make()
                         ->success()
                         ->title(__('filament-edit-profile::default.email_verification_sent'))
@@ -156,7 +155,7 @@ class EditProfileForm extends BaseProfileForm
                         ->title(__('filament-edit-profile::default.saved_successfully'))
                         ->send();
                 }
-                
+
                 // Update all other fields (name, locale, theme_color)
                 $this->user->update($updateData);
                 $this->dispatch('refresh-topbar');
@@ -169,10 +168,11 @@ class EditProfileForm extends BaseProfileForm
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
             if ($locale !== $this->user->getAttributeValue('locale')) {
                 redirect(request()->header('referer'));
+
                 return;
             }
         }
-        
+
         if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
             if ($theme_color !== $this->user->getAttributeValue('theme_color')) {
                 redirect(request()->header('referer'));

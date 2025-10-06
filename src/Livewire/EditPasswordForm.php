@@ -28,7 +28,7 @@ class EditPasswordForm extends BaseProfileForm
         $this->form->fill();
     }
 
-    public function form(Schema $schema): Schema 
+    public function form(Schema $schema): Schema
     {
         return $schema
             ->schema([
