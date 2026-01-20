@@ -23,7 +23,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 -   **Browser Sessions** Manage and log out your active sessions on other browsers and devices.
 -   **Custom Fields:** Add custom fields to the form.
 -   **Custom Components:** Add custom component to the page.
--   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
+-   **Support**: [Laravel 11](https://laravel.com) and [Filament 5.x](https://filamentphp.com)
 
 ## Compatibility
 
@@ -31,15 +31,17 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-edit-profile:^2.0
+composer require joaopaulolndev/filament-edit-profile:^3.0
 ```
 
+**Filament V4** - if you are using Filament v4.x, you can use [this section](https://github.com/joaopaulolndev/filament-edit-profile/tree/2.x)
 **Filament V3** - if you are using Filament v3.x, you can use [this section](https://github.com/joaopaulolndev/filament-edit-profile/tree/main)
 
 You can publish and run the migrations with:
