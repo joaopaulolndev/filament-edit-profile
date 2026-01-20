@@ -23,7 +23,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 -   **Browser Sessions** Manage and log out your active sessions on other browsers and devices.
 -   **Custom Fields:** Add custom fields to the form.
 -   **Custom Components:** Add custom component to the page.
--   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
+-   **Support**: [Laravel 11](https://laravel.com) and [Filament 4.x](https://filamentphp.com)
 
 ## Compatibility
 
@@ -31,6 +31,7 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
