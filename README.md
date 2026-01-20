@@ -30,13 +30,14 @@ The Filament library is a user-friendly tool that simplifies profile editing, of
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-edit-profile
+composer require joaopaulolndev/filament-edit-profile:^1.0
 ```
 
 You can publish and run the migrations with:
