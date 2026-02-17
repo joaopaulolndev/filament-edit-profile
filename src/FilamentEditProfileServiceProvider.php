@@ -5,8 +5,16 @@ namespace Joaopaulolndev\FilamentEditProfile;
 use Filament\Auth\Http\Responses\Contracts\EmailChangeVerificationResponse as EmailChangeVerificationResponseContract;
 use Joaopaulolndev\FilamentEditProfile\Commands\FilamentEditProfileCommand;
 use Joaopaulolndev\FilamentEditProfile\Http\Responses\EmailChangeVerificationResponse;
+use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\MultiFactorAuthentication;
+use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
 use Joaopaulolndev\FilamentEditProfile\Testing\TestsFilamentEditProfile;
 use Livewire\Features\SupportTesting\Testable;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -75,8 +83,27 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
             $publishMigration('add_theme_color_to_users_table.php', 'filament-edit-profile-theme-color-migration');
         }
 
+        // Register Livewire components in the ServiceProvider (runs on every
+        // request) instead of Plugin::boot() which only runs when the Filament
+        // panel boots. Livewire update requests (POST /livewire/update) bypass
+        // Filament panel middleware, so components registered in Plugin::boot()
+        // are not available and Livewire throws ComponentNotFoundException.
+        // @see https://github.com/joaopaulolndev/filament-edit-profile/issues/134
+        $this->registerLivewireComponents();
+
         // Testing
         Testable::mixin(new TestsFilamentEditProfile);
+    }
+
+    private function registerLivewireComponents(): void
+    {
+        Livewire::component('edit_profile_form', EditProfileForm::class);
+        Livewire::component('edit_password_form', EditPasswordForm::class);
+        Livewire::component('delete_account_form', DeleteAccountForm::class);
+        Livewire::component('browser_sessions_form', BrowserSessionsForm::class);
+        Livewire::component('custom_fields_form', CustomFieldsForm::class);
+        Livewire::component('sanctum_tokens', SanctumTokens::class);
+        Livewire::component('multi_factor_authentication', MultiFactorAuthentication::class);
     }
 
     protected function getAssetPackageName(): ?string
