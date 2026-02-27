@@ -9,8 +9,15 @@ use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Joaopaulolndev\FilamentEditProfile\Commands\FilamentEditProfileCommand;
+use Joaopaulolndev\FilamentEditProfile\Livewire\BrowserSessionsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\CustomFieldsForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\DeleteAccountForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
+use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
 use Joaopaulolndev\FilamentEditProfile\Testing\TestsFilamentEditProfile;
 use Livewire\Features\SupportTesting\Testable;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -87,6 +94,14 @@ class FilamentEditProfileServiceProvider extends PackageServiceProvider
             $publishMigration('add_avatar_url_to_users_table.php', 'filament-edit-profile-avatar-migration');
             $publishMigration('add_custom_fields_to_users_table.php', 'filament-edit-profile-custom-field-migration');
         }
+
+        // Register Livewire components
+        Livewire::component('edit_profile_form', EditProfileForm::class);
+        Livewire::component('edit_password_form', EditPasswordForm::class);
+        Livewire::component('delete_account_form', DeleteAccountForm::class);
+        Livewire::component('browser_sessions_form', BrowserSessionsForm::class);
+        Livewire::component('custom_fields_form', CustomFieldsForm::class);
+        Livewire::component('sanctum_tokens', SanctumTokens::class);
 
         // Testing
         Testable::mixin(new TestsFilamentEditProfile);

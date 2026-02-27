@@ -13,7 +13,6 @@ use Joaopaulolndev\FilamentEditProfile\Livewire\EditPasswordForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\EditProfileForm;
 use Joaopaulolndev\FilamentEditProfile\Livewire\SanctumTokens;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
-use Livewire\Livewire;
 
 class FilamentEditProfilePlugin implements Plugin
 {
@@ -344,10 +343,6 @@ class FilamentEditProfilePlugin implements Plugin
         if (config('filament-edit-profile.show_custom_fields') && ! empty(config('filament-edit-profile.custom_fields'))) {
             $components->put('custom_fields_form', CustomFieldsForm::class);
         }
-
-        $components->each(function ($class, $name) {
-            Livewire::component($name, $class);
-        });
 
         $this->customProfileComponents($components->toArray());
     }

@@ -94,6 +94,7 @@ class CustomFieldsForm extends BaseProfileForm
                 ->rules($field['rules'] ?? []);
 
         } catch (Throwable $exception) {
+            return null;
         }
     }
 
