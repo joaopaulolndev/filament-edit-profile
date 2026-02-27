@@ -1,0 +1,199 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Left side of && is always true\.$#'
+			identifier: booleanAnd.leftAlwaysTrue
+			count: 1
+			path: src/Http/Middleware/SetUserLocale.php
+
+		-
+			message: '#^Left side of && is always true\.$#'
+			identifier: booleanAnd.leftAlwaysTrue
+			count: 1
+			path: src/Http/Middleware/SetUserThemeColor.php
+
+		-
+			message: '#^Expression on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.expr
+			count: 1
+			path: src/Http/Responses/EmailChangeVerificationResponse.php
+
+		-
+			message: '#^Access to an undefined property Joaopaulolndev\\FilamentEditProfile\\Livewire\\BaseProfileForm\:\:\$view\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Livewire/BaseProfileForm.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Foundation\\Auth\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Livewire/BrowserSessionsForm.php
+
+		-
+			message: '#^Parameter \#1 \$view of method Filament\\Support\\Components\\ViewComponent\:\:view\(\) expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Livewire/BrowserSessionsForm.php
+
+		-
+			message: '#^Access to an undefined property Joaopaulolndev\\FilamentEditProfile\\Livewire\\CustomFieldsForm\:\:\$form\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Livewire/CustomFieldsForm.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Foundation\\Auth\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Livewire/DeleteAccountForm.php
+
+		-
+			message: '#^Parameter \#1 \$view of method Filament\\Support\\Components\\ViewComponent\:\:view\(\) expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Livewire/DeleteAccountForm.php
+
+		-
+			message: '#^Access to an undefined property Joaopaulolndev\\FilamentEditProfile\\Livewire\\EditPasswordForm\:\:\$form\.$#'
+			identifier: property.notFound
+			count: 3
+			path: src/Livewire/EditPasswordForm.php
+
+		-
+			message: '#^Access to an undefined property Joaopaulolndev\\FilamentEditProfile\\Livewire\\EditProfileForm\:\:\$form\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getAvatarDirectory\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getAvatarRules\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getLocaleRules\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getOptionsLocaleForm\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getShouldShowAvatarForm\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getShouldShowEmailForm\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getShouldShowLocaleForm\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getShouldShowThemeColorForm\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getThemeColorRules\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Method Joaopaulolndev\\FilamentEditProfile\\Livewire\\EditProfileForm\:\:getEmailChangeVerificationSentNotification\(\) never returns null so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: src/Livewire/EditProfileForm.php
+
+		-
+			message: '#^Access to static property \$personalAccessTokenModel on an unknown class Laravel\\Sanctum\\Sanctum\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Livewire/SanctumTokens.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getSanctumPermissions\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/SanctumTokens.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Authenticatable&Illuminate\\Database\\Eloquent\\Model\:\:createToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Livewire/SanctumTokens.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getCanAccess\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getIcon\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getNavigationGroup\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getNavigationLabel\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getRegisteredCustomProfileComponents\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getShouldRegisterNavigation\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getSlug\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getSort\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
+
+		-
+			message: '#^Call to an undefined method Filament\\Contracts\\Plugin\:\:getTitle\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Pages/EditProfilePage.php
