@@ -28,7 +28,7 @@ class EditProfileForm extends BaseProfileForm
 
         $this->userClass = get_class($this->user);
 
-        $fields = ['name', 'email'];
+        $fields = [config('filament-edit-profile.name_column', 'name'), 'email'];
 
         if (filament('filament-edit-profile')->getShouldShowAvatarForm()) {
             $fields[] = config('filament-edit-profile.avatar_column', 'avatar_url');
@@ -54,7 +54,7 @@ class EditProfileForm extends BaseProfileForm
                             ->directory(filament('filament-edit-profile')->getAvatarDirectory())
                             ->rules(filament('filament-edit-profile')->getAvatarRules())
                             ->hidden(! filament('filament-edit-profile')->getShouldShowAvatarForm()),
-                        TextInput::make('name')
+                        TextInput::make(config('filament-edit-profile.name_column', 'name'))
                             ->label(__('filament-edit-profile::default.name'))
                             ->required(),
                         TextInput::make('email')
