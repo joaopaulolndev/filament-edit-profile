@@ -360,6 +360,7 @@ class FilamentEditProfilePlugin implements Plugin
     public function getRegisteredCustomProfileComponents(): array
     {
         return collect($this->registeredCustomProfileComponents)
+            ->unique()
             ->sortBy(fn (string $component) => $component::getSort())
             ->all();
     }
