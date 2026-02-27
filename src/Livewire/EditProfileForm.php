@@ -112,6 +112,11 @@ class EditProfileForm extends BaseProfileForm
                 $this->sendEmailChangeVerification($this->user, $data['email']);
 
                 unset($data['email']);
+
+                // Refresh the model to clear any potentially dirty email attribute,
+                // ensuring that only the fields in $data are persisted.
+                // @see https://github.com/joaopaulolndev/filament-edit-profile/issues/132
+                $this->user->refresh();
             }
 
             $this->user->update($data);
