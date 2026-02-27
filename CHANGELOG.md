@@ -2,6 +2,24 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v1.0.46 - 2026-02-27
+
+### What's Changed
+
+#### New Features
+
+- **Configurable `name_column`**: The `name` field is now configurable via `config('filament-edit-profile.name_column')`, allowing users with custom schemas (e.g. `firstname`, `username`) to use the plugin (#129, #125)
+
+#### Bug Fixes
+
+- **Fix Livewire entangle error on delete account**: Removed unnecessary `$wire.$entangle` from `delete-account-description.blade.php` that caused a console error since no backing Livewire property existed (#70)
+- **Fix duplicate components with `customProfileComponents()`**: Added `->unique()` to prevent the same component from appearing twice when using custom profile components (#69)
+
+#### Other
+
+- Added Larastan static analysis
+- Moved Livewire component registration to ServiceProvider
+
 ## v1.0.45 - 2025-07-13
 
 ### What's Changed
