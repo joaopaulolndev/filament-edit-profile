@@ -2,6 +2,16 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.15 - 2026-03-04
+
+### Breaking Changes
+
+- **Minimum Filament version bumped to `^4.8`** — required due to the new `PageConfiguration` parameter added to `Page::routes()` in [filamentphp/filament#19225](https://github.com/filamentphp/filament/pull/19225)
+
+### What's Changed
+
+- Update `composer.json` to require `filament/filament: ^4.8` for PageConfiguration compatibility
+
 ## v2.0.14 - 2026-02-27
 
 ### What's Changed
