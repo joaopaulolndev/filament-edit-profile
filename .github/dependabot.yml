@@ -9,5 +9,7 @@ updates:
     schedule:
       interval: "weekly"
       time: "03:00"
+    cooldown:
+      default-days: 5
     labels:
       - "dependencies"
