@@ -122,6 +122,7 @@ Optionally, you can add a user menu item to the user menu in the navigation bar:
 
 ```php
 use Filament\Actions\Action;
+use Filament\Facades\Filament;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
 ->userMenuItems([
@@ -129,9 +130,9 @@ use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
         ->label(fn() => auth()->user()->name)
         ->url(fn (): string => EditProfilePage::getUrl())
         ->icon('heroicon-m-user-circle')
-        //If you are using tenancy need to check with the visible method where ->company() is the relation between the user and tenancy model as you called
+        //If you are using tenancy, check with the visible method that there is an active tenant (Filament::getTenant()) in addition to the user/tenant relation (->company() here), otherwise pages like "create tenant" have no tenant yet and getUrl() throws a missing route parameter error
         ->visible(function (): bool {
-            return auth()->user()->company()->exists();
+            return auth()->user()->company()->exists() && Filament::getTenant();
         }),
 ])
 ```
