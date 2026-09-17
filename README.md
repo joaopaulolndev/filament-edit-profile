@@ -233,10 +233,20 @@ Sanctum allows you to assign "abilities" to tokens. by default we have ['create'
 
 ![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-edit-profile/main/art/browser-sessions.png)
 
-To utilize browser session, ensure that your session configuration's driver (or SESSION_DRIVER environment variable) is set to `database`.
+To list the individual active sessions, ensure that your session configuration's driver (or SESSION_DRIVER environment variable) is set to `database`.
 
 ```env
 SESSION_DRIVER=database
+```
+
+On any other driver the list is replaced by a short notice and only the "Log Out Other Browser Sessions" action is shown. That action relies on Laravel's `AuthenticateSession` middleware to invalidate the other sessions, so make sure it is registered on your panel — without it, the other sessions are not actually logged out.
+
+```php
+use Illuminate\Session\Middleware\AuthenticateSession;
+
+$panel->authMiddleware([
+    AuthenticateSession::class,
+]);
 ```
 
 If you want to control access or disable browser sessions, you can pass a Closure or Boolean

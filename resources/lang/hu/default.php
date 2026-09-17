@@ -45,4 +45,5 @@ return [
     'browser_sessions_log_out' => 'Kijelentkezés más böngésző munkamenetekből',
     'browser_sessions_confirm_pass' => 'Kérjük, add meg a jelszavad, hogy megerősítsd, ki szeretnél jelentkezni az összes többi böngésző munkamenetből az összes eszközödön.',
     'browser_sessions_logout_success_notification' => 'Az összes többi böngésző munkamenet sikeresen kijelentkezett.',
+    'browser_sessions_list_unavailable' => 'Az aktív munkamenetek listája nem érhető el. Az alábbiakban azonban továbbra is kijelentkezhet a többi böngészőmunkamenetéből.',
 ];

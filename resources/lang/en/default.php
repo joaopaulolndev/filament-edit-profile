@@ -45,4 +45,5 @@ return [
     'browser_sessions_log_out' => 'Log Out Other Browser Sessions',
     'browser_sessions_confirm_pass' => 'Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.',
     'browser_sessions_logout_success_notification' => 'All other browser sessions have been logged out successfully.',
+    'browser_sessions_list_unavailable' => 'The list of your active sessions is not available. You can still log out of your other browser sessions below.',
 ];
