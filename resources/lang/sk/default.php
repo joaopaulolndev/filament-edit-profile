@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Odhláste sa z ostatných relácií',
     'browser_sessions_confirm_pass' => 'Zadajte prosím svoje heslo, aby ste potvrdili, že sa naozaj chcete odhlásiť z ostatných relácií na svojich zariadeniach.',
     'browser_sessions_logout_success_notification' => 'Boli ste úspešne odhlásený z ostatných relácií na svojich zariadeniach.',
+    'browser_sessions_list_unavailable' => 'Zoznam vašich aktívnych relácií nie je k dispozícii. Napriek tomu sa nižšie môžete odhlásiť z ostatných relácií prehliadača.',
 ];

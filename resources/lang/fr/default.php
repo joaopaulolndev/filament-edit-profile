@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Déconnexion des autres sessions du navigateur',
     'browser_sessions_confirm_pass' => 'Veuillez saisir votre mot de passe pour confirmer que vous souhaitez vous déconnecter de vos autres sessions de navigateur sur tous vos appareils.',
     'browser_sessions_logout_success_notification' => 'Toutes les autres sessions de navigateur ont été déconnectées avec succès.',
+    'browser_sessions_list_unavailable' => 'La liste de vos sessions actives n\'est pas disponible. Vous pouvez néanmoins vous déconnecter de vos autres sessions de navigateur ci-dessous.',
 ];

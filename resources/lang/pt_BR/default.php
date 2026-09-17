@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Sair de outras sessões do navegador',
     'browser_sessions_confirm_pass' => 'Digite sua senha para confirmar que deseja sair das outras sessões do navegador em todos os seus dispositivos.',
     'browser_sessions_logout_success_notification' => 'Todas as outras sessões do navegador foram desconectadas com sucesso.',
+    'browser_sessions_list_unavailable' => 'A lista das suas sessões ativas não está disponível. Mesmo assim, você pode encerrar suas outras sessões do navegador abaixo.',
 ];

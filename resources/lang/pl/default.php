@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Wyloguj inne sesje przeglądarki',
     'browser_sessions_confirm_pass' => 'Wprowadź swoje hasło, aby potwierdzić, że chcesz wylogować się z innych sesji przeglądarki na wszystkich swoich urządzeniach.',
     'browser_sessions_logout_success_notification' => 'Wszystkie inne sesje przeglądarki zostały pomyślnie wylogowane.',
+    'browser_sessions_list_unavailable' => 'Lista aktywnych sesji jest niedostępna. Nadal możesz wylogować się z pozostałych sesji przeglądarki poniżej.',
 ];
