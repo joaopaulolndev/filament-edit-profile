@@ -31,12 +31,6 @@ parameters:
 			path: src/Livewire/BrowserSessionsForm.php
 
 		-
-			message: '#^Parameter \#1 \$view of method Filament\\Support\\Components\\ViewComponent\:\:view\(\) expects view\-string\|null, string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Livewire/BrowserSessionsForm.php
-
-		-
 			message: '#^Access to an undefined property Joaopaulolndev\\FilamentEditProfile\\Livewire\\CustomFieldsForm\:\:\$form\.$#'
 			identifier: property.notFound
 			count: 2
@@ -45,12 +39,6 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Foundation\\Auth\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 1
-			path: src/Livewire/DeleteAccountForm.php
-
-		-
-			message: '#^Parameter \#1 \$view of method Filament\\Support\\Components\\ViewComponent\:\:view\(\) expects view\-string\|null, string given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Livewire/DeleteAccountForm.php
 
