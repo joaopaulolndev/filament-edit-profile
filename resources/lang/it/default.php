@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Disconnetti altre sessioni del browser',
     'browser_sessions_confirm_pass' => 'Inserisci la tua password per confermare che desideri disconnettere le altre sessioni del browser su tutti i tuoi dispositivi.',
     'browser_sessions_logout_success_notification' => 'Tutte le altre sessioni del browser sono state disconnesse con successo.',
+    'browser_sessions_list_unavailable' => "L'elenco delle tue sessioni attive non è disponibile. Puoi comunque disconnetterti dalle altre sessioni del browser qui sotto.",
 ];

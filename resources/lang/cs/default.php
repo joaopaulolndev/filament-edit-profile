@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Odhlášení ostatních relací',
     'browser_sessions_confirm_pass' => 'Zadejte své heslo a potvrďte, že se chcete odhlásit z ostatních relací ve všech zařízeních.',
     'browser_sessions_logout_success_notification' => 'Všechny ostatní relace byly úspěšně odhlášeny.',
+    'browser_sessions_list_unavailable' => 'Seznam vašich aktivních relací není k dispozici. Níže se však stále můžete odhlásit z ostatních relací prohlížeče.',
 ];
