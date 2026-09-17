@@ -20,17 +20,25 @@ class BrowserSessionsForm extends BaseProfileForm
 
     public function form(Form $form): Form
     {
+        if (self::usesDatabaseSessions()) {
+            $sessionsComponent = Forms\Components\ViewField::make('browserSessions')
+                ->label(__('filament-edit-profile::default.browser_section_title'))
+                ->hiddenLabel()
+                ->view('filament-edit-profile::forms.components.browser-sessions')
+                ->viewData(['data' => self::getSessions()]);
+        } else {
+            $sessionsComponent = Forms\Components\Placeholder::make('browserSessionsUnavailable')
+                ->hiddenLabel()
+                ->content(__('filament-edit-profile::default.browser_sessions_list_unavailable'));
+        }
+
         return $form
             ->schema([
                 Forms\Components\Section::make(__('filament-edit-profile::default.browser_section_title'))
                     ->description(__('filament-edit-profile::default.browser_section_description'))
                     ->aside()
                     ->schema([
-                        Forms\Components\ViewField::make('browserSessions')
-                            ->label(__(__('filament-edit-profile::default.browser_section_title')))
-                            ->hiddenLabel()
-                            ->view('filament-edit-profile::forms.components.browser-sessions')
-                            ->viewData(['data' => self::getSessions()]),
+                        $sessionsComponent,
                         Actions::make([
                             Actions\Action::make('deleteBrowserSessions')
                                 ->label(__('filament-edit-profile::default.browser_sessions_log_out'))
@@ -55,9 +63,14 @@ class BrowserSessionsForm extends BaseProfileForm
             ]);
     }
 
+    protected static function usesDatabaseSessions(): bool
+    {
+        return config('session.driver') === 'database';
+    }
+
     public static function getSessions(): array
     {
-        if (config(key: 'session.driver') !== 'database') {
+        if (! self::usesDatabaseSessions()) {
             return [];
         }
 
@@ -117,9 +130,9 @@ class BrowserSessionsForm extends BaseProfileForm
             ->send();
     }
 
-    protected static function deleteOtherSessionRecords()
+    protected static function deleteOtherSessionRecords(): void
     {
-        if (config('session.driver') !== 'database') {
+        if (! self::usesDatabaseSessions()) {
             return;
         }
 

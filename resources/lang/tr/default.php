@@ -45,4 +45,5 @@ return [
     'browser_sessions_log_out' => 'Diğer Tarayıcı Oturumlarından Çıkış Yap',
     'browser_sessions_confirm_pass' => 'Tüm cihazlarınızdaki diğer tarayıcı oturumlarından çıkış yapmak istediğinizi onaylamak için lütfen şifrenizi girin.',
     'browser_sessions_logout_success_notification' => 'Tüm diğer tarayıcı oturumlarından başarıyla çıkış yapıldı.',
+    'browser_sessions_list_unavailable' => 'Etkin oturumlarınızın listesi kullanılamıyor. Yine de aşağıdan diğer tarayıcı oturumlarınızı kapatabilirsiniz.',
 ];

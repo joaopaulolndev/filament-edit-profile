@@ -45,4 +45,5 @@ return [
     'browser_sessions_log_out' => '他のブラウザセッションからログアウト',
     'browser_sessions_confirm_pass' => 'すべてのデバイスで他のブラウザセッションからログアウトすることを確認するために、パスワードを入力してください。',
     'browser_sessions_logout_success_notification' => '他のすべてのブラウザセッションから正常にログアウトしました。',
+    'browser_sessions_list_unavailable' => 'アクティブなセッションの一覧は利用できません。下のボタンから他のブラウザーセッションからログアウトすることは可能です。',
 ];

@@ -45,4 +45,5 @@ return [
     'browser_sessions_log_out' => 'Von anderen Browsersitzungen abmelden',
     'browser_sessions_confirm_pass' => 'Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie sich von Ihren anderen Browsersitzungen auf all Ihren Geräten abmelden möchten.',
     'browser_sessions_logout_success_notification' => 'Alle anderen Browsersitzungen wurden erfolgreich abgemeldet.',
+    'browser_sessions_list_unavailable' => 'Die Liste Ihrer aktiven Sitzungen ist nicht verfügbar. Sie können sich unten dennoch von Ihren anderen Browsersitzungen abmelden.',
 ];
