@@ -2,6 +2,18 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v3.0.4 - 2026-09-17
+
+### What's Changed
+
+* Added logout of other browser sessions, driver independant by @kristofser in https://github.com/joaopaulolndev/filament-edit-profile/pull/147
+
+### New Contributors
+
+* @kristofser made their first contribution in https://github.com/joaopaulolndev/filament-edit-profile/pull/147
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v3.0.3...v3.0.4
+
 ## v3.0.3 - 2026-09-17
 
 ### What's Changed
