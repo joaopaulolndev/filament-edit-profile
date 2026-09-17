@@ -2,6 +2,14 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.17 - 2026-09-17
+
+### What's Changed
+
+* Port #147: logout of other browser sessions, driver independent by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/148
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.16...v2.0.17
+
 ## v2.0.16 - 2026-09-17
 
 ### What's Changed
