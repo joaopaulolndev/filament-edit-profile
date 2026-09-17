@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'נתק חיבורים פעילים אחרים בדפדפן',
     'browser_sessions_confirm_pass' => 'אנא הזן את הסיסמה שלך כדי לאשר שברצונך לנתק חיבורים פעילים בדפדפנים אחרים בכל המכשירים שלך.',
     'browser_sessions_logout_success_notification' => 'כל החיבורים הפעילים בדפדפנים אחרים נותקו בהצלחה.',
+    'browser_sessions_list_unavailable' => 'רשימת ההפעלות הפעילות שלך אינה זמינה. עדיין ניתן להתנתק משאר הפעלות הדפדפן שלך למטה.',
 ];

@@ -49,4 +49,5 @@ return [
     'browser_sessions_log_out' => 'Keluar dari Sesi Browser Lain',
     'browser_sessions_confirm_pass' => 'Masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin keluar dari sesi browser lain di semua perangkat.',
     'browser_sessions_logout_success_notification' => 'Semua sesi browser lainnya telah berhasil keluar.',
+    'browser_sessions_list_unavailable' => 'Daftar sesi aktif Anda tidak tersedia. Anda tetap dapat keluar dari sesi peramban lainnya di bawah ini.',
 ];
