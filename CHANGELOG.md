@@ -2,6 +2,19 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v3.0.3 - 2026-09-17
+
+### What's Changed
+
+* chore(deps): bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/138
+* chore(deps): bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/139
+* chore(deps): bump actions/checkout from 6.0.3 to 7.0.0 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/141
+* chore(deps): bump actions/checkout from 7.0.0 to 7.0.1 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-edit-profile/pull/142
+* docs: guard userMenuItems tenant check for register-tenant page by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/144
+* ci: run tests on PHP 8.4 / Laravel 13, fix wrong workflow branch trigger by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/152
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v3.0.2...v3.0.3
+
 ## v3.0.2 - 2026-03-04
 
 ### Breaking Changes
