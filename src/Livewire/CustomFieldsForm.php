@@ -11,6 +11,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Str;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 use Throwable;
 
@@ -83,7 +84,7 @@ class CustomFieldsForm extends BaseProfileForm
     {
         try {
 
-            $class = \Illuminate\Support\Str::camel($field['type']);
+            $class = Str::camel($field['type']);
             $class = "Filament\Forms\Components\\{$class}";
 
             return $class::make($fieldKey)
