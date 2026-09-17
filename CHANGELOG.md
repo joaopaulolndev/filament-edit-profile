@@ -2,6 +2,15 @@
 
 All notable changes to `filament-edit-profile` will be documented in this file.
 
+## v2.0.16 - 2026-09-17
+
+### What's Changed
+
+* docs: guard userMenuItems tenant check for register-tenant page by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/146
+* ci: run tests on PHP 8.4 / Laravel 13, drop dependabot auto-merge by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-edit-profile/pull/151
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-edit-profile/compare/v2.0.15...v2.0.16
+
 ## v2.0.15 - 2026-03-04
 
 ### Breaking Changes
