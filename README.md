@@ -313,6 +313,27 @@ You don't need to change any code within the `filament-edit-profile` plugin to e
 
 That's it\! The `filament-edit-profile` plugin will now respect this configuration and trigger the email verification flow automatically.
 
+## Custom Email Column
+
+If your users table stores the email address in a column other than `email`, set it in the published config file:
+
+```php
+// config/filament-edit-profile.php
+'email_column' => 'email_address',
+```
+
+The profile form will read, validate (unique) and save the email using this column.
+
+> [!WARNING]
+> When `emailChangeVerification()` is enabled, Filament's verification link always writes the new address to the `email` attribute, so a custom `email_column` is not supported by that flow. Also, the "email change requested" notice is sent with `$user->notify()`, which uses the `email` attribute unless your model defines `routeNotificationForMail()`:
+>
+> ```php
+> public function routeNotificationForMail(): string
+> {
+>     return $this->email_address;
+> }
+> ```
+
 ## Sanctum Personal Access tokens
 
 Show the Sanctum token management component:
