@@ -37,7 +37,7 @@ class EditProfileForm extends BaseProfileForm
 
         $this->userClass = get_class($this->user);
 
-        $fields = [config('filament-edit-profile.name_column', 'name'), 'email'];
+        $fields = [config('filament-edit-profile.name_column', 'name'), $this->getEmailColumn()];
 
         if (filament('filament-edit-profile')->getShouldShowAvatarForm()) {
             $fields[] = config('filament-edit-profile.avatar_column', 'avatar_url');
@@ -74,18 +74,18 @@ class EditProfileForm extends BaseProfileForm
                         TextInput::make(config('filament-edit-profile.name_column', 'name'))
                             ->label(__('filament-edit-profile::default.name'))
                             ->required(),
-                        TextInput::make('email')
+                        TextInput::make($this->getEmailColumn())
                             ->label(__('filament-edit-profile::default.email'))
                             ->email()
                             ->required()
                             ->hidden(! filament('filament-edit-profile')->getShouldShowEmailForm())
                             ->unique($this->userClass, ignorable: $this->user),
-                        Select::make('locale')
+                        Select::make(config('filament-edit-profile.locale_column', 'locale'))
                             ->label(__('filament-edit-profile::default.locale'))
                             ->options(filament('filament-edit-profile')->getOptionsLocaleForm())
                             ->rules(filament('filament-edit-profile')->getLocaleRules())
                             ->hidden(! filament('filament-edit-profile')->getShouldShowLocaleForm()),
-                        ColorPicker::make('theme_color')
+                        ColorPicker::make(config('filament-edit-profile.theme_color_column', 'theme_color'))
                             ->label(__('filament-edit-profile::default.theme_color'))
                             ->rules(filament('filament-edit-profile')->getThemeColorRules())
                             ->hidden(! filament('filament-edit-profile')->getShouldShowThemeColorForm()),
@@ -96,22 +96,26 @@ class EditProfileForm extends BaseProfileForm
 
     public function updateProfile(): void
     {
+        $localeColumn = config('filament-edit-profile.locale_column', 'locale');
+        $themeColorColumn = config('filament-edit-profile.theme_color_column', 'theme_color');
         $locale = null;
         $theme_color = null;
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
-            $locale = $this->user->getAttributeValue('locale');
+            $locale = $this->user->getAttributeValue($localeColumn);
         }
         if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
-            $theme_color = $this->user->getAttributeValue('theme_color');
+            $theme_color = $this->user->getAttributeValue($themeColorColumn);
         }
 
         try {
             $data = $this->form->getState();
 
-            if (Filament::hasEmailChangeVerification() && array_key_exists('email', $data)) {
-                $this->sendEmailChangeVerification($this->user, $data['email']);
+            $emailColumn = $this->getEmailColumn();
 
-                unset($data['email']);
+            if (Filament::hasEmailChangeVerification() && array_key_exists($emailColumn, $data)) {
+                $this->sendEmailChangeVerification($this->user, $data[$emailColumn]);
+
+                unset($data[$emailColumn]);
 
                 // Refresh the model to clear any potentially dirty email attribute,
                 // ensuring that only the fields in $data are persisted.
@@ -132,22 +136,27 @@ class EditProfileForm extends BaseProfileForm
             ->send();
 
         if (filament('filament-edit-profile')->getShouldShowLocaleForm()) {
-            if ($locale !== $this->user->getAttributeValue('locale')) {
+            if ($locale !== $this->user->getAttributeValue($localeColumn)) {
                 redirect(request()->header('referer'));
 
                 return;
             }
         }
         if (filament('filament-edit-profile')->getShouldShowThemeColorForm()) {
-            if ($theme_color !== $this->user->getAttributeValue('theme_color')) {
+            if ($theme_color !== $this->user->getAttributeValue($themeColorColumn)) {
                 redirect(request()->header('referer'));
             }
         }
     }
 
+    private function getEmailColumn(): string
+    {
+        return config('filament-edit-profile.email_column', 'email');
+    }
+
     private function sendEmailChangeVerification(Authenticatable & Model $user, string $newEmail): void
     {
-        if ($user->getAttributeValue('email') === $newEmail) {
+        if ($user->getAttributeValue($this->getEmailColumn()) === $newEmail) {
             return;
         }
 
@@ -168,7 +177,7 @@ class EditProfileForm extends BaseProfileForm
 
         $this->getEmailChangeVerificationSentNotification($newEmail)?->send();
 
-        $this->data['email'] = $user->getAttributeValue('email');
+        $this->data[$this->getEmailColumn()] = $user->getAttributeValue($this->getEmailColumn());
     }
 
     private function getEmailChangeVerificationSentNotification(string $newEmail): ?FilamentNotification
