@@ -190,6 +190,17 @@ class User extends Authenticatable implements HasAvatar
 
 5. Don't forget to run the command `php artisan storage:link`
 
+## Custom Email Column
+
+If your users table stores the email address in a column other than `email`, set it in the published config file:
+
+```php
+// config/filament-edit-profile.php
+'email_column' => 'email_address',
+```
+
+The profile form will read, validate (unique) and save the email using this column.
+
 ## Sanctum Personal Access tokens
 
 Show the Sanctum token management component:
